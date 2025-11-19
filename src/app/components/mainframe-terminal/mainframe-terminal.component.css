@@ -1,0 +1,555 @@
+/* ============================================
+   MAINFRAME TERMINAL - AUTHENTIC CRT STYLING
+   ============================================ */
+
+.mainframe-terminal {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+  overflow: hidden;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+}
+
+/* CRT Screen Container with vintage monitor styling */
+.crt-screen {
+  position: relative;
+  width: 95vw;
+  max-width: 1200px;
+  height: 90vh;
+  max-height: 900px;
+  background: #000000;
+  border: 20px solid #2a2a2a;
+  border-radius: 15px;
+  box-shadow: 
+    inset 0 0 50px rgba(65, 195, 71, 0.05),
+    0 0 80px rgba(65, 195, 71, 0.1),
+    0 0 5px #000;
+  overflow: hidden;
+}
+
+/* Scan lines overlay for authentic CRT effect */
+.scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1) 0px,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  animation: flicker 0.2s infinite;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.97; }
+  50% { opacity: 1; }
+  100% { opacity: 0.97; }
+}
+
+/* Main screen content area */
+.screen-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  color: #41C347;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0px;
+  z-index: 5;
+  overflow: auto;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  
+  /* CRT glow effect */
+  text-shadow: 
+    0 0 2px #41C347,
+    0 0 4px #41C347;
+}
+
+/* ============================================
+   HEADER SECTION
+   ============================================ */
+
+.screen-header {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #41C347;
+  padding-bottom: 10px;
+}
+
+.header-line-1,
+.header-line-2,
+.header-line-3,
+.header-line-4 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.system-id {
+  font-weight: 400;
+  letter-spacing: 0px;
+  color: #A7A7A7;
+  text-shadow: 
+    0 0 2px #A7A7A7,
+    0 0 4px #A7A7A7;
+}
+
+.menu-items {
+  flex-grow: 1;
+  text-align: center;
+  letter-spacing: 8px;
+  color: #A7A7A7;
+  text-shadow: 
+    0 0 2px #A7A7A7,
+    0 0 4px #A7A7A7;
+}
+
+.datetime,
+.time {
+  min-width: 150px;
+  text-align: right;
+}
+
+.datetime {
+  color: #A7A7A7;
+  text-shadow: 
+    0 0 2px #A7A7A7,
+    0 0 4px #A7A7A7;
+}
+
+.time {
+  color: #50D8D5;
+  text-shadow: 
+    0 0 2px #50D8D5,
+    0 0 4px #50D8D5;
+}
+
+.transaction-id {
+  min-width: 80px;
+  color: #A7A7A7;
+  text-shadow: 
+    0 0 2px #A7A7A7,
+    0 0 4px #A7A7A7;
+}
+
+.screen-title {
+  flex-grow: 1;
+  text-align: center;
+  font-weight: 400;
+  color: white;
+  text-shadow: 
+    0 0 2px white,
+    0 0 4px white;
+}
+
+.received-type {
+  flex-grow: 1;
+  font-size: 14px;
+  color: #50D8D5;
+  text-shadow: 
+    0 0 2px #50D8D5,
+    0 0 4px #50D8D5;
+}
+
+.page-info {
+  min-width: 150px;
+  text-align: right;
+  color: #50D8D5;
+  text-shadow: 
+    0 0 2px #50D8D5,
+    0 0 4px #50D8D5;
+}
+
+.cust-dept {
+  min-width: 200px;
+  color: #50D8D5;
+  text-shadow: 
+    0 0 2px #50D8D5,
+    0 0 4px #50D8D5;
+}
+
+.balance {
+  text-align: right;
+  min-width: 250px;
+  color: #50D8D5;
+  text-shadow: 
+    0 0 2px #50D8D5,
+    0 0 4px #50D8D5;
+}
+
+/* ============================================
+   MAIN CONTENT SECTION
+   ============================================ */
+
+.screen-main {
+  padding: 10px 0;
+}
+
+.section-title {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #41C347;
+  padding-bottom: 5px;
+}
+
+.section-line-left {
+  font-weight: 400;
+  letter-spacing: 0px;
+  color: white;
+  text-shadow: 
+    0 0 2px white,
+    0 0 4px white;
+}
+
+.doc-type-line {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.doc-label {
+  font-weight: 400;
+  color: #50D8D5;
+  text-shadow: 
+    0 0 2px #50D8D5,
+    0 0 4px #50D8D5;
+}
+
+.doc-value {
+  letter-spacing: 0px;
+  color: #41C347;
+  text-shadow: 
+    0 0 2px #41C347,
+    0 0 4px #41C347;
+}
+
+.mail-code-line {
+  position: absolute;
+  right: 40px;
+  top: 200px;
+  display: flex;
+  gap: 10px;
+}
+
+.mail-label {
+  font-weight: 400;
+  color: #50D8D5;
+  text-shadow: 
+    0 0 2px #50D8D5,
+    0 0 4px #50D8D5;
+}
+
+.mail-value {
+  color: #41C347;
+  text-shadow: 
+    0 0 2px #41C347,
+    0 0 4px #41C347;
+}
+
+/* ============================================
+   FORM FIELDS
+   ============================================ */
+
+.form-fields {
+  margin-top: 20px;
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  min-height: 24px;
+}
+
+.field-label {
+  display: inline-block;
+  min-width: 140px;
+  margin-right: 5px;
+  color: #50D8D5;
+  font-weight: 400;
+  text-shadow: 
+    0 0 2px #50D8D5,
+    0 0 4px #50D8D5;
+}
+
+.field-input {
+  flex-grow: 1;
+  background: transparent;
+  border: none;
+  color: #41C347;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0px;
+  outline: none;
+  text-shadow: 
+    0 0 2px #41C347,
+    0 0 4px #41C347;
+  caret-color: #41C347;
+  padding: 2px 0;
+}
+
+.field-input:focus {
+  background: rgba(65, 195, 71, 0.03);
+  text-shadow: 
+    0 0 3px #41C347,
+    0 0 6px #41C347;
+}
+
+/* Multi-line field styling */
+.field-multiline {
+  min-height: 24px;
+}
+
+.empty-line {
+  margin-bottom: 5px;
+}
+
+.continuation-line {
+  margin-left: 145px;
+  letter-spacing: 0;
+  color: #41C347;
+  text-shadow: 
+    0 0 2px #41C347,
+    0 0 4px #41C347;
+}
+
+/* Address line specific styling */
+.address-line {
+  display: flex;
+  gap: 10px;
+}
+
+.city-label {
+  min-width: 40px;
+  color: #50D8D5;
+  font-weight: 400;
+  text-shadow: 
+    0 0 2px #50D8D5,
+    0 0 4px #50D8D5;
+}
+
+.city-input {
+  width: 280px;
+  flex-grow: 0;
+}
+
+.state-label {
+  min-width: 30px;
+  margin-left: 20px;
+  color: #50D8D5;
+  font-weight: 400;
+  text-shadow: 
+    0 0 2px #50D8D5,
+    0 0 4px #50D8D5;
+}
+
+.state-input {
+  width: 40px;
+  flex-grow: 0;
+}
+
+.zip-label {
+  min-width: 35px;
+  margin-left: 10px;
+  color: #50D8D5;
+  font-weight: 400;
+  text-shadow: 
+    0 0 2px #50D8D5,
+    0 0 4px #50D8D5;
+}
+
+.zip-input {
+  width: 120px;
+  flex-grow: 0;
+}
+
+/* Contact line specific styling */
+.contact-line {
+  display: flex;
+  gap: 10px;
+}
+
+.telephone-input {
+  width: 250px;
+  flex-grow: 0;
+}
+
+.fax-label {
+  min-width: 40px;
+  margin-left: 20px;
+  color: #50D8D5;
+  font-weight: 400;
+  text-shadow: 
+    0 0 2px #50D8D5,
+    0 0 4px #50D8D5;
+}
+
+.fax-input {
+  width: 150px;
+  flex-grow: 0;
+}
+
+/* ============================================
+   FOOTER SECTION
+   ============================================ */
+
+.screen-footer {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  gap: 20px;
+  border-top: 1px solid #41C347;
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+.pf-key {
+  font-weight: 400;
+  letter-spacing: 0px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #A7A7A7;
+  text-shadow: 
+    0 0 2px #A7A7A7,
+    0 0 4px #A7A7A7;
+}
+
+.pf-key:hover {
+  text-shadow: 
+    0 0 4px #A7A7A7,
+    0 0 8px #A7A7A7,
+    0 0 12px #A7A7A7;
+  transform: scale(1.05);
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .screen-content {
+    font-size: 14px;
+  }
+  
+  .field-input {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .crt-screen {
+    width: 98vw;
+    height: 95vh;
+    border: 10px solid #2a2a2a;
+  }
+  
+  .screen-content {
+    font-size: 12px;
+    padding: 15px;
+  }
+  
+  .field-input {
+    font-size: 12px;
+  }
+  
+  .field-label {
+    min-width: 120px;
+  }
+}
+
+/* ============================================
+   ADDITIONAL CRT EFFECTS
+   ============================================ */
+
+/* Subtle screen curvature effect */
+.crt-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  pointer-events: none;
+  z-index: 8;
+}
+
+/* Phosphor glow effect */
+.crt-screen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(65, 195, 71, 0.02);
+  pointer-events: none;
+  z-index: 9;
+  mix-blend-mode: screen;
+}
+
+/* Cursor blink animation for inputs */
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.field-input::after {
+  animation: blink 1s infinite;
+}
+
+/* ============================================
+   UNDERSCORE STYLING FOR EMPTY FIELDS
+   ============================================ */
+
+.field-input::placeholder {
+  color: #41C347;
+  opacity: 0.5;
+}
+
+/* Selection styling to match mainframe */
+::selection {
+  background: #41C347;
+  color: #000000;
+}
+
+::-moz-selection {
+  background: #41C347;
+  color: #000000;
+}
+
+/* Scrollbar styling for mainframe theme */
+.screen-content::-webkit-scrollbar {
+  width: 12px;
+}
+
+.screen-content::-webkit-scrollbar-track {
+  background: #000000;
+  border-left: 1px solid #41C347;
+}
+
+.screen-content::-webkit-scrollbar-thumb {
+  background: #41C347;
+  box-shadow: inset 0 0 3px #41C347;
+}
+
+.screen-content::-webkit-scrollbar-thumb:hover {
+  background: #50D8D5;
+}
+
