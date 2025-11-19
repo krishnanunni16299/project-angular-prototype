@@ -73,30 +73,63 @@ export class MainframeTerminalComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Get field value with padding
+   * Get field value without padding (for input display)
    */
-  getFieldDisplay(field: FieldDefinition): string {
-    // Use Unicode box drawing character (U+2500) for solid line
-    const padChar = field.padChar || '\u2500'; // Box drawing horizontal line
+  getFieldValue(field: FieldDefinition): string {
+    return (field.value || '').trim();
+  }
+
+  /**
+   * Get padding width in characters
+   */
+  getPaddingLength(field: FieldDefinition): number {
     const value = (field.value || '').trim();
-    const padding = padChar.repeat(Math.max(0, field.length - value.length));
-    return value + padding;
+    return Math.max(0, field.length - value.length);
+  }
+
+  /**
+   * Get field by ID
+   */
+  getFieldById(id: string): FieldDefinition | undefined {
+    return this.currentScreen?.fields.find(field => field.id === id);
+  }
+
+  /**
+   * Truncate text to 80 characters (mainframe line limit)
+   */
+  truncateTo80(text: string): string {
+    return text.substring(0, 80);
+  }
+
+  /**
+   * Pad text to specific length with spaces
+   */
+  padText(text: string, length: number): string {
+    return text.padEnd(length, ' ').substring(0, length);
+  }
+
+  /**
+   * Format line to exactly 80 characters
+   */
+  formatLine(text: string): string {
+    return this.padText(text, 80);
   }
 
   /**
    * Handle field value change
+   * Enforces mainframe character limits
    */
   onFieldChange(field: FieldDefinition, event: any): void {
-    let value = event.target.value;
-
-    // Remove padding characters (Unicode box drawing and underscores)
-    value = value.replace(/\u2500/g, '').replace(/_/g, '').trim();
+    let value = event.target.value.trim();
 
     // Enforce uppercase for mainframe authenticity
     value = value.toUpperCase();
 
-    // Enforce max length
+    // Enforce field max length (part of 80-character line limit)
     value = value.substring(0, field.length);
+
+    // Ensure single-byte characters only (mainframe limitation)
+    value = value.replace(/[^\x00-\x7F]/g, '');
 
     this.screenService.updateFieldValue(field.id, value);
   }

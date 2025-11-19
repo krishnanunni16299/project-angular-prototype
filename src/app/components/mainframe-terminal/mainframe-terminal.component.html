@@ -1,234 +1,347 @@
 <div
   class="w-screen h-screen flex justify-center items-center bg-black overflow-hidden"
-  style="font-family: 'IBM 3270', monospace; font-size: 14px;"
   *ngIf="currentScreen"
 >
-  <!-- CRT Screen Container -->
-  <div class="crt-screen">
+  <!-- CRT Screen Container: Fixed 80x24 character grid -->
+  <div
+    class="relative bg-black rounded-[15px] overflow-hidden shadow-crt-inset before:content-[''] before:absolute before:inset-0 before:w-full before:h-full before:bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_0%,rgba(0,0,0,0.3)_100%)] before:pointer-events-none before:z-[8] after:content-[''] after:absolute after:inset-0 after:w-full after:h-full after:bg-[rgba(65,195,71,0.02)] after:pointer-events-none after:z-[9] after:mix-blend-screen"
+    style="
+      width: calc(80ch + 3.5rem);
+      height: calc(24 * 1.2em + 5rem);
+      font-size: 16px;
+    "
+  >
     <!-- Scan Lines Overlay -->
-    <div class="scanlines"></div>
+    <div
+      class="absolute inset-0 w-full h-full pointer-events-none z-10 animate-flicker bg-[repeating-linear-gradient(0deg,rgba(0,0,0,0.1)_0px,rgba(0,0,0,0.1)_1px,transparent_1px,transparent_2px)]"
+    ></div>
 
-    <!-- Screen Content -->
-    <div class="screen-content">
+    <!-- Screen Content: 80x24 Grid -->
+    <div
+      class="mainframe-screen relative p-5 text-crt-green z-[5] font-mono [text-shadow:0_0_2px_#41C347]"
+      style="font-size: 16px; line-height: 1.2; letter-spacing: 0"
+    >
       <!-- Header Section -->
-      <div class="screen-header">
+      <div class="mb-5 pb-2.5">
         <!-- Line 1: System ID, Menu Items, Date/Time -->
-        <div class="header-line-1">
-          <span class="system-id">{{ currentScreen.header.systemId }}</span>
-          <span class="menu-items">{{ getMenuDisplay() }}</span>
-          <span class="datetime">{{ currentScreen.header.date }}</span>
+        <div class="flex justify-between mb-1 font-medium">
+          <span
+            class="font-normal tracking-normal text-crt-gray [text-shadow:0_0_2px_#A7A7A7,0_0_4px_#A7A7A7]"
+            >{{ currentScreen.header.systemId }}</span
+          >
+          <span
+            class="flex-grow text-center tracking-[2px] text-crt-gray [text-shadow:0_0_2px_#A7A7A7,0_0_4px_#A7A7A7]"
+            >{{ getMenuDisplay() }}</span
+          >
+          <span
+            class="min-w-[150px] text-right text-crt-gray [text-shadow:0_0_2px_#A7A7A7,0_0_4px_#A7A7A7]"
+            >{{ currentScreen.header.date }}</span
+          >
         </div>
 
         <!-- Line 2: Transaction ID, Title, Time -->
-        <div class="header-line-2">
-          <span class="transaction-id">{{
-            currentScreen.header.transactionId
-          }}</span>
-          <span class="screen-title">CUSTOMER INFORMATION</span>
-          <span class="time">{{ currentScreen.header.time }}</span>
+        <div class="flex justify-between mb-1 font-medium">
+          <span
+            class="min-w-[80px] text-crt-gray [text-shadow:0_0_2px_#A7A7A7,0_0_4px_#A7A7A7]"
+            >{{ currentScreen.header.transactionId }}</span
+          >
+          <span
+            class="flex-grow text-center text-white "
+            >CUSTOMER INFORMATION</span
+          >
+          <span
+            class="min-w-[150px] text-right text-crt-cyan [text-shadow:0_0_2px_#50D8D5]"
+            >{{ currentScreen.header.time }}</span
+          >
         </div>
 
         <!-- Line 3: Received Type, Page, Balance -->
-        <div class="header-line-3">
-          <span class="received-type">{{
-            currentScreen.header.receivedType
-          }}</span>
-          <span class="page-info">{{ getPageDisplay() }}</span>
+        <div class="flex justify-between mb-1 font-medium">
+          <span
+            class="flex-grow text-sm text-crt-cyan [text-shadow:0_0_2px_#50D8D5]"
+            >{{ currentScreen.header.receivedType }}</span
+          >
+          <span
+            class="min-w-[150px] text-right text-crt-cyan [text-shadow:0_0_2px_#50D8D5]"
+            >{{ getPageDisplay() }}</span
+          >
         </div>
 
         <!-- Line 4: Cust/DeptID and Balance -->
-        <div class="header-line-4">
-          <span class="cust-dept">Cust/DeptID:</span>
-          <span class="balance"
+        <div class="flex justify-between mb-0 pb-0">
+          <span
+            class="min-w-[200px] text-crt-cyan [text-shadow:0_0_2px_#50D8D5]"
+            >Cust/DeptID:</span
+          >
+          <span
+            class="text-right min-w-[250px] text-crt-cyan [text-shadow:0_0_2px_#50D8D5]"
             >BALANCE: {{ currentScreen.header.balance?.padStart(20) }}</span
           >
         </div>
       </div>
 
       <!-- Main Content Area -->
-      <!-- <div class="screen-main"> -->
-        <!-- Section Title -->
-        <!-- <div class="section-title"> -->
-          <!-- <span class="section-line-left">CUSTOMER INFORMATION</span> -->
-        <!-- </div> -->
+      <!-- Document Type Line -->
+      <div class="mb-5 flex gap-2.5">
+        <span class="font-normal text-crt-cyan [text-shadow:0_0_2px_#50D8D5]"
+          >Doc. Type:</span
+        >
+        <span
+          class="tracking-normal text-crt-green [text-shadow:0_0_2px_#41C347]"
+          >{{ currentScreen.docType }}</span
+        >
+      </div>
 
-        <!-- Document Type Line -->
-        <div class="doc-type-line">
-          <span class="doc-label">DOC. TYPE:</span>
-          <span class="doc-value">{{ currentScreen.docType }}</span>
+      <!-- Mail Code (right side) -->
+      <div class="absolute right-10 top-[150px] flex gap-2.5">
+        <span
+          class="inline-block text-right min-w-[140px] mr-1 text-crt-cyan font-normal [text-shadow:0_0_2px_#50D8D5]"
+          >MAIL Code:</span
+        >
+        <div class="flex items-baseline flex-grow gap-0">
+          <input
+            type="text"
+            class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+            [value]="getFieldValue(getFieldById('mailCode')!)"
+            (input)="onFieldChange(getFieldById('mailCode')!, $event)"
+            maxlength="60"
+            [tabindex]="getFieldById('mailCode')!.tabIndex"
+          />
+        </div>
+      </div>
+
+      <!-- Form Fields -->
+      <div class="mt-5">
+        <!-- Description -->
+        <div class="flex items-baseline min-h-[10px]">
+          <span
+            class="inline-block text-right min-w-[140px] mr-1 text-crt-cyan font-normal [text-shadow:0_0_2px_#50D8D5]"
+            >Description:</span
+          >
+          <div class="flex items-baseline flex-grow gap-0">
+            TEST_DESC
+            <input
+              type="text"
+              class="bg-transparent w-[525px] border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+              [value]="getFieldValue(getFieldById('description')!)"
+              (input)="onFieldChange(getFieldById('description')!, $event)"
+              maxlength="60"
+              [tabindex]="getFieldById('description')!.tabIndex"
+            />
+          </div>
         </div>
 
-        <!-- Mail Code (right side) -->
-        <div class="mail-code-line">
-          <span class="mail-label">MAIL CODE:</span>
-          <span class="mail-value">────────────────────────────</span>
+        <!-- Full name -->
+        <div class="flex items-baseline mb-0 min-h-[10px]">
+          <span
+            class="inline-block text-right min-w-[140px] mr-1 text-crt-cyan font-normal [text-shadow:0_0_2px_#50D8D5]"
+            >Full name:</span
+          >
+          <div class="flex items-baseline flex-grow gap-0">
+            TEST_NAME
+            <input
+              type="text"
+              class="bg-transparent border-b w-[525px] border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+              [value]="getFieldValue(getFieldById('fullName')!)"
+              (input)="onFieldChange(getFieldById('fullName')!, $event)"
+              maxlength="60"
+              [tabindex]="getFieldById('fullName')!.tabIndex"
+            />
+          </div>
         </div>
 
-        <!-- Form Fields -->
-        <div class="form-fields">
-          <!-- Description -->
-          <div class="field-row">
-            <span class="field-label">Description:</span>
+        <!-- Mail-To Name -->
+        <div class="flex items-baseline mb-0 min-h-[10px]">
+          <span
+            class="inline-block text-right min-w-[140px] mr-1 text-crt-cyan font-normal [text-shadow:0_0_2px_#50D8D5]"
+            >Mail-To Name:</span
+          >
+          <div class="flex items-baseline flex-grow gap-0">
+            TEST_NAME
             <input
               type="text"
-              class="field-input"
-              [value]="getFieldDisplay(currentScreen.fields[2])"
-              (input)="onFieldChange(currentScreen.fields[2], $event)"
+              class="bg-transparent border-b w-64 border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+              [value]="getFieldValue(getFieldById('mailToName')!)"
+              (input)="onFieldChange(getFieldById('mailToName')!, $event)"
               maxlength="60"
-              [tabindex]="currentScreen.fields[2].tabIndex"
+              [tabindex]="getFieldById('mailToName')!.tabIndex"
             />
           </div>
+        </div>
 
-          <!-- Full name -->
-          <div class="field-row">
-            <span class="field-label">Full name:</span>
+        <!-- Care-of Name -->
+        <div class="flex items-baseline mb-0 min-h-[10px]">
+          <span
+            class="inline-block text-right min-w-[140px] mr-1 text-crt-cyan font-normal [text-shadow:0_0_2px_#50D8D5]"
+            >Care-of Name:</span
+          >
+          <div class="flex items-baseline flex-grow gap-0">
+            TEST_CARE_OF_NAME
             <input
               type="text"
-              class="field-input"
-              [value]="getFieldDisplay(currentScreen.fields[3])"
-              (input)="onFieldChange(currentScreen.fields[3], $event)"
+              class="bg-transparent w-[180px] border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+              [value]="getFieldValue(getFieldById('careOfName')!)"
+              (input)="onFieldChange(getFieldById('careOfName')!, $event)"
               maxlength="60"
-              [tabindex]="currentScreen.fields[3].tabIndex"
+              [tabindex]="getFieldById('careOfName')!.tabIndex"
             />
           </div>
+        </div>
 
-          <!-- Mail-To Name -->
-          <div class="field-row">
-            <span class="field-label">Mail-To Name:</span>
+        <!-- Street -->
+        <div class="flex items-baseline mb-0 min-h-[10px]">
+          <span
+            class="inline-block text-right min-w-[140px] mr-1 text-crt-cyan font-normal [text-shadow:0_0_2px_#50D8D5]"
+            >Street:</span
+          >
+          <div class="flex items-baseline flex-grow gap-0">
+            TEST_ST
             <input
               type="text"
-              class="field-input"
-              [value]="getFieldDisplay(currentScreen.fields[4])"
-              (input)="onFieldChange(currentScreen.fields[4], $event)"
+              class="bg-transparent border-b w-[276px] border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+              [value]="getFieldValue(getFieldById('street')!)"
+              (input)="onFieldChange(getFieldById('street')!, $event)"
               maxlength="60"
-              [tabindex]="currentScreen.fields[4].tabIndex"
+              [tabindex]="getFieldById('street')!.tabIndex"
             />
           </div>
+        </div>
 
-          <!-- Care-of Name -->
-          <div class="field-row">
-            <span class="field-label">Care-of Name:</span>
+        <!-- City, State, ZIP -->
+        <div class="flex items-baseline mb-0 min-h-[10px] gap-1">
+          <span
+            class="min-w-[140px] text-right text-crt-cyan font-normal [text-shadow:0_0_2px_#50D8D5]"
+            >City:</span
+          >
+          <div class="flex items-baseline gap-0">
+            TEST_CITY
             <input
               type="text"
-              class="field-input"
-              [value]="getFieldDisplay(currentScreen.fields[5])"
-              (input)="onFieldChange(currentScreen.fields[5], $event)"
-              maxlength="60"
-              [tabindex]="currentScreen.fields[5].tabIndex"
-            />
-          </div>
-
-          <!-- Street -->
-          <div class="field-row">
-            <span class="field-label">Street:</span>
-            <input
-              type="text"
-              class="field-input field-multiline"
-              [value]="getFieldDisplay(currentScreen.fields[6])"
-              (input)="onFieldChange(currentScreen.fields[6], $event)"
-              maxlength="60"
-              [tabindex]="currentScreen.fields[6].tabIndex"
-            />
-          </div>
-
-          <!-- Empty line for street continuation -->
-          <div class="field-row empty-line">
-            <div class="continuation-line"></div>
-          </div>
-
-          <!-- City, State, ZIP -->
-          <div class="field-row address-line">
-            <span class="field-label city-label">City:</span>
-            <input
-              type="text"
-              class="field-input city-input"
-              [value]="getFieldDisplay(currentScreen.fields[7])"
-              (input)="onFieldChange(currentScreen.fields[7], $event)"
+              class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+              [value]="getFieldValue(getFieldById('city')!)"
+              (input)="onFieldChange(getFieldById('city')!, $event)"
               maxlength="30"
-              [tabindex]="currentScreen.fields[7].tabIndex"
+              [tabindex]="getFieldById('city')!.tabIndex"
             />
-            <span class="field-label state-label">St:</span>
+          </div>
+          <span class="text-crt-cyan font-normal [text-shadow:0_0_2px_#50D8D5]"
+            >St:</span
+          >
+          <div class="flex items-baseline gap-0">
+            MD
             <input
               type="text"
-              class="field-input state-input"
-              [value]="getFieldDisplay(currentScreen.fields[8])"
-              (input)="onFieldChange(currentScreen.fields[8], $event)"
-              maxlength="2"
-              [tabindex]="currentScreen.fields[8].tabIndex"
-            />
-            <span class="field-label zip-label">ZIP:</span>
-            <input
-              type="text"
-              class="field-input zip-input"
-              [value]="getFieldDisplay(currentScreen.fields[9])"
-              (input)="onFieldChange(currentScreen.fields[9], $event)"
+              class="bg-transparent w-[25px] text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+              [value]="getFieldValue(getFieldById('state')!)"
+              (input)="onFieldChange(getFieldById('state')!, $event)"
               maxlength="10"
-              [tabindex]="currentScreen.fields[9].tabIndex"
+              [tabindex]="getFieldById('state')!.tabIndex"
             />
           </div>
-
-          <!-- Country -->
-          <div class="field-row">
-            <span class="field-label">Country:</span>
+          <span class="text-crt-cyan font-normal [text-shadow:0_0_2px_#50D8D5]"
+            >ZIP:</span
+          >
+          <div class="flex items-baseline gap-0">
+            21214
             <input
               type="text"
-              class="field-input"
-              [value]="getFieldDisplay(currentScreen.fields[10])"
-              (input)="onFieldChange(currentScreen.fields[10], $event)"
+              class="bg-transparent w-[50px] border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+              [value]="getFieldValue(getFieldById('zip')!)"
+              (input)="onFieldChange(getFieldById('zip')!, $event)"
+              maxlength="10"
+              [tabindex]="getFieldById('zip')!.tabIndex"
+            />
+          </div>
+        </div>
+
+        <!-- Country -->
+        <div class="flex items-baseline mb-0 min-h-[10px]">
+          <span
+            class="inline-block text-right min-w-[140px] mr-1 text-crt-cyan font-normal [text-shadow:0_0_2px_#50D8D5]"
+            >Country:</span
+          >
+          <div class="flex items-baseline flex-grow gap-0">
+            <input
+              type="text"
+              class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+              [value]="getFieldValue(getFieldById('country')!)"
+              (input)="onFieldChange(getFieldById('country')!, $event)"
               maxlength="60"
-              [tabindex]="currentScreen.fields[10].tabIndex"
+              [tabindex]="getFieldById('country')!.tabIndex"
             />
           </div>
+        </div>
 
-          <!-- Telephone and Fax -->
-          <div class="field-row contact-line">
-            <span class="field-label">Telephone:</span>
+        <!-- Telephone and Fax -->
+        <div class="flex items-baseline mb-0 min-h-[10px]">
+          <span
+            class="inline-block text-right min-w-[140px] text-crt-cyan font-normal [text-shadow:0_0_2px_#50D8D5]"
+            >Telephone:</span
+          >
+          <div class="flex items-baseline gap-0 mr-14">
             <input
               type="text"
-              class="field-input telephone-input"
-              [value]="getFieldDisplay(currentScreen.fields[11])"
-              (input)="onFieldChange(currentScreen.fields[11], $event)"
+              class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] placeholder:text-crt-green [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+              [value]="getFieldValue(getFieldById('telephone')!)"
+              (input)="onFieldChange(getFieldById('telephone')!, $event)"
               maxlength="25"
-              [tabindex]="currentScreen.fields[11].tabIndex"
-            />
-            <span class="field-label fax-label">Fax:</span>
-            <input
-              type="text"
-              class="field-input fax-input"
-              [value]="getFieldDisplay(currentScreen.fields[12])"
-              (input)="onFieldChange(currentScreen.fields[12], $event)"
-              maxlength="15"
-              [tabindex]="currentScreen.fields[12].tabIndex"
+              [tabindex]="getFieldById('telephone')!.tabIndex"
+              placeholder="111-222-3333"
+              style="width: 15ch"
             />
           </div>
-
-          <!-- Email -->
-          <div class="field-row">
-            <span class="field-label">e-mail:</span>
+          <span
+            class="min-w-[40px] text-crt-cyan font-normal [text-shadow:0_0_2px_#50D8D5]"
+            >Fax:</span
+          >
+          <div class="flex items-baseline gap-0">
             <input
               type="text"
-              class="field-input"
-              [value]="getFieldDisplay(currentScreen.fields[13])"
-              (input)="onFieldChange(currentScreen.fields[13], $event)"
+              class="bg-transparent border-b border-crt-green text-crt-green font-mono placeholder:text-crt-green text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+              [value]="getFieldValue(getFieldById('fax')!)"
+              (input)="onFieldChange(getFieldById('fax')!, $event)"
+              maxlength="15"
+              [tabindex]="getFieldById('fax')!.tabIndex"
+              placeholder="___-___-_______"
+              style="width: 13ch"
+            />
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="flex items-baseline mb-0 min-h-[10px]">
+          <span
+            class="inline-block text-right min-w-[140px] mr-1 text-crt-cyan font-normal [text-shadow:0_0_2px_#50D8D5]"
+            >e-mail:</span
+          >
+          <div class="flex items-baseline flex-grow gap-0">
+            <input
+              type="text"
+              class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+              [value]="getFieldValue(getFieldById('email')!)"
+              (input)="onFieldChange(getFieldById('email')!, $event)"
               maxlength="60"
-              [tabindex]="currentScreen.fields[13].tabIndex"
+              [tabindex]="getFieldById('email')!.tabIndex"
             />
           </div>
         </div>
       </div>
 
       <!-- Footer Section -->
-      <div class="screen-footer">
-        <span class="pf-key">PF: </span>
+      <div
+        class="absolute bottom-0 left-5 right-5 flex pt-2.5 pb-2.5 text-sm bg-black/95 z-[15]"
+      >
+        <span
+          class="font-normal  whitespace-nowrap cursor-pointer transition-all duration-200 text-crt-gray [text-shadow:0_0_2px_#A7A7A7,0_0_4px_#A7A7A7] hover:[text-shadow:0_0_4px_#A7A7A7,0_0_8px_#A7A7A7,0_0_12px_#A7A7A7] hover:scale-105"
+          >PF:
+        </span>
         <span
           *ngFor="let pfKey of currentScreen.footer.pfKeys; let last = last"
-          class="pf-key"
+          class="font-normal  whitespace-nowrap cursor-pointer transition-all duration-200 text-white [text-shadow:0_0_2px_#A7A7A7,0_0_4px_#A7A7A7] hover:[text-shadow:0_0_4px_#A7A7A7,0_0_8px_#A7A7A7,0_0_12px_#A7A7A7]"
         >
           {{ pfKey.label }}<span *ngIf="!last">&nbsp;&nbsp;&nbsp;</span>
         </span>
       </div>
     </div>
   </div>
-<!-- </div> -->
-
-
+</div>

@@ -1,444 +1,54 @@
-/* Mainframe Terminal Styles - Hybrid Tailwind + CSS */
+/* IBM Mainframe 80x24 Character Grid Layout */
+/* Standard mainframe terminal: 80 columns x 24 rows */
 
-/* CRT Screen Container */
-.crt-screen {
-  position: relative;
-  width: 95vw;
-  max-width: 1200px;
-  height: 90vh;
-  max-height: 900px;
-  background: #000000;
-  border: 20px solid #2a2a2a;
-  border-radius: 15px;
+.mainframe-screen {
+  width: 80ch;
+  max-width: 80ch;
+  min-height: calc(24 * 1.2em);
+  max-height: calc(24 * 1.2em);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  line-height: 1.2;
   overflow: hidden;
-  box-shadow: inset 0 0 50px rgba(65, 195, 71, 0.05),
-    0 0 80px rgba(65, 195, 71, 0.1), 0 0 5px #000;
+  box-sizing: content-box;
+  letter-spacing: 0;
+  font-weight: 400;
 }
 
-.crt-screen::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 8;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.3) 100%
-  );
-}
-
-.crt-screen::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 9;
-  background: rgba(65, 195, 71, 0.02);
-  mix-blend-mode: screen;
-}
-
-/* Scan Lines Overlay */
-.scanlines {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 10;
-  animation: flicker 0.2s infinite;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.1) 0px,
-    rgba(0, 0, 0, 0.1) 1px,
-    transparent 1px,
-    transparent 2px
-  );
-}
-
-@keyframes flicker {
-  0% {
-    opacity: 0.97;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.97;
-  }
-}
-
-/* Screen Content */
-.screen-content {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  padding-bottom: 80px;
-  color: #41c347;
+.mainframe-line {
+  display: block;
+  width: 80ch;
+  max-width: 80ch;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+  box-sizing: border-box;
+  line-height: 1.2;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 14px;
-  line-height: 1.4;
   letter-spacing: 0;
-  z-index: 5;
-  overflow: auto;
-  font-family: "IBM 3270", monospace;
-  text-shadow: 0 0 2px #41c347;
-}
-
-/* Header Styles */
-.screen-header {
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: none !important;
-}
-
-.screen-header::after {
-  display: none !important;
-}
-
-.header-line-1,
-.header-line-2,
-.header-line-3,
-.header-line-4 {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-  font-weight: 500;
-}
-
-.header-line-4 {
-  border-bottom: none !important;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.header-line-4::after {
-  display: none !important;
-}
-
-.system-id {
   font-weight: 400;
-  letter-spacing: 0;
-  color: #a7a7a7;
-  text-shadow: 0 0 2px #a7a7a7, 0 0 4px #a7a7a7;
 }
 
-.menu-items {
-  flex-grow: 1;
-  text-align: center;
-  letter-spacing: 2px;
-  color: #a7a7a7;
-  text-shadow: 0 0 2px #a7a7a7, 0 0 4px #a7a7a7;
-}
-
-.datetime {
-  min-width: 150px;
-  text-align: right;
-  color: #a7a7a7;
-  text-shadow: 0 0 2px #a7a7a7, 0 0 4px #a7a7a7;
-}
-
-.time {
-  min-width: 150px;
-  text-align: right;
-  color: #50d8d5;
-  text-shadow: 0 0 2px #50d8d5;
-}
-
-.transaction-id {
-  min-width: 80px;
-  color: #a7a7a7;
-  text-shadow: 0 0 2px #a7a7a7, 0 0 4px #a7a7a7;
-}
-
-.screen-title {
-  flex-grow: 1;
-  text-align: center;
-  font-weight: 400;
-  color: white;
-  text-shadow: 0 0 2px white;
-}
-
-.received-type {
-  flex-grow: 1;
-  font-size: 14px;
-  color: #50d8d5;
-  text-shadow: 0 0 2px #50d8d5;
-}
-
-.page-info {
-  min-width: 150px;
-  text-align: right;
-  color: #50d8d5;
-  text-shadow: 0 0 2px #50d8d5;
-}
-
-.cust-dept {
-  min-width: 200px;
-  color: #50d8d5;
-  text-shadow: 0 0 2px #50d8d5;
-}
-
-.balance {
-  text-align: right;
-  min-width: 250px;
-  color: #50d8d5;
-  text-shadow: 0 0 2px #50d8d5;
-}
-
-/* Main Content */
-.screen-main {
-  padding: 10px 0;
-}
-
-.section-title {
-  margin-bottom: 15px;
-  border-bottom: 1px solid #41c347;
-  padding-bottom: 5px;
-  text-align: center;
-}
-
-.section-line-left {
-  font-weight: 400;
-  letter-spacing: 0;
-  color: white;
-  text-shadow: 0 0 2px white;
-  display: inline-block;
-}
-
-.doc-type-line {
-  margin-bottom: 20px;
-  display: flex;
-  gap: 10px;
-}
-
-.doc-label {
-  font-weight: 400;
-  color: #50d8d5;
-  text-shadow: 0 0 2px #50d8d5;
-}
-
-.doc-value {
-  letter-spacing: 0;
-  color: #41c347;
-  text-shadow: 0 0 2px #41c347;
-}
-
-.mail-code-line {
-  position: absolute;
-  right: 40px;
-  top: 200px;
-  display: flex;
-  gap: 10px;
-}
-
-.mail-label {
-  font-weight: 400;
-  color: #50d8d5;
-  text-shadow: 0 0 2px #50d8d5;
-}
-
-.mail-value {
-  color: #41c347;
-  text-shadow: 0 0 2px #41c347;
-}
-
-/* Form Fields */
-.form-fields {
-  margin-top: 20px;
-}
-
-.field-row {
-  display: flex;
-  align-items: baseline;
-  margin-bottom: 0px;
-  min-height: 10px;
-}
-
-.field-label {
-  display: inline-block;
-  min-width: 140px;
-  margin-right: 5px;
-  color: #50d8d5;
-  font-weight: 400;
-  text-shadow: 0 0 2px #50d8d5;
-}
-
-.field-input {
-  flex-grow: 1;
-  background: transparent;
-  border: none;
-  color: #41c347;
-  font-family: "IBM 3270", monospace;
-  font-size: 14px;
-  line-height: 14px;
-  letter-spacing: 0;
-  outline: none;
-  text-shadow: 0 0 2px #41c347;
-  caret-color: #41c347;
-  padding: 0;
-  margin: 0;
-  font-variant-ligatures: none;
-  text-rendering: optimizeLegibility;
-  vertical-align: text-bottom;
-  height: 14px;
-  display: inline-block;
-  position: relative;
-  transform: translateY(2px);
-}
-
-.field-input::placeholder {
+/* Fax field placeholder styling */
+input[placeholder="___-___________"]::placeholder {
   color: #41c347;
   opacity: 0.5;
-  letter-spacing: 0;
+  text-shadow: 0 0 2px #41c347;
 }
 
-.field-input:focus {
-  background: rgba(65, 195, 71, 0.03);
-  text-shadow: 0 0 3px #41c347, 0 0 6px #41c347;
+input[placeholder="___-___-_______"]::placeholder {
+  color: #41c347;
+  opacity: 0.5;
+  text-shadow: 0 0 2px #41c347;
 }
 
-.field-multiline {
-  min-height: 24px;
-}
-
-.empty-line {
-  margin-bottom: 5px;
-}
-
-.continuation-line {
-  margin-left: 145px;
-  width: calc(100% - 145px);
-  max-width: 500px;
-  height: 1px;
-  background-color: #41c347;
-  box-shadow: 0 0 2px #41c347;
-  border: none;
-}
-
-/* Address line */
-.address-line {
-  display: flex;
-  gap: 10px;
-}
-
-.city-label,
-.state-label,
-.zip-label {
-  color: #50d8d5;
-  font-weight: 400;
-  text-shadow: 0 0 2px #50d8d5;
-}
-
-.city-label {
-  min-width: 40px;
-}
-
-.city-input {
-  width: 280px;
-  flex-grow: 0;
-}
-
-.state-label {
-  min-width: 30px;
-  margin-left: 20px;
-}
-
-.state-input {
-  width: 40px;
-  flex-grow: 0;
-}
-
-.zip-label {
-  min-width: 35px;
-  margin-left: 10px;
-}
-
-.zip-input {
-  width: 120px;
-  flex-grow: 0;
-}
-
-/* Contact line */
-.contact-line {
-  display: flex;
-  gap: 10px;
-}
-
-.telephone-input {
-  width: 250px;
-  flex-grow: 0;
-}
-
-.fax-label {
-  min-width: 40px;
-  margin-left: 20px;
-  color: #50d8d5;
-  font-weight: 400;
-  text-shadow: 0 0 2px #50d8d5;
-}
-
-.fax-input {
-  width: 150px;
-  flex-grow: 0;
-}
-
-/* Footer */
-.screen-footer {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  display: flex;
-  gap: 20px;
-  border-top: 1px solid #41c347;
-  padding-top: 10px;
-  padding-bottom: 10px;
+/* Ensure inputs don't exceed character boundaries */
+.field-input {
+  font-family: "IBM Plex Mono", monospace;
   font-size: 14px;
-  background: rgba(0, 0, 0, 0.95);
-  z-index: 15;
-}
-
-.pf-key {
+  line-height: 1.2;
+  letter-spacing: 0;
+  box-sizing: border-box;
   font-weight: 400;
-  letter-spacing: 5;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: all 0.2s;
-  color: #a7a7a7;
-  text-shadow: 0 0 2px #a7a7a7, 0 0 4px #a7a7a7;
-}
-
-.pf-key:hover {
-  text-shadow: 0 0 4px #a7a7a7, 0 0 8px #a7a7a7, 0 0 12px #a7a7a7;
-  transform: scale(1.05);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .crt-screen {
-    width: 98vw;
-    height: 95vh;
-    border: 10px solid #2a2a2a;
-  }
-
-  .screen-content {
-    padding: 15px;
-    font-size: 12px;
-  }
-
-  .field-input {
-    font-size: 12px;
-  }
-
-  .field-label {
-    min-width: 120px;
-  }
 }

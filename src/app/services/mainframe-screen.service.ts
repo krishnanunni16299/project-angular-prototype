@@ -171,7 +171,7 @@ export class MainframeScreenService {
         date: this.formatDate(now),
         time: this.formatTime(now),
         transactionId: 'T21',
-        receivedType: 'Received Type: L  (C-counter,F-fax,M-mail,N-NIC,I-COS/Inter)',
+        receivedType: 'Received Type: C  (C-counter,F-fax,M-mail,N-NIC,I-COS/Inter)',
         pageNumber: 1,
         totalPages: 1,
         balance: '0.00'
@@ -205,7 +205,7 @@ export class MainframeScreenService {
           col: 16,
           label: 'Description:',
           labelCol: 1,
-          value: 'TEST_DESC',
+          value: '',
           length: 60,
           type: 'INPUT' as any,
           tabIndex: 3
@@ -216,7 +216,7 @@ export class MainframeScreenService {
           col: 16,
           label: 'Full name:',
           labelCol: 1,
-          value: 'TEST_NAME',
+          value: '',
           length: 60,
           type: 'INPUT' as any,
           tabIndex: 4
@@ -227,7 +227,7 @@ export class MainframeScreenService {
           col: 16,
           label: 'Mail-To Name:',
           labelCol: 1,
-          value: 'TEST_NAME',
+          value: '',
           length: 60,
           type: 'INPUT' as any,
           tabIndex: 5
@@ -238,7 +238,7 @@ export class MainframeScreenService {
           col: 16,
           label: 'Care-of Name:',
           labelCol: 1,
-          value: 'TEST_CARE_OF_NAME',
+          value: '',
           length: 60,
           type: 'INPUT' as any,
           tabIndex: 6
@@ -249,7 +249,7 @@ export class MainframeScreenService {
           col: 16,
           label: 'Street:',
           labelCol: 1,
-          value: 'TEST_ST',
+          value: '',
           length: 60,
           type: 'INPUT' as any,
           tabIndex: 7
@@ -260,7 +260,7 @@ export class MainframeScreenService {
           col: 6,
           label: 'City:',
           labelCol: 1,
-          value: 'TEST_CITY',
+          value: '',
           length: 30,
           type: 'INPUT' as any,
           tabIndex: 8
@@ -271,7 +271,7 @@ export class MainframeScreenService {
           col: 42,
           label: 'St:',
           labelCol: 38,
-          value: 'MD',
+          value: '',
           length: 2,
           type: 'INPUT' as any,
           tabIndex: 9
@@ -282,7 +282,7 @@ export class MainframeScreenService {
           col: 52,
           label: 'ZIP:',
           labelCol: 47,
-          value: '21214',
+          value: '',
           length: 10,
           type: 'INPUT' as any,
           tabIndex: 10
@@ -330,6 +330,17 @@ export class MainframeScreenService {
           length: 60,
           type: 'INPUT' as any,
           tabIndex: 14
+        },
+        {
+          id: 'mailCode',
+          row: 16,
+          col: 65,
+          label: 'MAIL Code:',
+          labelCol: 1,
+          value: '',
+          length: 15,
+          type: 'INPUT' as any,
+          tabIndex: 15
         }
       ],
       footer: {
