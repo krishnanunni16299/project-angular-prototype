@@ -21,7 +21,7 @@ export class MainframeTerminalComponent implements OnInit, OnDestroy {
   // Expose FieldType enum to template
   FieldType = FieldType;
 
-  constructor(private screenService: MainframeScreenService) {}
+  constructor(private screenService: MainframeScreenService) { }
 
   ngOnInit(): void {
     // Subscribe to current screen changes
@@ -76,8 +76,9 @@ export class MainframeTerminalComponent implements OnInit, OnDestroy {
    * Get field value with padding
    */
   getFieldDisplay(field: FieldDefinition): string {
-    const padChar = field.padChar || '_';
-    const value = field.value || '';
+    // Use Unicode box drawing character (U+2500) for solid line
+    const padChar = field.padChar || '\u2500'; // Box drawing horizontal line
+    const value = (field.value || '').trim();
     const padding = padChar.repeat(Math.max(0, field.length - value.length));
     return value + padding;
   }
@@ -87,13 +88,16 @@ export class MainframeTerminalComponent implements OnInit, OnDestroy {
    */
   onFieldChange(field: FieldDefinition, event: any): void {
     let value = event.target.value;
-    
+
+    // Remove padding characters (Unicode box drawing and underscores)
+    value = value.replace(/\u2500/g, '').replace(/_/g, '').trim();
+
     // Enforce uppercase for mainframe authenticity
     value = value.toUpperCase();
-    
+
     // Enforce max length
     value = value.substring(0, field.length);
-    
+
     this.screenService.updateFieldValue(field.id, value);
   }
 

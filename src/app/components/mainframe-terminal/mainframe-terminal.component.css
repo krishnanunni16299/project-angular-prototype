@@ -1,19 +1,6 @@
-/* ============================================
-   MAINFRAME TERMINAL - AUTHENTIC CRT STYLING
-   ============================================ */
+/* Mainframe Terminal Styles - Hybrid Tailwind + CSS */
 
-.mainframe-terminal {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #000000;
-  overflow: hidden;
-  font-family: 'IBM Plex Mono', 'Courier New', monospace;
-}
-
-/* CRT Screen Container with vintage monitor styling */
+/* CRT Screen Container */
 .crt-screen {
   position: relative;
   width: 95vw;
@@ -23,14 +10,41 @@
   background: #000000;
   border: 20px solid #2a2a2a;
   border-radius: 15px;
-  box-shadow: 
-    inset 0 0 50px rgba(65, 195, 71, 0.05),
-    0 0 80px rgba(65, 195, 71, 0.1),
-    0 0 5px #000;
   overflow: hidden;
+  box-shadow: inset 0 0 50px rgba(65, 195, 71, 0.05),
+    0 0 80px rgba(65, 195, 71, 0.1), 0 0 5px #000;
 }
 
-/* Scan lines overlay for authentic CRT effect */
+.crt-screen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 8;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+.crt-screen::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9;
+  background: rgba(65, 195, 71, 0.02);
+  mix-blend-mode: screen;
+}
+
+/* Scan Lines Overlay */
 .scanlines {
   position: absolute;
   top: 0;
@@ -39,6 +53,7 @@
   height: 100%;
   pointer-events: none;
   z-index: 10;
+  animation: flicker 0.2s infinite;
   background: repeating-linear-gradient(
     0deg,
     rgba(0, 0, 0, 0.1) 0px,
@@ -46,42 +61,41 @@
     transparent 1px,
     transparent 2px
   );
-  animation: flicker 0.2s infinite;
 }
 
 @keyframes flicker {
-  0% { opacity: 0.97; }
-  50% { opacity: 1; }
-  100% { opacity: 0.97; }
+  0% {
+    opacity: 0.97;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.97;
+  }
 }
 
-/* Main screen content area */
+/* Screen Content */
 .screen-content {
   position: relative;
   width: 100%;
   height: 100%;
   padding: 20px;
-  color: #41C347;
+  padding-bottom: 80px;
+  color: #41c347;
   font-size: 14px;
   line-height: 1.4;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   z-index: 5;
   overflow: auto;
-  font-family: 'IBM Plex Mono', 'Courier New', monospace;
-  
-  /* CRT glow effect */
-  text-shadow: 
-    0 0 2px #41C347,
-    0 0 4px #41C347;
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  text-shadow: 0 0 2px #41c347;
 }
 
-/* ============================================
-   HEADER SECTION
-   ============================================ */
-
+/* Header Styles */
 .screen-header {
   margin-bottom: 20px;
-  border-bottom: 1px solid #41C347;
+  border-bottom: 1px solid #41c347;
   padding-bottom: 10px;
 }
 
@@ -97,49 +111,37 @@
 
 .system-id {
   font-weight: 400;
-  letter-spacing: 0px;
-  color: #A7A7A7;
-  text-shadow: 
-    0 0 2px #A7A7A7,
-    0 0 4px #A7A7A7;
+  letter-spacing: 0;
+  color: #a7a7a7;
+  text-shadow: 0 0 2px #a7a7a7, 0 0 4px #a7a7a7;
 }
 
 .menu-items {
   flex-grow: 1;
   text-align: center;
   letter-spacing: 8px;
-  color: #A7A7A7;
-  text-shadow: 
-    0 0 2px #A7A7A7,
-    0 0 4px #A7A7A7;
-}
-
-.datetime,
-.time {
-  min-width: 150px;
-  text-align: right;
+  color: #a7a7a7;
+  text-shadow: 0 0 2px #a7a7a7, 0 0 4px #a7a7a7;
 }
 
 .datetime {
-  color: #A7A7A7;
-  text-shadow: 
-    0 0 2px #A7A7A7,
-    0 0 4px #A7A7A7;
+  min-width: 150px;
+  text-align: right;
+  color: #a7a7a7;
+  text-shadow: 0 0 2px #a7a7a7, 0 0 4px #a7a7a7;
 }
 
 .time {
-  color: #50D8D5;
-  text-shadow: 
-    0 0 2px #50D8D5,
-    0 0 4px #50D8D5;
+  min-width: 150px;
+  text-align: right;
+  color: #50d8d5;
+  text-shadow: 0 0 2px #50d8d5;
 }
 
 .transaction-id {
   min-width: 80px;
-  color: #A7A7A7;
-  text-shadow: 
-    0 0 2px #A7A7A7,
-    0 0 4px #A7A7A7;
+  color: #a7a7a7;
+  text-shadow: 0 0 2px #a7a7a7, 0 0 4px #a7a7a7;
 }
 
 .screen-title {
@@ -147,67 +149,52 @@
   text-align: center;
   font-weight: 400;
   color: white;
-  text-shadow: 
-    0 0 2px white,
-    0 0 4px white;
+  text-shadow: 0 0 2px white;
 }
 
 .received-type {
   flex-grow: 1;
   font-size: 14px;
-  color: #50D8D5;
-  text-shadow: 
-    0 0 2px #50D8D5,
-    0 0 4px #50D8D5;
+  color: #50d8d5;
+  text-shadow: 0 0 2px #50d8d5;
 }
 
 .page-info {
   min-width: 150px;
   text-align: right;
-  color: #50D8D5;
-  text-shadow: 
-    0 0 2px #50D8D5,
-    0 0 4px #50D8D5;
+  color: #50d8d5;
+  text-shadow: 0 0 2px #50d8d5;
 }
 
 .cust-dept {
   min-width: 200px;
-  color: #50D8D5;
-  text-shadow: 
-    0 0 2px #50D8D5,
-    0 0 4px #50D8D5;
+  color: #50d8d5;
+  text-shadow: 0 0 2px #50d8d5;
 }
 
 .balance {
   text-align: right;
   min-width: 250px;
-  color: #50D8D5;
-  text-shadow: 
-    0 0 2px #50D8D5,
-    0 0 4px #50D8D5;
+  color: #50d8d5;
+  text-shadow: 0 0 2px #50d8d5;
 }
 
-/* ============================================
-   MAIN CONTENT SECTION
-   ============================================ */
-
+/* Main Content */
 .screen-main {
   padding: 10px 0;
 }
 
 .section-title {
   margin-bottom: 15px;
-  border-bottom: 1px solid #41C347;
+  border-bottom: 1px solid #41c347;
   padding-bottom: 5px;
 }
 
 .section-line-left {
   font-weight: 400;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   color: white;
-  text-shadow: 
-    0 0 2px white,
-    0 0 4px white;
+  text-shadow: 0 0 2px white;
 }
 
 .doc-type-line {
@@ -218,18 +205,14 @@
 
 .doc-label {
   font-weight: 400;
-  color: #50D8D5;
-  text-shadow: 
-    0 0 2px #50D8D5,
-    0 0 4px #50D8D5;
+  color: #50d8d5;
+  text-shadow: 0 0 2px #50d8d5;
 }
 
 .doc-value {
-  letter-spacing: 0px;
-  color: #41C347;
-  text-shadow: 
-    0 0 2px #41C347,
-    0 0 4px #41C347;
+  letter-spacing: 0;
+  color: #41c347;
+  text-shadow: 0 0 2px #41c347;
 }
 
 .mail-code-line {
@@ -242,30 +225,23 @@
 
 .mail-label {
   font-weight: 400;
-  color: #50D8D5;
-  text-shadow: 
-    0 0 2px #50D8D5,
-    0 0 4px #50D8D5;
+  color: #50d8d5;
+  text-shadow: 0 0 2px #50d8d5;
 }
 
 .mail-value {
-  color: #41C347;
-  text-shadow: 
-    0 0 2px #41C347,
-    0 0 4px #41C347;
+  color: #41c347;
+  text-shadow: 0 0 2px #41c347;
 }
 
-/* ============================================
-   FORM FIELDS
-   ============================================ */
-
+/* Form Fields */
 .form-fields {
   margin-top: 20px;
 }
 
 .field-row {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   margin-bottom: 8px;
   min-height: 24px;
 }
@@ -274,38 +250,45 @@
   display: inline-block;
   min-width: 140px;
   margin-right: 5px;
-  color: #50D8D5;
+  color: #50d8d5;
   font-weight: 400;
-  text-shadow: 
-    0 0 2px #50D8D5,
-    0 0 4px #50D8D5;
+  text-shadow: 0 0 2px #50d8d5;
 }
 
 .field-input {
   flex-grow: 1;
   background: transparent;
   border: none;
-  color: #41C347;
-  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  color: #41c347;
+  font-family: "IBM Plex Mono", "Courier New", monospace;
   font-size: 14px;
-  line-height: 1.4;
-  letter-spacing: 0px;
+  line-height: 14px;
+  letter-spacing: 0;
   outline: none;
-  text-shadow: 
-    0 0 2px #41C347,
-    0 0 4px #41C347;
-  caret-color: #41C347;
-  padding: 2px 0;
+  text-shadow: 0 0 2px #41c347;
+  caret-color: #41c347;
+  padding: 0;
+  margin: 0;
+  font-variant-ligatures: none;
+  text-rendering: optimizeLegibility;
+  vertical-align: text-bottom;
+  height: 14px;
+  display: inline-block;
+  position: relative;
+  transform: translateY(2px);
+}
+
+.field-input::placeholder {
+  color: #41c347;
+  opacity: 0.5;
+  letter-spacing: 0;
 }
 
 .field-input:focus {
   background: rgba(65, 195, 71, 0.03);
-  text-shadow: 
-    0 0 3px #41C347,
-    0 0 6px #41C347;
+  text-shadow: 0 0 3px #41c347, 0 0 6px #41c347;
 }
 
-/* Multi-line field styling */
 .field-multiline {
   min-height: 24px;
 }
@@ -316,26 +299,30 @@
 
 .continuation-line {
   margin-left: 145px;
-  letter-spacing: 0;
-  color: #41C347;
-  text-shadow: 
-    0 0 2px #41C347,
-    0 0 4px #41C347;
+  width: calc(100% - 145px);
+  max-width: 500px;
+  height: 1px;
+  background-color: #41c347;
+  box-shadow: 0 0 2px #41c347;
+  border: none;
 }
 
-/* Address line specific styling */
+/* Address line */
 .address-line {
   display: flex;
   gap: 10px;
 }
 
+.city-label,
+.state-label,
+.zip-label {
+  color: #50d8d5;
+  font-weight: 400;
+  text-shadow: 0 0 2px #50d8d5;
+}
+
 .city-label {
   min-width: 40px;
-  color: #50D8D5;
-  font-weight: 400;
-  text-shadow: 
-    0 0 2px #50D8D5,
-    0 0 4px #50D8D5;
 }
 
 .city-input {
@@ -346,11 +333,6 @@
 .state-label {
   min-width: 30px;
   margin-left: 20px;
-  color: #50D8D5;
-  font-weight: 400;
-  text-shadow: 
-    0 0 2px #50D8D5,
-    0 0 4px #50D8D5;
 }
 
 .state-input {
@@ -361,11 +343,6 @@
 .zip-label {
   min-width: 35px;
   margin-left: 10px;
-  color: #50D8D5;
-  font-weight: 400;
-  text-shadow: 
-    0 0 2px #50D8D5,
-    0 0 4px #50D8D5;
 }
 
 .zip-input {
@@ -373,7 +350,7 @@
   flex-grow: 0;
 }
 
-/* Contact line specific styling */
+/* Contact line */
 .contact-line {
   display: flex;
   gap: 10px;
@@ -387,11 +364,9 @@
 .fax-label {
   min-width: 40px;
   margin-left: 20px;
-  color: #50D8D5;
+  color: #50d8d5;
   font-weight: 400;
-  text-shadow: 
-    0 0 2px #50D8D5,
-    0 0 4px #50D8D5;
+  text-shadow: 0 0 2px #50d8d5;
 }
 
 .fax-input {
@@ -399,10 +374,7 @@
   flex-grow: 0;
 }
 
-/* ============================================
-   FOOTER SECTION
-   ============================================ */
-
+/* Footer */
 .screen-footer {
   position: absolute;
   bottom: 20px;
@@ -410,146 +382,47 @@
   right: 20px;
   display: flex;
   gap: 20px;
-  border-top: 1px solid #41C347;
+  border-top: 1px solid #41c347;
   padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 14px;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 15;
 }
 
 .pf-key {
   font-weight: 400;
-  letter-spacing: 0px;
+  letter-spacing: 5;
+  white-space: nowrap;
   cursor: pointer;
   transition: all 0.2s;
-  color: #A7A7A7;
-  text-shadow: 
-    0 0 2px #A7A7A7,
-    0 0 4px #A7A7A7;
+  color: #a7a7a7;
+  text-shadow: 0 0 2px #a7a7a7, 0 0 4px #a7a7a7;
 }
 
 .pf-key:hover {
-  text-shadow: 
-    0 0 4px #A7A7A7,
-    0 0 8px #A7A7A7,
-    0 0 12px #A7A7A7;
+  text-shadow: 0 0 4px #a7a7a7, 0 0 8px #a7a7a7, 0 0 12px #a7a7a7;
   transform: scale(1.05);
 }
 
-/* ============================================
-   RESPONSIVE ADJUSTMENTS
-   ============================================ */
-
-@media (max-width: 1024px) {
-  .screen-content {
-    font-size: 14px;
-  }
-  
-  .field-input {
-    font-size: 14px;
-  }
-}
-
+/* Responsive */
 @media (max-width: 768px) {
   .crt-screen {
     width: 98vw;
     height: 95vh;
     border: 10px solid #2a2a2a;
   }
-  
+
   .screen-content {
-    font-size: 12px;
     padding: 15px;
+    font-size: 12px;
   }
-  
+
   .field-input {
     font-size: 12px;
   }
-  
+
   .field-label {
     min-width: 120px;
   }
 }
-
-/* ============================================
-   ADDITIONAL CRT EFFECTS
-   ============================================ */
-
-/* Subtle screen curvature effect */
-.crt-screen::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.3) 100%
-  );
-  pointer-events: none;
-  z-index: 8;
-}
-
-/* Phosphor glow effect */
-.crt-screen::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(65, 195, 71, 0.02);
-  pointer-events: none;
-  z-index: 9;
-  mix-blend-mode: screen;
-}
-
-/* Cursor blink animation for inputs */
-@keyframes blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
-}
-
-.field-input::after {
-  animation: blink 1s infinite;
-}
-
-/* ============================================
-   UNDERSCORE STYLING FOR EMPTY FIELDS
-   ============================================ */
-
-.field-input::placeholder {
-  color: #41C347;
-  opacity: 0.5;
-}
-
-/* Selection styling to match mainframe */
-::selection {
-  background: #41C347;
-  color: #000000;
-}
-
-::-moz-selection {
-  background: #41C347;
-  color: #000000;
-}
-
-/* Scrollbar styling for mainframe theme */
-.screen-content::-webkit-scrollbar {
-  width: 12px;
-}
-
-.screen-content::-webkit-scrollbar-track {
-  background: #000000;
-  border-left: 1px solid #41C347;
-}
-
-.screen-content::-webkit-scrollbar-thumb {
-  background: #41C347;
-  box-shadow: inset 0 0 3px #41C347;
-}
-
-.screen-content::-webkit-scrollbar-thumb:hover {
-  background: #50D8D5;
-}
-

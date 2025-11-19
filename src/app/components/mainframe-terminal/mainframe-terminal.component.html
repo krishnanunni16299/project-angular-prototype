@@ -1,12 +1,14 @@
-<div class="mainframe-terminal" *ngIf="currentScreen">
+<div
+  class="w-screen h-screen flex justify-center items-center bg-black overflow-hidden font-mono"
+  *ngIf="currentScreen"
+>
   <!-- CRT Screen Container -->
   <div class="crt-screen">
     <!-- Scan Lines Overlay -->
     <div class="scanlines"></div>
-    
+
     <!-- Screen Content -->
     <div class="screen-content">
-      
       <!-- Header Section -->
       <div class="screen-header">
         <!-- Line 1: System ID, Menu Items, Date/Time -->
@@ -15,35 +17,40 @@
           <span class="menu-items">{{ getMenuDisplay() }}</span>
           <span class="datetime">{{ currentScreen.header.date }}</span>
         </div>
-        
+
         <!-- Line 2: Transaction ID, Title, Time -->
         <div class="header-line-2">
-          <span class="transaction-id">{{ currentScreen.header.transactionId }}</span>
+          <span class="transaction-id">{{
+            currentScreen.header.transactionId
+          }}</span>
           <span class="screen-title">CUSTOMER INFORMATION</span>
           <span class="time">{{ currentScreen.header.time }}</span>
         </div>
-        
+
         <!-- Line 3: Received Type, Page, Balance -->
         <div class="header-line-3">
-          <span class="received-type">{{ currentScreen.header.receivedType }}</span>
+          <span class="received-type">{{
+            currentScreen.header.receivedType
+          }}</span>
           <span class="page-info">{{ getPageDisplay() }}</span>
         </div>
-        
+
         <!-- Line 4: Cust/DeptID and Balance -->
         <div class="header-line-4">
-          <span class="cust-dept">Cust/DeptID: __________</span>
-          <span class="balance">BALANCE: {{ currentScreen.header.balance?.padStart(20) }}</span>
+          <span class="cust-dept">Cust/DeptID: ──────────</span>
+          <span class="balance"
+            >BALANCE: {{ currentScreen.header.balance?.padStart(20) }}</span
+          >
         </div>
       </div>
 
       <!-- Main Content Area -->
       <div class="screen-main">
-        
         <!-- Section Title -->
         <div class="section-title">
           <span class="section-line-left">CUSTOMER INFORMATION</span>
         </div>
-        
+
         <!-- Document Type Line -->
         <div class="doc-type-line">
           <span class="doc-label">DOC. TYPE:</span>
@@ -53,18 +60,17 @@
         <!-- Mail Code (right side) -->
         <div class="mail-code-line">
           <span class="mail-label">MAIL CODE:</span>
-          <span class="mail-value">____________________________</span>
+          <span class="mail-value">────────────────────────────</span>
         </div>
 
         <!-- Form Fields -->
         <div class="form-fields">
-          
           <!-- Description -->
           <div class="field-row">
             <span class="field-label">Description:</span>
-            <input 
-              type="text" 
-              class="field-input" 
+            <input
+              type="text"
+              class="field-input"
               [value]="getFieldDisplay(currentScreen.fields[2])"
               (input)="onFieldChange(currentScreen.fields[2], $event)"
               maxlength="60"
@@ -75,9 +81,9 @@
           <!-- Full name -->
           <div class="field-row">
             <span class="field-label">Full name:</span>
-            <input 
-              type="text" 
-              class="field-input" 
+            <input
+              type="text"
+              class="field-input"
               [value]="getFieldDisplay(currentScreen.fields[3])"
               (input)="onFieldChange(currentScreen.fields[3], $event)"
               maxlength="60"
@@ -88,9 +94,9 @@
           <!-- Mail-To Name -->
           <div class="field-row">
             <span class="field-label">Mail-To Name:</span>
-            <input 
-              type="text" 
-              class="field-input" 
+            <input
+              type="text"
+              class="field-input"
               [value]="getFieldDisplay(currentScreen.fields[4])"
               (input)="onFieldChange(currentScreen.fields[4], $event)"
               maxlength="60"
@@ -101,9 +107,9 @@
           <!-- Care-of Name -->
           <div class="field-row">
             <span class="field-label">Care-of Name:</span>
-            <input 
-              type="text" 
-              class="field-input" 
+            <input
+              type="text"
+              class="field-input"
               [value]="getFieldDisplay(currentScreen.fields[5])"
               (input)="onFieldChange(currentScreen.fields[5], $event)"
               maxlength="60"
@@ -114,9 +120,9 @@
           <!-- Street -->
           <div class="field-row">
             <span class="field-label">Street:</span>
-            <input 
-              type="text" 
-              class="field-input field-multiline" 
+            <input
+              type="text"
+              class="field-input field-multiline"
               [value]="getFieldDisplay(currentScreen.fields[6])"
               (input)="onFieldChange(currentScreen.fields[6], $event)"
               maxlength="60"
@@ -126,33 +132,33 @@
 
           <!-- Empty line for street continuation -->
           <div class="field-row empty-line">
-            <span class="continuation-line">______________________________________________________________________</span>
+            <div class="continuation-line"></div>
           </div>
 
           <!-- City, State, ZIP -->
           <div class="field-row address-line">
             <span class="field-label city-label">City:</span>
-            <input 
-              type="text" 
-              class="field-input city-input" 
+            <input
+              type="text"
+              class="field-input city-input"
               [value]="getFieldDisplay(currentScreen.fields[7])"
               (input)="onFieldChange(currentScreen.fields[7], $event)"
               maxlength="30"
               [tabindex]="currentScreen.fields[7].tabIndex"
             />
             <span class="field-label state-label">St:</span>
-            <input 
-              type="text" 
-              class="field-input state-input" 
+            <input
+              type="text"
+              class="field-input state-input"
               [value]="getFieldDisplay(currentScreen.fields[8])"
               (input)="onFieldChange(currentScreen.fields[8], $event)"
               maxlength="2"
               [tabindex]="currentScreen.fields[8].tabIndex"
             />
             <span class="field-label zip-label">ZIP:</span>
-            <input 
-              type="text" 
-              class="field-input zip-input" 
+            <input
+              type="text"
+              class="field-input zip-input"
               [value]="getFieldDisplay(currentScreen.fields[9])"
               (input)="onFieldChange(currentScreen.fields[9], $event)"
               maxlength="10"
@@ -163,9 +169,9 @@
           <!-- Country -->
           <div class="field-row">
             <span class="field-label">Country:</span>
-            <input 
-              type="text" 
-              class="field-input" 
+            <input
+              type="text"
+              class="field-input"
               [value]="getFieldDisplay(currentScreen.fields[10])"
               (input)="onFieldChange(currentScreen.fields[10], $event)"
               maxlength="60"
@@ -176,18 +182,18 @@
           <!-- Telephone and Fax -->
           <div class="field-row contact-line">
             <span class="field-label">Telephone:</span>
-            <input 
-              type="text" 
-              class="field-input telephone-input" 
+            <input
+              type="text"
+              class="field-input telephone-input"
               [value]="getFieldDisplay(currentScreen.fields[11])"
               (input)="onFieldChange(currentScreen.fields[11], $event)"
               maxlength="25"
               [tabindex]="currentScreen.fields[11].tabIndex"
             />
             <span class="field-label fax-label">Fax:</span>
-            <input 
-              type="text" 
-              class="field-input fax-input" 
+            <input
+              type="text"
+              class="field-input fax-input"
               [value]="getFieldDisplay(currentScreen.fields[12])"
               (input)="onFieldChange(currentScreen.fields[12], $event)"
               maxlength="15"
@@ -198,27 +204,28 @@
           <!-- Email -->
           <div class="field-row">
             <span class="field-label">e-mail:</span>
-            <input 
-              type="text" 
-              class="field-input" 
+            <input
+              type="text"
+              class="field-input"
               [value]="getFieldDisplay(currentScreen.fields[13])"
               (input)="onFieldChange(currentScreen.fields[13], $event)"
               maxlength="60"
               [tabindex]="currentScreen.fields[13].tabIndex"
             />
           </div>
-
         </div>
       </div>
 
       <!-- Footer Section -->
       <div class="screen-footer">
-        <span *ngFor="let pfKey of currentScreen.footer.pfKeys" class="pf-key">
-          {{ pfKey.label }}
+        <span class="pf-key">PF: </span>
+        <span
+          *ngFor="let pfKey of currentScreen.footer.pfKeys; let last = last"
+          class="pf-key"
+        >
+          {{ pfKey.label }}<span *ngIf="!last">&nbsp;&nbsp;&nbsp;</span>
         </span>
       </div>
-
     </div>
   </div>
 </div>
-
