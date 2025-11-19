@@ -352,7 +352,7 @@ Row  Columns 1-80
 ───  ───────────────────────────────────────────────────────────────────────────
 1    SS6T-6                        M   B   E   S                    2023-10-11
 2    T21                      CUSTOMER INFORMATION                   11:08:05
-3    Received Type: L  (C-counter,F-fax,M-mail,N-NIC,I-COS/Inter)    Page 1/1
+3    Received Type: C  (C-counter,F-fax,M-mail,N-NIC,I-COS/Inter)    Page 1/1
 4    Cust/DeptID: __________                                     BALANCE: 0.00
 5    
 6    CUSTOMER INFORMATION
