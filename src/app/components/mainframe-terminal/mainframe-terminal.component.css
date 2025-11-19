@@ -95,8 +95,12 @@
 /* Header Styles */
 .screen-header {
   margin-bottom: 20px;
-  border-bottom: 1px solid #41c347;
   padding-bottom: 10px;
+  border-bottom: none !important;
+}
+
+.screen-header::after {
+  display: none !important;
 }
 
 .header-line-1,
@@ -109,6 +113,16 @@
   font-weight: 500;
 }
 
+.header-line-4 {
+  border-bottom: none !important;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.header-line-4::after {
+  display: none !important;
+}
+
 .system-id {
   font-weight: 400;
   letter-spacing: 0;
@@ -119,7 +133,7 @@
 .menu-items {
   flex-grow: 1;
   text-align: center;
-  letter-spacing: 8px;
+  letter-spacing: 2px;
   color: #a7a7a7;
   text-shadow: 0 0 2px #a7a7a7, 0 0 4px #a7a7a7;
 }
@@ -188,6 +202,7 @@
   margin-bottom: 15px;
   border-bottom: 1px solid #41c347;
   padding-bottom: 5px;
+  text-align: center;
 }
 
 .section-line-left {
@@ -195,6 +210,7 @@
   letter-spacing: 0;
   color: white;
   text-shadow: 0 0 2px white;
+  display: inline-block;
 }
 
 .doc-type-line {
@@ -242,8 +258,8 @@
 .field-row {
   display: flex;
   align-items: baseline;
-  margin-bottom: 8px;
-  min-height: 24px;
+  margin-bottom: 0px;
+  min-height: 10px;
 }
 
 .field-label {

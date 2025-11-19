@@ -1,6 +1,6 @@
 <div
   class="w-screen h-screen flex justify-center items-center bg-black overflow-hidden"
-  style="font-family: 'IBM 3270', monospace;"
+  style="font-family: 'IBM 3270', monospace; font-size: 14px;"
   *ngIf="currentScreen"
 >
   <!-- CRT Screen Container -->
@@ -38,7 +38,7 @@
 
         <!-- Line 4: Cust/DeptID and Balance -->
         <div class="header-line-4">
-          <span class="cust-dept">Cust/DeptID: ──────────</span>
+          <span class="cust-dept">Cust/DeptID:</span>
           <span class="balance"
             >BALANCE: {{ currentScreen.header.balance?.padStart(20) }}</span
           >
@@ -46,11 +46,11 @@
       </div>
 
       <!-- Main Content Area -->
-      <div class="screen-main">
+      <!-- <div class="screen-main"> -->
         <!-- Section Title -->
-        <div class="section-title">
-          <span class="section-line-left">CUSTOMER INFORMATION</span>
-        </div>
+        <!-- <div class="section-title"> -->
+          <!-- <span class="section-line-left">CUSTOMER INFORMATION</span> -->
+        <!-- </div> -->
 
         <!-- Document Type Line -->
         <div class="doc-type-line">
@@ -229,4 +229,6 @@
       </div>
     </div>
   </div>
-</div>
+<!-- </div> -->
+
+
