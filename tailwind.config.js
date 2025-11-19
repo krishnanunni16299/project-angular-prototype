@@ -12,7 +12,7 @@ module.exports = {
         'crt-dark': '#2a2a2a',
       },
       fontFamily: {
-        'mono': ['IBM Plex Mono', 'Courier New', 'monospace'],
+        'mono': ['IBM 3270', 'monospace'],
       },
       animation: {
         'flicker': 'flicker 0.2s infinite',

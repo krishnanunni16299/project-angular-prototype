@@ -88,7 +88,7 @@
   letter-spacing: 0;
   z-index: 5;
   overflow: auto;
-  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-family: "IBM 3270", monospace;
   text-shadow: 0 0 2px #41c347;
 }
 
@@ -260,7 +260,7 @@
   background: transparent;
   border: none;
   color: #41c347;
-  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-family: "IBM 3270", monospace;
   font-size: 14px;
   line-height: 14px;
   letter-spacing: 0;
