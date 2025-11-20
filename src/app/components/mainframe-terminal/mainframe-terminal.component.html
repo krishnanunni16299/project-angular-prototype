@@ -2,7 +2,7 @@
 <div
   class="fixed top-4 left-4 z-[9999] bg-gray-900/95 rounded-lg p-2 border border-gray-700 shadow-xl"
 >
-  <div class="flex gap-2 flex-wrap max-w-[700px]">
+  <div class="flex gap-2 flex-wrap max-w-[1000px]">
     <button
       (click)="navigateTo('WELCOME')"
       class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
@@ -94,6 +94,18 @@
       Opt4-1. SOP Maint
     </button>
     <button
+      (click)="navigateTo('SOP_FILE_MAINTENANCE')"
+      class="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-xs rounded font-semibold"
+    >
+      Opt4-2. SOP File Maint
+    </button>
+    <button
+      (click)="navigateTo('SOP_CONFIRMATION_OPTION4')"
+      class="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-xs rounded font-semibold"
+    >
+      Opt4-3. SOP Confirmation
+    </button>
+    <button
       (click)="navigateTo('SOP_AMENDMENT_ENTRY')"
       class="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-xs rounded font-semibold"
     >
@@ -173,7 +185,7 @@
       width: calc(80ch + 2rem);
       height: calc(24 * 1.2em + 2rem);
       font-size: 16px;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.1em;
     "
   >
     <!-- Scan Lines Overlay -->
@@ -267,6 +279,12 @@
             [screen]="currentScreen"
           ></app-sop-maintenance-selection-screen>
 
+          <!-- SOP File Maintenance Screen Component -->
+          <app-sop-file-maintenance-screen
+            *ngSwitchCase="'SOP_FILE_MAINTENANCE'"
+            [screen]="currentScreen"
+          ></app-sop-file-maintenance-screen>
+
           <!-- SOP Amendment Entry Screen Component (Option 5 - Screen 1) -->
           <app-sop-amendment-entry-screen
             *ngSwitchCase="'SOP_AMENDMENT_ENTRY'"
@@ -278,6 +296,12 @@
             *ngSwitchCase="'SOP_CONFIRMATION'"
             [screen]="currentScreen"
           ></app-sop-confirmation-screen>
+
+          <!-- SOP Confirmation Screen Component (Option 4 - Screen 3) -->
+          <app-sop-confirmation-screen-option4
+            *ngSwitchCase="'SOP_CONFIRMATION_OPTION4'"
+            [screen]="currentScreen"
+          ></app-sop-confirmation-screen-option4>
 
           <!-- SOP Input Inquiry Screen Component (Option 6 - Screen 1) -->
           <app-sop-input-inquiry-screen

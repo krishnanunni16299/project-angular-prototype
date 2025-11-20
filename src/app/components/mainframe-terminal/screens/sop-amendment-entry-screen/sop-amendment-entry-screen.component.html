@@ -1,6 +1,6 @@
 <!-- SERVICE OF PROCESS - AMENDMENT ENTRY Screen -->
 <!-- Header -->
-<div class="flex justify-between mb-2 [text-shadow:0_0_2px_#50D8D5]">
+<div class="flex justify-between mb-1 [text-shadow:0_0_2px_#50D8D5]">
   <!-- Left: Screen ID -->
   <div class="flex flex-col">
     <span class="text-white">SS9H-2</span>
@@ -11,308 +11,314 @@
   <div
     class="flex flex-col items-center flex-grow text-white [text-shadow:0_0_2px_#FFFFFF]"
   >
-    <span class="tracking-[0.5em]">M B E S</span>
-    <span class="tracking-normal">SERVICE OF PROCESS - AMENDMENT ENTRY</span>
+    <span class="tracking-[0.2em]">M B E S</span>
+    <span class="tracking-normal line-spacing-2">SERVICE OF PROCESS - AMENDMENT ENTRY</span>
   </div>
 
   <!-- Right: Date and Time -->
   <div class="flex flex-col items-end">
-    <span class="text-white">{{ getCurrentDate() }}</span>
-    <span class="text-white">{{ getCurrentTime() }}</span>
+    <span class="text-crt-cyan">{{ getCurrentDate() }}</span>
+    <span class="text-crt-cyan">{{ getCurrentTime() }}</span>
   </div>
 </div>
 
 <!-- Service of Process Details Section -->
-<div class="mb-3">
-  <!-- Row 1: SOP Number, Received Date, Case Number -->
-  <div class="flex items-baseline mb-1 gap-4">
+<div class="mb-1">
+  <!-- Row 1: SOP Number and Received Date + Time -->
+  <div class="flex justify-between items-baseline mb-1">
     <div class="flex items-baseline">
-      <span class="text-white">SOP Number:</span>
+      <span class="text-white min-w-[140px] text-right">SOP Number:</span>
       <input
         type="text"
         [(ngModel)]="sopNumber"
-        class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+        class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
         style="width: 15ch"
         autofocus
       />
     </div>
     <div class="flex items-baseline">
-      <span class="text-white">Received Date:</span>
+      <span class="text-white min-w-[140px] text-right">Received Date:</span>
       <input
         type="text"
         [(ngModel)]="receivedDateMonth"
         maxlength="2"
-        class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+        class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
         style="width: 2ch"
-        placeholder="MM"
       />
-      <span class="text-white mx-0.5">-</span>
+      <span class="text-white ml-1">-</span>
       <input
         type="text"
         [(ngModel)]="receivedDateDay"
         maxlength="2"
-        class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+        class="ml-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
         style="width: 2ch"
-        placeholder="DD"
       />
-      <span class="text-white mx-0.5">-</span>
+      <span class="text-white ml-1">-</span>
       <input
         type="text"
         [(ngModel)]="receivedDateYear"
         maxlength="4"
-        class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+        class="ml-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
         style="width: 4ch"
-        placeholder="YYYY"
       />
-    </div>
-    <div class="flex items-baseline">
-      <span class="text-white">at:</span>
+      <span class="text-white ml-2">at</span>
       <input
         type="text"
         [(ngModel)]="receivedTimeHour"
         maxlength="2"
-        class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+        class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
         style="width: 2ch"
-        placeholder="HH"
       />
-      <span class="text-white mx-0.5">:</span>
+      <span class="text-white ml-0.5">:</span>
       <input
         type="text"
         [(ngModel)]="receivedTimeMinute"
         maxlength="2"
-        class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
-        style="width: 2ch"
-        placeholder="MM"
+        class="ml-0.5 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+        style="width: 5ch"
       />
     </div>
   </div>
 
-  <!-- Row 2: Case Number, Plaintiff Id, Filing Type -->
-  <div class="flex items-baseline mb-1 gap-4">
-    <div class="flex items-baseline">
-      <span class="text-white">Case Number:</span>
-      <input
-        type="text"
-        [(ngModel)]="caseNumber"
-        class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
-        style="width: 20ch"
-      />
-    </div>
-    <div class="flex items-baseline">
-      <span class="text-white">Plaintiff Id:</span>
-      <input
-        type="text"
-        [(ngModel)]="plaintiffId"
-        class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
-        style="width: 15ch"
-      />
-    </div>
-    <div class="flex items-baseline">
-      <span class="text-white">Filing Type:</span>
-      <input
-        type="text"
-        [(ngModel)]="filingType"
-        class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
-        style="width: 15ch"
-      />
-    </div>
+  <!-- Row 2: Case Number -->
+  <div class="flex items-baseline mb-1 ml-[26rem]">
+    <span class="text-white min-w-[140px] text-right">Case Number:</span>
+    <input
+      type="text"
+      [(ngModel)]="caseNumber"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 20ch"
+    />
   </div>
 </div>
 
 <!-- Plaintiff Information Section -->
-<div class="mb-3">
-  <div class="mb-1">
-    <span class="text-white font-semibold">PLAINTIFF NAME::</span>
+<div class="mb-5">
+  <div class="flex justify-between items-baseline mb-1">
+    <div class="flex items-baseline flex-1 mb-4">
+      <span class="text-white min-w-[140px] text-right">PLAINTIFF NAME::</span>
+      <input
+        type="text"
+        [(ngModel)]="plaintiffName"
+        class="ml-2 bg-transparent text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+        style="width: 15ch"
+      />
+    </div>
+    <div class="flex items-baseline mr-32">
+      <span class="text-white">Plaintiff Id:</span>
+      <input
+        type="text"
+        [(ngModel)]="plaintiffId"
+        class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+        style="width: 10ch"
+      />
+    </div>
   </div>
-  
-  <div class="flex items-baseline mb-1">
-    <span class="text-white" style="width: 12ch">Name:</span>
+  <!-- PLAINTIFF NAME:: and Plaintiff Id -->
+
+  <!-- Name field on left -->
+  <div class="flex items-baseline -mt-5">
+    <span class="text-white min-w-[140px] text-right">Name:</span>
     <input
       type="text"
       [(ngModel)]="plaintiffName"
-      class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+      class="ml-2 bg-transparent text-crt-green  text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 80ch"
     />
   </div>
 
+  <!-- Filing Type field on right -->
+  <div class="flex justify-end items-baseline mr-32 mb-10">
+    <span class="text-white text-right">Filing Type:</span>
+    <input
+      type="text"
+      [(ngModel)]="filingType"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 10ch"
+    />
+  </div>
+
+  <!-- Mailing Name -->
   <div class="flex items-baseline mb-1">
-    <span class="text-white" style="width: 12ch">Mailing Name:</span>
+    <span class="text-white min-w-[150px] text-right">Mailing Name:</span>
     <input
       type="text"
       [(ngModel)]="plaintiffMailingName"
-      class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 78ch"
     />
   </div>
 
+  <!-- C/O -->
   <div class="flex items-baseline mb-1">
-    <span class="text-white" style="width: 12ch">C/O :</span>
+    <span class="text-white min-w-[150px] text-right">C/O :</span>
     <input
       type="text"
       [(ngModel)]="plaintiffCareOf"
-      class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 38ch"
     />
   </div>
 
+  <!-- Address 2 -->
   <div class="flex items-baseline mb-1">
-    <span class="text-white" style="width: 12ch">Address 2:</span>
+    <span class="text-white min-w-[150px] text-right">Address 2:</span>
     <input
       type="text"
       [(ngModel)]="plaintiffAddress2"
-      class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 38ch"
     />
   </div>
 
+  <!-- Address 3 -->
   <div class="flex items-baseline mb-1">
-    <span class="text-white" style="width: 12ch">Address 3:</span>
+    <span class="text-white min-w-[150px] text-right">Address 3:</span>
     <input
       type="text"
       [(ngModel)]="plaintiffAddress3"
-      class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 38ch"
     />
   </div>
 
   <!-- City, State, Zip Row -->
-  <div class="flex items-baseline mb-1 gap-4">
-    <div class="flex items-baseline">
-      <span class="text-white" style="width: 12ch">City:</span>
-      <input
-        type="text"
-        [(ngModel)]="plaintiffCity"
-        class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
-        style="width: 25ch"
-      />
-    </div>
-    <div class="flex items-baseline">
-      <span class="text-white">State:</span>
-      <input
-        type="text"
-        [(ngModel)]="plaintiffState"
-        maxlength="2"
-        class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
-        style="width: 2ch"
-      />
-    </div>
-    <div class="flex items-baseline">
-      <span class="text-white">Zip:</span>
-      <input
-        type="text"
-        [(ngModel)]="plaintiffZip1"
-        maxlength="5"
-        class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
-        style="width: 5ch"
-        placeholder="XXXXX"
-      />
-      <span class="text-white mx-0.5">-</span>
-      <input
-        type="text"
-        [(ngModel)]="plaintiffZip2"
-        maxlength="4"
-        class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
-        style="width: 4ch"
-        placeholder="XXXX"
-      />
-    </div>
+  <div class="flex items-baseline mb-1">
+    <span class="text-white min-w-[150px] text-right">City:</span>
+    <input
+      type="text"
+      [(ngModel)]="plaintiffCity"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 28ch"
+    />
+    <span class="text-white ml-8 text-right">State:</span>
+    <input
+      type="text"
+      [(ngModel)]="plaintiffState"
+      maxlength="2"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 2ch"
+    />
+    <span class="text-white ml-8">Zip:</span>
+    <input
+      type="text"
+      [(ngModel)]="plaintiffZip1"
+      maxlength="5"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 5ch"
+    />
+    <input
+      type="text"
+      [(ngModel)]="plaintiffZip2"
+      maxlength="4"
+      class="ml-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 4ch"
+    />
   </div>
 
+  <!-- Country -->
   <div class="flex items-baseline mb-1">
-    <span class="text-white" style="width: 12ch">Country:</span>
+    <span class="text-white min-w-[150px] text-right">Country:</span>
     <input
       type="text"
       [(ngModel)]="plaintiffCountry"
-      class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 30ch"
     />
   </div>
 </div>
 
+<!-- Defendant Name -->
+<div class="flex items-baseline mb-1 -mt-4">
+  <span class="text-white min-w-[140px] text-right">Defendant Name:</span>
+  <input
+    type="text"
+    [(ngModel)]="defendantName"
+    class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+    style="width: 80ch"
+  />
+</div>
+
 <!-- Horizontal Separator -->
-<div class="border-b border-crt-green mb-3"></div>
+<div class="border-t mt-3.5 border-crt-green mb-1 w-1/2"></div>
 
 <!-- Defendant Information Section -->
-<div class="mb-3">
+<div class="mb-1">
+  <!-- Address 1 -->
   <div class="flex items-baseline mb-1">
-    <span class="text-white" style="width: 12ch">Defendant Name:</span>
-    <input
-      type="text"
-      [(ngModel)]="defendantName"
-      class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
-    />
-  </div>
-
-  <div class="flex items-baseline mb-1">
-    <span class="text-white" style="width: 12ch">Address 1:</span>
+    <span class="text-white min-w-[150px] text-right">Address 1:</span>
     <input
       type="text"
       [(ngModel)]="defendantAddress1"
-      class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 38ch"
     />
   </div>
 
+  <!-- Address 2 -->
   <div class="flex items-baseline mb-1">
-    <span class="text-white" style="width: 12ch">Address 2:</span>
+    <span class="text-white min-w-[150px] text-right">Address 2:</span>
     <input
       type="text"
       [(ngModel)]="defendantAddress2"
-      class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 38ch"
     />
   </div>
 
+  <!-- Address 3 -->
   <div class="flex items-baseline mb-1">
-    <span class="text-white" style="width: 12ch">Address 3:</span>
+    <span class="text-white min-w-[150px] text-right">Address 3:</span>
     <input
       type="text"
       [(ngModel)]="defendantAddress3"
-      class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 38ch"
     />
   </div>
 
   <!-- City, State, Zip Row -->
-  <div class="flex items-baseline mb-1 gap-4">
-    <div class="flex items-baseline">
-      <span class="text-white" style="width: 12ch">City:</span>
-      <input
-        type="text"
-        [(ngModel)]="defendantCity"
-        class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
-        style="width: 25ch"
-      />
-    </div>
-    <div class="flex items-baseline">
-      <span class="text-white">State:</span>
-      <input
-        type="text"
-        [(ngModel)]="defendantState"
-        maxlength="2"
-        class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
-        style="width: 2ch"
-      />
-    </div>
-    <div class="flex items-baseline">
-      <span class="text-white">Zip:</span>
-      <input
-        type="text"
-        [(ngModel)]="defendantZip1"
-        maxlength="5"
-        class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
-        style="width: 5ch"
-        placeholder="XXXXX"
-      />
-      <span class="text-white mx-0.5">-</span>
-      <input
-        type="text"
-        [(ngModel)]="defendantZip2"
-        maxlength="4"
-        class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
-        style="width: 4ch"
-        placeholder="XXXX"
-      />
-    </div>
+  <div class="flex items-baseline mb-1">
+    <span class="text-white min-w-[150px] text-right">City:</span>
+    <input
+      type="text"
+      [(ngModel)]="defendantCity"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 28ch"
+    />
+    <span class="text-white ml-8 text-right">State:</span>
+    <input
+      type="text"
+      [(ngModel)]="defendantState"
+      maxlength="2"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 2ch"
+    />
+    <span class="text-white ml-8 text-right">Zip:</span>
+    <input
+      type="text"
+      [(ngModel)]="defendantZip1"
+      maxlength="5"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 5ch"
+    />
+    <input
+      type="text"
+      [(ngModel)]="defendantZip2"
+      maxlength="4"
+      class="ml-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 4ch"
+    />
   </div>
 
+  <!-- Foreign Country -->
   <div class="flex items-baseline mb-1">
-    <span class="text-white" style="width: 12ch">Forgn.Country:</span>
+    <span class="text-white min-w-[150px] text-right">Forgn.Country:</span>
     <input
       type="text"
       [(ngModel)]="defendantForeignCountry"
-      class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 30ch"
     />
   </div>
 </div>
@@ -325,4 +331,3 @@
     >PF: 1-HELP 2-COMMENTS 3-END 8-FWD 11-NXT</span
   >
 </div>
-
