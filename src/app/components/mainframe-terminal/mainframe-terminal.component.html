@@ -28,58 +28,70 @@
       Menu
     </button>
     <button
-      (click)="navigateTo('WORK_ORDER_TRANSACTION')"
-      class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
+      (click)="navigateTo('SS6T-6')"
+      class="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs rounded font-semibold"
     >
-      Work Order
+      1. Customer Info
+    </button>
+    <button
+      (click)="navigateTo('WORK_ORDER_TRANSACTION')"
+      class="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs rounded font-semibold"
+    >
+      2. Work Order
     </button>
     <button
       (click)="navigateTo('WORK_ORDER_TRANSACTION_ALT')"
-      class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
+      class="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs rounded font-semibold"
     >
-      WO (No Postage)
+      3. WO (No Postage)
     </button>
     <button
       (click)="navigateTo('WORK_ORDER_BALANCE')"
-      class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
+      class="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs rounded font-semibold"
     >
-      WO Balance
+      4. WO Balance
     </button>
     <button
       (click)="navigateTo('WORK_ORDER_RECEIPTS')"
-      class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
+      class="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs rounded font-semibold"
     >
-      WO Receipts
+      5. WO Receipts
     </button>
     <button
       (click)="navigateTo('CONFIRM_WORK_ORDER')"
-      class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
+      class="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs rounded font-semibold"
     >
-      Confirm WO
+      6. Confirm WO
     </button>
     <button
       (click)="navigateTo('WORK_ORDER_SLIP_PRINTING')"
-      class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
+      class="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs rounded font-semibold"
     >
-      WO Print
+      7. WO Print
     </button>
     <button
       (click)="navigateTo('PROCESS_WORK_ORDER')"
-      class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
+      class="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs rounded font-semibold"
     >
-      Process WO
+      8. Process WO
     </button>
     <button
       (click)="navigateTo('SERVICE_OF_PROCESS')"
-      class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
+      class="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs rounded font-semibold"
     >
-      Service Process
+      9. Service Process
     </button>
     <button
-      (click)="navigateTo('SS6T-6')"
-      class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
+      (click)="navigateTo('SERVICE_PROCESS_CONFIRMATION')"
+      class="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs rounded font-semibold"
     >
-      Customer Info
+      10. SOP Confirm
+    </button>
+    <button
+      (click)="navigateTo('SOP_MAINTENANCE_SELECTION')"
+      class="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-xs rounded font-semibold"
+    >
+      Opt4-1. SOP Maint
     </button>
     <button
       (click)="goBack()"
@@ -182,6 +194,18 @@
             *ngSwitchCase="'SERVICE_OF_PROCESS'"
             [screen]="currentScreen"
           ></app-service-of-process-screen>
+
+          <!-- Service Process Confirmation Screen Component -->
+          <app-service-process-confirmation-screen
+            *ngSwitchCase="'SERVICE_PROCESS_CONFIRMATION'"
+            [screen]="currentScreen"
+          ></app-service-process-confirmation-screen>
+
+          <!-- SOP Maintenance Selection Screen Component -->
+          <app-sop-maintenance-selection-screen
+            *ngSwitchCase="'SOP_MAINTENANCE_SELECTION'"
+            [screen]="currentScreen"
+          ></app-sop-maintenance-selection-screen>
 
           <!-- Welcome Screen Component -->
           <app-welcome-screen

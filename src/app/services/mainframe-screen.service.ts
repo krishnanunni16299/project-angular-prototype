@@ -26,10 +26,12 @@ export class MainframeScreenService {
     this.registerScreen(this.getWorkOrderSlipPrintingScreen());
     this.registerScreen(this.getProcessWorkOrderScreen());
     this.registerScreen(this.getServiceOfProcessScreen());
+    this.registerScreen(this.getServiceProcessConfirmationScreen());
+    this.registerScreen(this.getSopMaintenanceSelectionScreen());
     this.registerScreen(this.getWelcomeScreen());
     this.registerScreen(this.getCustomerInformationScreen());
     // Set initial screen - change this to test different screens
-    this.navigateToScreen('SERVICE_OF_PROCESS'); // Change to: LOGIN, SIGNON_CONFIRMATION, MENU, WORK_ORDER_TRANSACTION, WORK_ORDER_TRANSACTION_ALT, WORK_ORDER_BALANCE, WORK_ORDER_RECEIPTS, CONFIRM_WORK_ORDER, WORK_ORDER_SLIP_PRINTING, PROCESS_WORK_ORDER, SERVICE_OF_PROCESS, or SS6T-6
+    this.navigateToScreen('SOP_MAINTENANCE_SELECTION'); // Change to: LOGIN, SIGNON_CONFIRMATION, MENU, WORK_ORDER_TRANSACTION, WORK_ORDER_TRANSACTION_ALT, WORK_ORDER_BALANCE, WORK_ORDER_RECEIPTS, CONFIRM_WORK_ORDER, WORK_ORDER_SLIP_PRINTING, PROCESS_WORK_ORDER, SERVICE_OF_PROCESS, SERVICE_PROCESS_CONFIRMATION, SOP_MAINTENANCE_SELECTION, or SS6T-6
   }
 
   /**
@@ -727,6 +729,65 @@ export class MainframeScreenService {
           { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
           { key: 3, label: '3-END', action: 'END', enabled: true },
           { key: 8, label: '8-FWD', action: 'FORWARD', enabled: true },
+          { key: 11, label: '11-NXT', action: 'NEXT', enabled: true }
+        ]
+      }
+    };
+  }
+
+  private getServiceProcessConfirmationScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'SERVICE_PROCESS_CONFIRMATION',
+      title: 'Service of Process - Confirmation',
+      docType: '',
+      header: {
+        systemId: 'SS3A-5',
+        menuItems: [],
+        date: now.toISOString().split('T')[0],
+        time: now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 0,
+        totalPages: 0,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
+          { key: 3, label: '3-END', action: 'END', enabled: true },
+          { key: 4, label: '4-PROCESS WORK ORDER', action: 'PROCESS', enabled: true },
+          { key: 6, label: '6-CONFIRM', action: 'CONFIRM', enabled: true },
+          { key: 10, label: '10-PRV', action: 'PREVIOUS', enabled: true }
+        ]
+      }
+    };
+  }
+
+  private getSopMaintenanceSelectionScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'SOP_MAINTENANCE_SELECTION',
+      title: 'SOP - Maintenance Selection',
+      docType: '',
+      header: {
+        systemId: 'SS9L-2',
+        menuItems: [],
+        date: now.toISOString().split('T')[0],
+        time: now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 0,
+        totalPages: 0,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
+          { key: 3, label: '3-END', action: 'END', enabled: true },
+          { key: 9, label: '9-DEL', action: 'DELETE', enabled: true },
           { key: 11, label: '11-NXT', action: 'NEXT', enabled: true }
         ]
       }

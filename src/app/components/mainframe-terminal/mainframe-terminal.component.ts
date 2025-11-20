@@ -17,11 +17,13 @@ import { WorkOrderSlipPrintingScreenComponent } from './screens/work-order-slip-
 import { ProcessWorkOrderScreenComponent } from './screens/process-work-order-screen/process-work-order-screen.component';
 import { WorkOrderTransactionAltScreenComponent } from './screens/work-order-transaction-alt-screen/work-order-transaction-alt-screen.component';
 import { ServiceOfProcessScreenComponent } from './screens/service-of-process-screen/service-of-process-screen.component';
+import { ServiceProcessConfirmationScreenComponent } from './screens/service-process-confirmation-screen/service-process-confirmation-screen.component';
+import { SopMaintenanceSelectionScreenComponent } from './screens/sop-maintenance-selection-screen/sop-maintenance-selection-screen.component';
 
 @Component({
   selector: 'app-mainframe-terminal',
   standalone: true,
-  imports: [CommonModule, FormsModule, WelcomeScreenComponent, CustomerInfoScreenComponent, LoginScreenComponent, SignonConfirmationScreenComponent, MenuScreenComponent, WorkOrderTransactionScreenComponent, WorkOrderBalanceScreenComponent, WorkOrderReceiptsScreenComponent, ConfirmWorkOrderScreenComponent, WorkOrderSlipPrintingScreenComponent, ProcessWorkOrderScreenComponent, WorkOrderTransactionAltScreenComponent, ServiceOfProcessScreenComponent],
+  imports: [CommonModule, FormsModule, WelcomeScreenComponent, CustomerInfoScreenComponent, LoginScreenComponent, SignonConfirmationScreenComponent, MenuScreenComponent, WorkOrderTransactionScreenComponent, WorkOrderBalanceScreenComponent, WorkOrderReceiptsScreenComponent, ConfirmWorkOrderScreenComponent, WorkOrderSlipPrintingScreenComponent, ProcessWorkOrderScreenComponent, WorkOrderTransactionAltScreenComponent, ServiceOfProcessScreenComponent, ServiceProcessConfirmationScreenComponent, SopMaintenanceSelectionScreenComponent],
   templateUrl: './mainframe-terminal.component.html',
   styleUrls: ['./mainframe-terminal.component.css']
 })
@@ -233,14 +235,16 @@ export class MainframeTerminalComponent implements OnInit, OnDestroy {
    * - 'LOGIN' - Login screen
    * - 'SIGNON_CONFIRMATION' - Signon confirmation screen
    * - 'MENU' - MBES Management Menu
-   * - 'WORK_ORDER_TRANSACTION' - Create Work Order Transaction
-   * - 'WORK_ORDER_TRANSACTION_ALT' - Create Work Order Transaction (No Postage Fee)
-   * - 'WORK_ORDER_BALANCE' - Work Order Balance/Payment Tracking
-   * - 'WORK_ORDER_RECEIPTS' - Work Order Receipts
-   * - 'CONFIRM_WORK_ORDER' - Confirm Work Order Acceptance
-   * - 'WORK_ORDER_SLIP_PRINTING' - Work Order Slip Printing
-   * - 'PROCESS_WORK_ORDER' - Process Work Order Transactions
-   * - 'SERVICE_OF_PROCESS' - Service of Process - Acknowledgement
+   * - 'WORK_ORDER_TRANSACTION' - Create Work Order Transaction (Option 1)
+   * - 'WORK_ORDER_TRANSACTION_ALT' - Create Work Order Transaction (No Postage Fee) (Option 1)
+   * - 'WORK_ORDER_BALANCE' - Work Order Balance/Payment Tracking (Option 1)
+   * - 'WORK_ORDER_RECEIPTS' - Work Order Receipts (Option 1)
+   * - 'CONFIRM_WORK_ORDER' - Confirm Work Order Acceptance (Option 1)
+   * - 'WORK_ORDER_SLIP_PRINTING' - Work Order Slip Printing (Option 1)
+   * - 'PROCESS_WORK_ORDER' - Process Work Order Transactions (Option 1)
+   * - 'SERVICE_OF_PROCESS' - Service of Process - Acknowledgement (Option 1)
+   * - 'SERVICE_PROCESS_CONFIRMATION' - Service of Process - Confirmation (Option 1)
+   * - 'SOP_MAINTENANCE_SELECTION' - SOP Maintenance Selection (Option 4)
    * - 'SS6T-6' - Customer Information screen
    */
   navigateTo(screenId: string): void {
