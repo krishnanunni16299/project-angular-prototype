@@ -22,11 +22,12 @@ import { SopMaintenanceSelectionScreenComponent } from './screens/sop-maintenanc
 import { SopAmendmentEntryScreenComponent } from './screens/sop-amendment-entry-screen/sop-amendment-entry-screen.component';
 import { SopConfirmationScreenComponent } from './screens/sop-confirmation-screen/sop-confirmation-screen.component';
 import { SopAffidavitPrintingScreenComponent } from './screens/sop-affidavit-printing-screen/sop-affidavit-printing-screen.component';
+import { SopStandaloneLetterScreenComponent } from './screens/sop-standalone-letter-screen/sop-standalone-letter-screen.component';
 
 @Component({
   selector: 'app-mainframe-terminal',
   standalone: true,
-  imports: [CommonModule, FormsModule, WelcomeScreenComponent, CustomerInfoScreenComponent, LoginScreenComponent, SignonConfirmationScreenComponent, MenuScreenComponent, WorkOrderTransactionScreenComponent, WorkOrderBalanceScreenComponent, WorkOrderReceiptsScreenComponent, ConfirmWorkOrderScreenComponent, WorkOrderSlipPrintingScreenComponent, ProcessWorkOrderScreenComponent, WorkOrderTransactionAltScreenComponent, ServiceOfProcessScreenComponent, ServiceProcessConfirmationScreenComponent, SopMaintenanceSelectionScreenComponent, SopAmendmentEntryScreenComponent, SopConfirmationScreenComponent, SopAffidavitPrintingScreenComponent],
+  imports: [CommonModule, FormsModule, WelcomeScreenComponent, CustomerInfoScreenComponent, LoginScreenComponent, SignonConfirmationScreenComponent, MenuScreenComponent, WorkOrderTransactionScreenComponent, WorkOrderBalanceScreenComponent, WorkOrderReceiptsScreenComponent, ConfirmWorkOrderScreenComponent, WorkOrderSlipPrintingScreenComponent, ProcessWorkOrderScreenComponent, WorkOrderTransactionAltScreenComponent, ServiceOfProcessScreenComponent, ServiceProcessConfirmationScreenComponent, SopMaintenanceSelectionScreenComponent, SopAmendmentEntryScreenComponent, SopConfirmationScreenComponent, SopAffidavitPrintingScreenComponent, SopStandaloneLetterScreenComponent],
   templateUrl: './mainframe-terminal.component.html',
   styleUrls: ['./mainframe-terminal.component.css']
 })
@@ -251,6 +252,7 @@ export class MainframeTerminalComponent implements OnInit, OnDestroy {
    * - 'SOP_AMENDMENT_ENTRY' - SOP Amendment Entry (Option 5 - Screen 1)
    * - 'SOP_CONFIRMATION' - SOP Confirmation (Option 5 - Screen 2)
    * - 'SOP_AFFIDAVIT_PRINTING' - SOP Affidavit Printing (Option 7 - Screen 1)
+   * - 'SOP_STANDALONE_LETTER' - SOP Standalone Letter (Option 8 - Screen 1)
    * - 'SS6T-6' - Customer Information screen
    */
   navigateTo(screenId: string): void {
