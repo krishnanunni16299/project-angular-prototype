@@ -1,0 +1,173 @@
+<!-- SERVICE OF PROCESS - STAND ALONE LETTER Screen -->
+<!-- Header -->
+<div class="flex justify-between mb-3 [text-shadow:0_0_2px_#50D8D5]">
+  <!-- Left: Screen ID -->
+  <div class="flex flex-col">
+    <span class="text-white">SS9P-1</span>
+    <span class="text-white">T21</span>
+  </div>
+
+  <!-- Center: Title -->
+  <div
+    class="flex flex-col items-center flex-grow text-white [text-shadow:0_0_2px_#FFFFFF]"
+  >
+    <span class="tracking-[0.5em]">M B E S</span>
+    <span class="tracking-normal">SERVICE OF PROCESS - STAND ALONE LETTER</span>
+  </div>
+
+  <!-- Right: Date, Time, and Case # -->
+  <div class="flex flex-col items-end">
+    <div class="flex items-baseline gap-2 mb-1">
+      <span class="text-white">{{ getCurrentDate() }}</span>
+      <span class="text-crt-cyan [text-shadow:0_0_2px_#50D8D5]">Case #:</span>
+      <input
+        type="text"
+        [(ngModel)]="caseNumber"
+        class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+        style="width: 15ch"
+      />
+    </div>
+    <span class="text-white">{{ getCurrentTime() }}</span>
+  </div>
+</div>
+
+<!-- Main Content Area -->
+<div class="flex flex-col gap-1 mb-4">
+  <!-- Name -->
+  <div class="flex items-baseline">
+    <span class="text-crt-green [text-shadow:0_0_2px_#41C347]" style="width: 10ch">Name:</span>
+    <input
+      type="text"
+      [(ngModel)]="name"
+      class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+      autofocus
+    />
+  </div>
+
+  <!-- Address Line 1 -->
+  <div class="flex items-baseline">
+    <span class="text-crt-green [text-shadow:0_0_2px_#41C347]" style="width: 10ch">Address:</span>
+    <input
+      type="text"
+      [(ngModel)]="address1"
+      class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+    />
+  </div>
+
+  <!-- Address Line 2 -->
+  <div class="flex items-baseline">
+    <span class="text-crt-green [text-shadow:0_0_2px_#41C347]" style="width: 10ch"></span>
+    <input
+      type="text"
+      [(ngModel)]="address2"
+      class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+    />
+  </div>
+
+  <!-- Address Line 3 -->
+  <div class="flex items-baseline">
+    <span class="text-crt-green [text-shadow:0_0_2px_#41C347]" style="width: 10ch"></span>
+    <input
+      type="text"
+      [(ngModel)]="address3"
+      class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+    />
+  </div>
+
+  <!-- Defendant -->
+  <div class="flex items-baseline">
+    <span class="text-crt-green [text-shadow:0_0_2px_#41C347]" style="width: 10ch">Defendant:</span>
+    <input
+      type="text"
+      [(ngModel)]="defendant"
+      class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+    />
+  </div>
+</div>
+
+<!-- Reason Selection Section -->
+<div class="mb-4">
+  <div class="mb-2">
+    <span class="text-crt-green [text-shadow:0_0_2px_#41C347]">Select Reason(s)::</span>
+  </div>
+  
+  <div class="flex flex-col gap-1 ml-4">
+    <!-- Reason 1 -->
+    <div class="flex items-baseline">
+      <input
+        type="checkbox"
+        [(ngModel)]="reason1"
+        class="mr-2 w-4 h-4 accent-crt-green"
+      />
+      <span class="text-crt-green [text-shadow:0_0_2px_#41C347]">Required $50 Filing Fee per Defendant not enclosed</span>
+    </div>
+
+    <!-- Reason 2 -->
+    <div class="flex items-baseline">
+      <input
+        type="checkbox"
+        [(ngModel)]="reason2"
+        class="mr-2 w-4 h-4 accent-crt-green"
+      />
+      <span class="text-crt-green [text-shadow:0_0_2px_#41C347]">Additional copy of the Writ of Summons was not enclosed</span>
+    </div>
+
+    <!-- Reason 3 -->
+    <div class="flex items-baseline">
+      <input
+        type="checkbox"
+        [(ngModel)]="reason3"
+        class="mr-2 w-4 h-4 accent-crt-green"
+      />
+      <span class="text-crt-green [text-shadow:0_0_2px_#41C347]">Additional copy of Complaint and/or Supporting Documents were not enclosed</span>
+    </div>
+
+    <!-- Reason 4 -->
+    <div class="flex items-baseline">
+      <input
+        type="checkbox"
+        [(ngModel)]="reason4"
+        class="mr-2 w-4 h-4 accent-crt-green"
+      />
+      <span class="text-crt-green [text-shadow:0_0_2px_#41C347]">No Trial Date and/or Case Number has been assigned</span>
+    </div>
+
+    <!-- Reason 5 - Other -->
+    <div class="flex flex-col">
+      <div class="flex items-baseline">
+        <input
+          type="checkbox"
+          [(ngModel)]="reason5"
+          class="mr-2 w-4 h-4 accent-crt-green"
+        />
+        <span class="text-crt-green [text-shadow:0_0_2px_#41C347]">Other (Please Specify):</span>
+      </div>
+      <!-- Other reason input lines -->
+      <div class="ml-6 mt-1 flex flex-col gap-1">
+        <input
+          type="text"
+          [(ngModel)]="otherReason1"
+          class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+        />
+        <input
+          type="text"
+          [(ngModel)]="otherReason2"
+          class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div
+  class="absolute bottom-0 left-5 right-5 flex justify-between items-center pt-2.5 pb-2.5 text-sm bg-black/95 z-[15]"
+>
+  <span class="text-white [text-shadow:0_0_2px_#FFFFFF]"
+    >PF: 1-HELP 3-END 6-CONFIRM</span
+  >
+  <span class="text-crt-cyan [text-shadow:0_0_2px_#50D8D5]"
+    >Printer: {{ printer }}</span
+  >
+</div>
+
