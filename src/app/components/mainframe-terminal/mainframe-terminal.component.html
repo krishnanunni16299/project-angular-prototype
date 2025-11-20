@@ -34,6 +34,30 @@
       Work Order
     </button>
     <button
+      (click)="navigateTo('WORK_ORDER_BALANCE')"
+      class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
+    >
+      WO Balance
+    </button>
+    <button
+      (click)="navigateTo('WORK_ORDER_RECEIPTS')"
+      class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
+    >
+      WO Receipts
+    </button>
+    <button
+      (click)="navigateTo('CONFIRM_WORK_ORDER')"
+      class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
+    >
+      Confirm WO
+    </button>
+    <button
+      (click)="navigateTo('WORK_ORDER_SLIP_PRINTING')"
+      class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
+    >
+      WO Print
+    </button>
+    <button
       (click)="navigateTo('SS6T-6')"
       class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
     >
@@ -59,6 +83,7 @@
       width: calc(80ch + 2rem);
       height: calc(24 * 1.2em + 2rem);
       font-size: 16px;
+      letter-spacing: 0.07em;
     "
   >
     <!-- Scan Lines Overlay -->
@@ -69,7 +94,7 @@
     <!-- Screen Content: 80x24 Grid -->
     <div
       class="mainframe-screen relative px-4 py-2 text-crt-green z-[5] font-mono [text-shadow:0_0_2px_#41C347]"
-      style="font-size: 14px; line-height: 1.2; letter-spacing: 0"
+      style="font-size: 14px; line-height: 1.2; letter-spacing: 0.03em"
     >
       <!-- Screen Router -->
       <div class="flex-1 flex flex-col w-full h-full">
@@ -97,6 +122,30 @@
             *ngSwitchCase="'WORK_ORDER_TRANSACTION'"
             [screen]="currentScreen"
           ></app-work-order-transaction-screen>
+
+          <!-- Work Order Balance Screen Component -->
+          <app-work-order-balance-screen
+            *ngSwitchCase="'WORK_ORDER_BALANCE'"
+            [screen]="currentScreen"
+          ></app-work-order-balance-screen>
+
+          <!-- Work Order Receipts Screen Component -->
+          <app-work-order-receipts-screen
+            *ngSwitchCase="'WORK_ORDER_RECEIPTS'"
+            [screen]="currentScreen"
+          ></app-work-order-receipts-screen>
+
+          <!-- Confirm Work Order Screen Component -->
+          <app-confirm-work-order-screen
+            *ngSwitchCase="'CONFIRM_WORK_ORDER'"
+            [screen]="currentScreen"
+          ></app-confirm-work-order-screen>
+
+          <!-- Work Order Slip Printing Screen Component -->
+          <app-work-order-slip-printing-screen
+            *ngSwitchCase="'WORK_ORDER_SLIP_PRINTING'"
+            [screen]="currentScreen"
+          ></app-work-order-slip-printing-screen>
 
           <!-- Welcome Screen Component -->
           <app-welcome-screen

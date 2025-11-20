@@ -10,11 +10,15 @@ import { LoginScreenComponent } from './screens/login-screen/login-screen.compon
 import { SignonConfirmationScreenComponent } from './screens/signon-confirmation-screen/signon-confirmation-screen.component';
 import { MenuScreenComponent } from './screens/menu-screen/menu-screen.component';
 import { WorkOrderTransactionScreenComponent } from './screens/work-order-transaction-screen/work-order-transaction-screen.component';
+import { WorkOrderBalanceScreenComponent } from './screens/work-order-balance-screen/work-order-balance-screen.component';
+import { WorkOrderReceiptsScreenComponent } from './screens/work-order-receipts-screen/work-order-receipts-screen.component';
+import { ConfirmWorkOrderScreenComponent } from './screens/confirm-work-order-screen/confirm-work-order-screen.component';
+import { WorkOrderSlipPrintingScreenComponent } from './screens/work-order-slip-printing-screen/work-order-slip-printing-screen.component';
 
 @Component({
   selector: 'app-mainframe-terminal',
   standalone: true,
-  imports: [CommonModule, FormsModule, WelcomeScreenComponent, CustomerInfoScreenComponent, LoginScreenComponent, SignonConfirmationScreenComponent, MenuScreenComponent, WorkOrderTransactionScreenComponent],
+  imports: [CommonModule, FormsModule, WelcomeScreenComponent, CustomerInfoScreenComponent, LoginScreenComponent, SignonConfirmationScreenComponent, MenuScreenComponent, WorkOrderTransactionScreenComponent, WorkOrderBalanceScreenComponent, WorkOrderReceiptsScreenComponent, ConfirmWorkOrderScreenComponent, WorkOrderSlipPrintingScreenComponent],
   templateUrl: './mainframe-terminal.component.html',
   styleUrls: ['./mainframe-terminal.component.css']
 })
@@ -227,6 +231,10 @@ export class MainframeTerminalComponent implements OnInit, OnDestroy {
    * - 'SIGNON_CONFIRMATION' - Signon confirmation screen
    * - 'MENU' - MBES Management Menu
    * - 'WORK_ORDER_TRANSACTION' - Create Work Order Transaction
+   * - 'WORK_ORDER_BALANCE' - Work Order Balance/Payment Tracking
+   * - 'WORK_ORDER_RECEIPTS' - Work Order Receipts
+   * - 'CONFIRM_WORK_ORDER' - Confirm Work Order Acceptance
+   * - 'WORK_ORDER_SLIP_PRINTING' - Work Order Slip Printing
    * - 'SS6T-6' - Customer Information screen
    */
   navigateTo(screenId: string): void {
