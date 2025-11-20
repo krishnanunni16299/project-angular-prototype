@@ -106,6 +106,18 @@
       Opt5-2. SOP Confirm
     </button>
     <button
+      (click)="navigateTo('SOP_AFFIDAVIT_PRINTING')"
+      class="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-xs rounded font-semibold"
+    >
+      Opt7-1. SOP Affidavit
+    </button>
+    <button
+      (click)="navigateTo('SOP_STANDALONE_LETTER')"
+      class="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-xs rounded font-semibold"
+    >
+      Opt8-1. SOP Standalone
+    </button>
+    <button
       (click)="goBack()"
       class="px-3 py-1.5 bg-gray-600 hover:bg-gray-700 text-white text-xs rounded font-semibold"
     >
@@ -230,6 +242,18 @@
             *ngSwitchCase="'SOP_CONFIRMATION'"
             [screen]="currentScreen"
           ></app-sop-confirmation-screen>
+
+          <!-- SOP Affidavit Printing Screen Component (Option 7 - Screen 1) -->
+          <app-sop-affidavit-printing-screen
+            *ngSwitchCase="'SOP_AFFIDAVIT_PRINTING'"
+            [screen]="currentScreen"
+          ></app-sop-affidavit-printing-screen>
+
+          <!-- SOP Standalone Letter Screen Component (Option 8 - Screen 1) -->
+          <app-sop-standalone-letter-screen
+            *ngSwitchCase="'SOP_STANDALONE_LETTER'"
+            [screen]="currentScreen"
+          ></app-sop-standalone-letter-screen>
 
           <!-- Welcome Screen Component -->
           <app-welcome-screen

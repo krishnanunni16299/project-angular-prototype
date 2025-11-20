@@ -30,6 +30,8 @@ export class MainframeScreenService {
     this.registerScreen(this.getSopMaintenanceSelectionScreen());
     this.registerScreen(this.getSopAmendmentEntryScreen());
     this.registerScreen(this.getSopConfirmationScreen());
+    this.registerScreen(this.getSopAffidavitPrintingScreen());
+    this.registerScreen(this.getSopStandaloneLetterScreen());
     this.registerScreen(this.getWelcomeScreen());
     this.registerScreen(this.getCustomerInformationScreen());
     // Set initial screen - change this to test different screens
@@ -857,6 +859,68 @@ export class MainframeScreenService {
           { key: 4, label: '4-PROCESS WORK ORDER', action: 'PROCESS_WORK_ORDER', enabled: true },
           { key: 6, label: '6-CONFIRM', action: 'CONFIRM', enabled: true },
           { key: 10, label: '10-PRV', action: 'PREVIOUS', enabled: true }
+        ]
+      }
+    };
+  }
+
+  /**
+   * Get SOP Affidavit Printing Screen definition (Option 7 - Screen 1)
+   */
+  private getSopAffidavitPrintingScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'SOP_AFFIDAVIT_PRINTING',
+      title: 'SERVICE OF PROCESS- AFFIDAVIT PRINTING',
+      docType: '',
+      header: {
+        systemId: 'SS9M-1',
+        menuItems: [],
+        date: this.formatDate(now),
+        time: this.formatTime(now),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 0,
+        totalPages: 0,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
+          { key: 3, label: '3-END', action: 'END', enabled: true },
+          { key: 6, label: '6-CONFIRM', action: 'CONFIRM', enabled: true }
+        ]
+      }
+    };
+  }
+
+  /**
+   * Get SOP Standalone Letter Screen definition (Option 8 - Screen 1)
+   */
+  private getSopStandaloneLetterScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'SOP_STANDALONE_LETTER',
+      title: 'SERVICE OF PROCESS - STAND ALONE LETTER',
+      docType: '',
+      header: {
+        systemId: 'SS9P-1',
+        menuItems: [],
+        date: this.formatDate(now),
+        time: this.formatTime(now),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 0,
+        totalPages: 0,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
+          { key: 3, label: '3-END', action: 'END', enabled: true },
+          { key: 6, label: '6-CONFIRM', action: 'CONFIRM', enabled: true }
         ]
       }
     };
