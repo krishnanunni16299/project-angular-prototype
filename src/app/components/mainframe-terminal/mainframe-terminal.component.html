@@ -94,6 +94,18 @@
       Opt4-1. SOP Maint
     </button>
     <button
+      (click)="navigateTo('SOP_AMENDMENT_ENTRY')"
+      class="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-xs rounded font-semibold"
+    >
+      Opt5-1. SOP Amend Entry
+    </button>
+    <button
+      (click)="navigateTo('SOP_CONFIRMATION')"
+      class="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-xs rounded font-semibold"
+    >
+      Opt5-2. SOP Confirm
+    </button>
+    <button
       (click)="goBack()"
       class="px-3 py-1.5 bg-gray-600 hover:bg-gray-700 text-white text-xs rounded font-semibold"
     >
@@ -206,6 +218,18 @@
             *ngSwitchCase="'SOP_MAINTENANCE_SELECTION'"
             [screen]="currentScreen"
           ></app-sop-maintenance-selection-screen>
+
+          <!-- SOP Amendment Entry Screen Component (Option 5 - Screen 1) -->
+          <app-sop-amendment-entry-screen
+            *ngSwitchCase="'SOP_AMENDMENT_ENTRY'"
+            [screen]="currentScreen"
+          ></app-sop-amendment-entry-screen>
+
+          <!-- SOP Confirmation Screen Component (Option 5 - Screen 2) -->
+          <app-sop-confirmation-screen
+            *ngSwitchCase="'SOP_CONFIRMATION'"
+            [screen]="currentScreen"
+          ></app-sop-confirmation-screen>
 
           <!-- Welcome Screen Component -->
           <app-welcome-screen

@@ -1,0 +1,76 @@
+<!-- SERVICE OF PROCESS - CONFIRMATION Screen -->
+<!-- Header -->
+<div class="flex justify-between mb-4 [text-shadow:0_0_2px_#50D8D5]">
+  <!-- Left: Screen ID -->
+  <div class="flex flex-col">
+    <span class="text-white">SS3A-S</span>
+    <span class="text-white">T21</span>
+  </div>
+
+  <!-- Center: Title -->
+  <div
+    class="flex flex-col items-center flex-grow text-white [text-shadow:0_0_2px_#FFFFFF]"
+  >
+    <span class="tracking-[0.5em]">M B E S</span>
+    <span class="tracking-normal">SERVICE OF PROCESS - CONFIRMATION</span>
+  </div>
+
+  <!-- Right: Date and Time -->
+  <div class="flex flex-col items-end">
+    <span class="text-white">{{ getCurrentDate() }}</span>
+    <span class="text-white">{{ getCurrentTime() }}</span>
+  </div>
+</div>
+
+<!-- SOP Number Display -->
+<div class="flex justify-center mb-6">
+  <span class="text-crt-cyan [text-shadow:0_0_2px_#50D8D5]">SOP Number: {{ sopNumber }}</span>
+</div>
+
+<!-- Main Content Area -->
+<div class="flex flex-col gap-4 mb-6">
+  <!-- Letter Printer Selection -->
+  <div class="flex flex-col">
+    <div class="flex items-baseline mb-1">
+      <span class="text-crt-cyan [text-shadow:0_0_2px_#50D8D5]">Select (S) - specify Printer ID for letter:</span>
+      <input
+        type="text"
+        [(ngModel)]="letterPrinterId"
+        class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+        style="width: 10ch"
+        autofocus
+      />
+    </div>
+    <div class="ml-8 mt-1">
+      <span class="text-white">{{ letterAddress }}</span>
+    </div>
+  </div>
+
+  <!-- Film Label Printer Selection -->
+  <div class="flex flex-col">
+    <div class="flex items-baseline mb-1">
+      <span class="text-crt-cyan [text-shadow:0_0_2px_#50D8D5]">Select (S) - specify Printer ID for film label:</span>
+      <input
+        type="text"
+        [(ngModel)]="filmLabelPrinterId"
+        class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+        style="width: 10ch"
+      />
+    </div>
+  </div>
+</div>
+
+<!-- Instruction Message -->
+<div class="flex justify-center mb-4">
+  <span class="text-white [text-shadow:0_0_2px_#FFFFFF]">Press F6 to complete this transaction</span>
+</div>
+
+<!-- Footer -->
+<div
+  class="absolute bottom-0 left-5 right-5 flex pt-2.5 pb-2.5 text-sm bg-black/95 z-[15]"
+>
+  <span class="text-white [text-shadow:0_0_2px_#FFFFFF]"
+    >PF: 1-HELP 3-END 4-PROCESS WORK ORDER 6-CONFIRM 10-PRV</span
+  >
+</div>
+
