@@ -30,10 +30,15 @@ export class MainframeScreenService {
     this.registerScreen(this.getSopMaintenanceSelectionScreen());
     this.registerScreen(this.getSopAmendmentEntryScreen());
     this.registerScreen(this.getSopConfirmationScreen());
+<<<<<<< HEAD
     this.registerScreen(this.getSopInputInquiryScreen());
     this.registerScreen(this.getSopInquirySearchScreen());
     this.registerScreen(this.getSopInquirySelectionScreen());
     this.registerScreen(this.getSopInquiryDetailScreen());
+=======
+    this.registerScreen(this.getSopAffidavitPrintingScreen());
+    this.registerScreen(this.getSopStandaloneLetterScreen());
+>>>>>>> 232c2c8a16ef19e49bf00ded67709fe35ea6b550
     this.registerScreen(this.getWelcomeScreen());
     this.registerScreen(this.getCustomerInformationScreen());
     // Set initial screen - change this to test different screens
@@ -867,6 +872,7 @@ export class MainframeScreenService {
   }
 
   /**
+<<<<<<< HEAD
    * Get SOP Input Inquiry Screen definition (Option 6 - Screen 1)
    */
   private getSopInputInquiryScreen(): MainframeScreen {
@@ -877,6 +883,18 @@ export class MainframeScreenService {
       docType: '',
       header: {
         systemId: 'SS9T-1',
+=======
+   * Get SOP Affidavit Printing Screen definition (Option 7 - Screen 1)
+   */
+  private getSopAffidavitPrintingScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'SOP_AFFIDAVIT_PRINTING',
+      title: 'SERVICE OF PROCESS- AFFIDAVIT PRINTING',
+      docType: '',
+      header: {
+        systemId: 'SS9M-1',
+>>>>>>> 232c2c8a16ef19e49bf00ded67709fe35ea6b550
         menuItems: [],
         date: this.formatDate(now),
         time: this.formatTime(now),
@@ -891,13 +909,18 @@ export class MainframeScreenService {
         pfKeys: [
           { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
           { key: 3, label: '3-END', action: 'END', enabled: true },
+<<<<<<< HEAD
           { key: 11, label: '11-NXT', action: 'NEXT', enabled: true }
+=======
+          { key: 6, label: '6-CONFIRM', action: 'CONFIRM', enabled: true }
+>>>>>>> 232c2c8a16ef19e49bf00ded67709fe35ea6b550
         ]
       }
     };
   }
 
   /**
+<<<<<<< HEAD
    * Get SOP Inquiry Search Screen definition (Option 6 - Screen 2)
    */
   private getSopInquirySearchScreen(): MainframeScreen {
@@ -940,6 +963,18 @@ export class MainframeScreenService {
       docType: '',
       header: {
         systemId: 'SS9L-1',
+=======
+   * Get SOP Standalone Letter Screen definition (Option 8 - Screen 1)
+   */
+  private getSopStandaloneLetterScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'SOP_STANDALONE_LETTER',
+      title: 'SERVICE OF PROCESS - STAND ALONE LETTER',
+      docType: '',
+      header: {
+        systemId: 'SS9P-1',
+>>>>>>> 232c2c8a16ef19e49bf00ded67709fe35ea6b550
         menuItems: [],
         date: this.formatDate(now),
         time: this.formatTime(now),
@@ -954,6 +989,7 @@ export class MainframeScreenService {
         pfKeys: [
           { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
           { key: 3, label: '3-END', action: 'END', enabled: true },
+<<<<<<< HEAD
           { key: 10, label: '10-PRV', action: 'PREVIOUS', enabled: true },
           { key: 11, label: '11-NXT', action: 'NEXT', enabled: true }
         ]
@@ -989,6 +1025,9 @@ export class MainframeScreenService {
           { key: 3, label: '3-END', action: 'END', enabled: true },
           { key: 4, label: '4-NEW INQUIRY', action: 'NEW_INQUIRY', enabled: true },
           { key: 10, label: '10-PRV', action: 'PREVIOUS', enabled: true }
+=======
+          { key: 6, label: '6-CONFIRM', action: 'CONFIRM', enabled: true }
+>>>>>>> 232c2c8a16ef19e49bf00ded67709fe35ea6b550
         ]
       }
     };
