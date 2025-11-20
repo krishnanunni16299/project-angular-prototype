@@ -19,14 +19,19 @@ export class MainframeScreenService {
     this.registerScreen(this.getSignonConfirmationScreen());
     this.registerScreen(this.getMenuScreen());
     this.registerScreen(this.getWorkOrderTransactionScreen());
+    this.registerScreen(this.getWorkOrderTransactionAltScreen());
     this.registerScreen(this.getWorkOrderBalanceScreen());
     this.registerScreen(this.getWorkOrderReceiptsScreen());
     this.registerScreen(this.getConfirmWorkOrderScreen());
     this.registerScreen(this.getWorkOrderSlipPrintingScreen());
+    this.registerScreen(this.getProcessWorkOrderScreen());
+    this.registerScreen(this.getServiceOfProcessScreen());
+    this.registerScreen(this.getServiceProcessConfirmationScreen());
+    this.registerScreen(this.getSopMaintenanceSelectionScreen());
     this.registerScreen(this.getWelcomeScreen());
     this.registerScreen(this.getCustomerInformationScreen());
     // Set initial screen - change this to test different screens
-    this.navigateToScreen('WORK_ORDER_SLIP_PRINTING'); // Change to: LOGIN, SIGNON_CONFIRMATION, MENU, WORK_ORDER_TRANSACTION, WORK_ORDER_BALANCE, WORK_ORDER_RECEIPTS, CONFIRM_WORK_ORDER, WORK_ORDER_SLIP_PRINTING, or SS6T-6
+    this.navigateToScreen('SOP_MAINTENANCE_SELECTION'); // Change to: LOGIN, SIGNON_CONFIRMATION, MENU, WORK_ORDER_TRANSACTION, WORK_ORDER_TRANSACTION_ALT, WORK_ORDER_BALANCE, WORK_ORDER_RECEIPTS, CONFIRM_WORK_ORDER, WORK_ORDER_SLIP_PRINTING, PROCESS_WORK_ORDER, SERVICE_OF_PROCESS, SERVICE_PROCESS_CONFIRMATION, SOP_MAINTENANCE_SELECTION, or SS6T-6
   }
 
   /**
@@ -257,6 +262,39 @@ export class MainframeScreenService {
     return {
       screenId: 'WORK_ORDER_TRANSACTION',
       title: 'Create Work Order Transaction',
+      docType: '',
+      header: {
+        systemId: 'SS21-C',
+        menuItems: [],
+        date: now.toISOString().split('T')[0],
+        time: now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 1,
+        totalPages: 1,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: '', enabled: true },
+          { key: 2, label: '2-COMMENTS', action: '', enabled: true },
+          { key: 3, label: '3-END', action: '', enabled: true },
+          { key: 4, label: '4-COUNTY TAX', action: '', enabled: true },
+          { key: 8, label: '8-FWD', action: '', enabled: true },
+          { key: 9, label: '9-DEL', action: '', enabled: true },
+          { key: 10, label: '10-PRV', action: '', enabled: true },
+          { key: 11, label: '11-NXT', action: '', enabled: true }
+        ]
+      }
+    };
+  }
+
+  private getWorkOrderTransactionAltScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'WORK_ORDER_TRANSACTION_ALT',
+      title: 'Create Work Order Transaction (No Postage)',
       docType: '',
       header: {
         systemId: 'SS21-C',
@@ -636,6 +674,121 @@ export class MainframeScreenService {
           { key: 3, label: '3-END', action: 'END', enabled: true },
           { key: 4, label: '4-NEW WORK ORDER', action: 'NEW', enabled: true },
           { key: 10, label: '10-PRV', action: 'PREVIOUS', enabled: true }
+        ]
+      }
+    };
+  }
+
+  private getProcessWorkOrderScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'PROCESS_WORK_ORDER',
+      title: 'Process Work Order Transactions',
+      docType: '',
+      header: {
+        systemId: 'SS7H-S',
+        menuItems: [],
+        date: now.toISOString().split('T')[0],
+        time: now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 1,
+        totalPages: 1,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
+          { key: 3, label: '3-END', action: 'END', enabled: true }
+        ]
+      }
+    };
+  }
+
+  private getServiceOfProcessScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'SERVICE_OF_PROCESS',
+      title: 'Service of Process - Acknowledgement',
+      docType: '',
+      header: {
+        systemId: 'SS9H-1',
+        menuItems: [],
+        date: now.toISOString().split('T')[0],
+        time: now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 0,
+        totalPages: 0,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
+          { key: 3, label: '3-END', action: 'END', enabled: true },
+          { key: 8, label: '8-FWD', action: 'FORWARD', enabled: true },
+          { key: 11, label: '11-NXT', action: 'NEXT', enabled: true }
+        ]
+      }
+    };
+  }
+
+  private getServiceProcessConfirmationScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'SERVICE_PROCESS_CONFIRMATION',
+      title: 'Service of Process - Confirmation',
+      docType: '',
+      header: {
+        systemId: 'SS3A-5',
+        menuItems: [],
+        date: now.toISOString().split('T')[0],
+        time: now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 0,
+        totalPages: 0,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
+          { key: 3, label: '3-END', action: 'END', enabled: true },
+          { key: 4, label: '4-PROCESS WORK ORDER', action: 'PROCESS', enabled: true },
+          { key: 6, label: '6-CONFIRM', action: 'CONFIRM', enabled: true },
+          { key: 10, label: '10-PRV', action: 'PREVIOUS', enabled: true }
+        ]
+      }
+    };
+  }
+
+  private getSopMaintenanceSelectionScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'SOP_MAINTENANCE_SELECTION',
+      title: 'SOP - Maintenance Selection',
+      docType: '',
+      header: {
+        systemId: 'SS9L-2',
+        menuItems: [],
+        date: now.toISOString().split('T')[0],
+        time: now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 0,
+        totalPages: 0,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
+          { key: 3, label: '3-END', action: 'END', enabled: true },
+          { key: 9, label: '9-DEL', action: 'DELETE', enabled: true },
+          { key: 11, label: '11-NXT', action: 'NEXT', enabled: true }
         ]
       }
     };

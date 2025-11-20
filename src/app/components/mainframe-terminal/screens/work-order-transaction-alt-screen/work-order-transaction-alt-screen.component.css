@@ -1,0 +1,22 @@
+/* Work Order Transaction Screen Styles (No Postage Fee Variant) */
+
+/* Ensure full screen coverage within 80x24 grid */
+:host {
+  display: contents;
+}
+
+/* Ensure inputs stay within character grid */
+input {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: inherit;
+}
+
+/* Placeholder styling for numeric fields */
+input::placeholder {
+  color: rgba(80, 216, 213, 0.4);
+  opacity: 1;
+  text-shadow: 0 0 1px rgba(80, 216, 213, 0.3);
+}
+
