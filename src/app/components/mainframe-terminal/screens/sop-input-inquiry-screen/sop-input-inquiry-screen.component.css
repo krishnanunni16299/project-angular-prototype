@@ -1,0 +1,10 @@
+.mainframe-screen {
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  letter-spacing: 0.02em;
+}
+
+input::placeholder {
+  color: #41c347;
+  opacity: 0.4;
+  text-shadow: 0 0 2px #41c347;
+}

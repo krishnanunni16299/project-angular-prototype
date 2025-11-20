@@ -30,10 +30,14 @@ export class MainframeScreenService {
     this.registerScreen(this.getSopMaintenanceSelectionScreen());
     this.registerScreen(this.getSopAmendmentEntryScreen());
     this.registerScreen(this.getSopConfirmationScreen());
+    this.registerScreen(this.getSopInputInquiryScreen());
+    this.registerScreen(this.getSopInquirySearchScreen());
+    this.registerScreen(this.getSopInquirySelectionScreen());
+    this.registerScreen(this.getSopInquiryDetailScreen());
     this.registerScreen(this.getWelcomeScreen());
     this.registerScreen(this.getCustomerInformationScreen());
     // Set initial screen - change this to test different screens
-    this.navigateToScreen('SOP_MAINTENANCE_SELECTION'); // Change to: LOGIN, SIGNON_CONFIRMATION, MENU, WORK_ORDER_TRANSACTION, WORK_ORDER_TRANSACTION_ALT, WORK_ORDER_BALANCE, WORK_ORDER_RECEIPTS, CONFIRM_WORK_ORDER, WORK_ORDER_SLIP_PRINTING, PROCESS_WORK_ORDER, SERVICE_OF_PROCESS, SERVICE_PROCESS_CONFIRMATION, SOP_MAINTENANCE_SELECTION, SOP_AMENDMENT_ENTRY, or SS6T-6
+    this.navigateToScreen('SOP_INQUIRY_DETAIL'); // Change to: LOGIN, SIGNON_CONFIRMATION, MENU, WORK_ORDER_TRANSACTION, WORK_ORDER_TRANSACTION_ALT, WORK_ORDER_BALANCE, WORK_ORDER_RECEIPTS, CONFIRM_WORK_ORDER, WORK_ORDER_SLIP_PRINTING, PROCESS_WORK_ORDER, SERVICE_OF_PROCESS, SERVICE_PROCESS_CONFIRMATION, SOP_MAINTENANCE_SELECTION, SOP_AMENDMENT_ENTRY, SOP_INPUT_INQUIRY, SOP_INQUIRY_SEARCH, SOP_INQUIRY_SELECTION, SOP_INQUIRY_DETAIL, or SS6T-6
   }
 
   /**
@@ -856,6 +860,134 @@ export class MainframeScreenService {
           { key: 3, label: '3-END', action: 'END', enabled: true },
           { key: 4, label: '4-PROCESS WORK ORDER', action: 'PROCESS_WORK_ORDER', enabled: true },
           { key: 6, label: '6-CONFIRM', action: 'CONFIRM', enabled: true },
+          { key: 10, label: '10-PRV', action: 'PREVIOUS', enabled: true }
+        ]
+      }
+    };
+  }
+
+  /**
+   * Get SOP Input Inquiry Screen definition (Option 6 - Screen 1)
+   */
+  private getSopInputInquiryScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'SOP_INPUT_INQUIRY',
+      title: 'SERVICE OF PROCESS - INPUT FOR INQUIRY',
+      docType: '',
+      header: {
+        systemId: 'SS9T-1',
+        menuItems: [],
+        date: this.formatDate(now),
+        time: this.formatTime(now),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 0,
+        totalPages: 0,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
+          { key: 3, label: '3-END', action: 'END', enabled: true },
+          { key: 11, label: '11-NXT', action: 'NEXT', enabled: true }
+        ]
+      }
+    };
+  }
+
+  /**
+   * Get SOP Inquiry Search Screen definition (Option 6 - Screen 2)
+   */
+  private getSopInquirySearchScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'SOP_INQUIRY_SEARCH',
+      title: 'SERVICE OF PROCESS - INQUIRY SEARCH',
+      docType: '',
+      header: {
+        systemId: 'SS9K-1',
+        menuItems: [],
+        date: this.formatDate(now),
+        time: this.formatTime(now),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 1,
+        totalPages: 1,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
+          { key: 3, label: '3-END', action: 'END', enabled: true },
+          { key: 10, label: '10-PRV', action: 'PREVIOUS', enabled: true },
+          { key: 11, label: '11-NXT', action: 'NEXT', enabled: true }
+        ]
+      }
+    };
+  }
+
+  /**
+   * Get SOP Inquiry Selection Screen definition (Option 6 - Screen 3)
+   */
+  private getSopInquirySelectionScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'SOP_INQUIRY_SELECTION',
+      title: 'SERVICE OF PROCESS - INQUIRY SELECTION',
+      docType: '',
+      header: {
+        systemId: 'SS9L-1',
+        menuItems: [],
+        date: this.formatDate(now),
+        time: this.formatTime(now),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 0,
+        totalPages: 0,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
+          { key: 3, label: '3-END', action: 'END', enabled: true },
+          { key: 10, label: '10-PRV', action: 'PREVIOUS', enabled: true },
+          { key: 11, label: '11-NXT', action: 'NEXT', enabled: true }
+        ]
+      }
+    };
+  }
+
+  /**
+   * Get SOP Inquiry Detail Screen definition (Option 6 - Screen 4)
+   */
+  private getSopInquiryDetailScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'SOP_INQUIRY_DETAIL',
+      title: 'SERVICE OF PROCESS - INQUIRY',
+      docType: '',
+      header: {
+        systemId: 'SS9H-3',
+        menuItems: [],
+        date: this.formatDate(now),
+        time: this.formatTime(now),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 0,
+        totalPages: 0,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
+          { key: 2, label: '2-COMMENTS', action: 'COMMENTS', enabled: true },
+          { key: 3, label: '3-END', action: 'END', enabled: true },
+          { key: 4, label: '4-NEW INQUIRY', action: 'NEW_INQUIRY', enabled: true },
           { key: 10, label: '10-PRV', action: 'PREVIOUS', enabled: true }
         ]
       }

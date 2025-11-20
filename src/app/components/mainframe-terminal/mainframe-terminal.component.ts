@@ -21,11 +21,15 @@ import { ServiceProcessConfirmationScreenComponent } from './screens/service-pro
 import { SopMaintenanceSelectionScreenComponent } from './screens/sop-maintenance-selection-screen/sop-maintenance-selection-screen.component';
 import { SopAmendmentEntryScreenComponent } from './screens/sop-amendment-entry-screen/sop-amendment-entry-screen.component';
 import { SopConfirmationScreenComponent } from './screens/sop-confirmation-screen/sop-confirmation-screen.component';
+import { SopInputInquiryScreenComponent } from './screens/sop-input-inquiry-screen/sop-input-inquiry-screen.component';
+import { SopInquirySearchScreenComponent } from './screens/sop-inquiry-search-screen/sop-inquiry-search-screen.component';
+import { SopInquirySelectionScreenComponent } from './screens/sop-inquiry-selection-screen/sop-inquiry-selection-screen.component';
+import { SopInquiryDetailScreenComponent } from './screens/sop-inquiry-detail-screen/sop-inquiry-detail-screen.component';
 
 @Component({
   selector: 'app-mainframe-terminal',
   standalone: true,
-  imports: [CommonModule, FormsModule, WelcomeScreenComponent, CustomerInfoScreenComponent, LoginScreenComponent, SignonConfirmationScreenComponent, MenuScreenComponent, WorkOrderTransactionScreenComponent, WorkOrderBalanceScreenComponent, WorkOrderReceiptsScreenComponent, ConfirmWorkOrderScreenComponent, WorkOrderSlipPrintingScreenComponent, ProcessWorkOrderScreenComponent, WorkOrderTransactionAltScreenComponent, ServiceOfProcessScreenComponent, ServiceProcessConfirmationScreenComponent, SopMaintenanceSelectionScreenComponent, SopAmendmentEntryScreenComponent, SopConfirmationScreenComponent],
+  imports: [CommonModule, FormsModule, WelcomeScreenComponent, CustomerInfoScreenComponent, LoginScreenComponent, SignonConfirmationScreenComponent, MenuScreenComponent, WorkOrderTransactionScreenComponent, WorkOrderBalanceScreenComponent, WorkOrderReceiptsScreenComponent, ConfirmWorkOrderScreenComponent, WorkOrderSlipPrintingScreenComponent, ProcessWorkOrderScreenComponent, WorkOrderTransactionAltScreenComponent, ServiceOfProcessScreenComponent, ServiceProcessConfirmationScreenComponent, SopMaintenanceSelectionScreenComponent, SopAmendmentEntryScreenComponent, SopConfirmationScreenComponent, SopInputInquiryScreenComponent, SopInquirySearchScreenComponent, SopInquirySelectionScreenComponent, SopInquiryDetailScreenComponent],
   templateUrl: './mainframe-terminal.component.html',
   styleUrls: ['./mainframe-terminal.component.css']
 })
@@ -249,6 +253,10 @@ export class MainframeTerminalComponent implements OnInit, OnDestroy {
    * - 'SOP_MAINTENANCE_SELECTION' - SOP Maintenance Selection (Option 4)
    * - 'SOP_AMENDMENT_ENTRY' - SOP Amendment Entry (Option 5 - Screen 1)
    * - 'SOP_CONFIRMATION' - SOP Confirmation (Option 5 - Screen 2)
+   * - 'SOP_INPUT_INQUIRY' - SOP Input for Inquiry (Option 6 - Screen 1)
+   * - 'SOP_INQUIRY_SEARCH' - SOP Inquiry Search (Option 6 - Screen 2)
+   * - 'SOP_INQUIRY_SELECTION' - SOP Inquiry Selection (Option 6 - Screen 3)
+   * - 'SOP_INQUIRY_DETAIL' - SOP Inquiry Detail (Option 6 - Screen 4)
    * - 'SS6T-6' - Customer Information screen
    */
   navigateTo(screenId: string): void {
