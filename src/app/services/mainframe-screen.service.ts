@@ -28,6 +28,7 @@ export class MainframeScreenService {
     this.registerScreen(this.getServiceOfProcessScreen());
     this.registerScreen(this.getServiceProcessConfirmationScreen());
     this.registerScreen(this.getSopMaintenanceSelectionScreen());
+    this.registerScreen(this.getSopFileMaintenanceScreen());
     this.registerScreen(this.getSopAmendmentEntryScreen());
     this.registerScreen(this.getSopConfirmationScreen());
     this.registerScreen(this.getSopAffidavitPrintingScreen());
@@ -35,7 +36,7 @@ export class MainframeScreenService {
     this.registerScreen(this.getWelcomeScreen());
     this.registerScreen(this.getCustomerInformationScreen());
     // Set initial screen - change this to test different screens
-    this.navigateToScreen('SOP_MAINTENANCE_SELECTION'); // Change to: LOGIN, SIGNON_CONFIRMATION, MENU, WORK_ORDER_TRANSACTION, WORK_ORDER_TRANSACTION_ALT, WORK_ORDER_BALANCE, WORK_ORDER_RECEIPTS, CONFIRM_WORK_ORDER, WORK_ORDER_SLIP_PRINTING, PROCESS_WORK_ORDER, SERVICE_OF_PROCESS, SERVICE_PROCESS_CONFIRMATION, SOP_MAINTENANCE_SELECTION, SOP_AMENDMENT_ENTRY, or SS6T-6
+    this.navigateToScreen('SOP_FILE_MAINTENANCE'); // Change to: LOGIN, SIGNON_CONFIRMATION, MENU, WORK_ORDER_TRANSACTION, WORK_ORDER_TRANSACTION_ALT, WORK_ORDER_BALANCE, WORK_ORDER_RECEIPTS, CONFIRM_WORK_ORDER, WORK_ORDER_SLIP_PRINTING, PROCESS_WORK_ORDER, SERVICE_OF_PROCESS, SERVICE_PROCESS_CONFIRMATION, SOP_MAINTENANCE_SELECTION, SOP_FILE_MAINTENANCE, SOP_AMENDMENT_ENTRY, or SS6T-6
   }
 
   /**
@@ -792,6 +793,41 @@ export class MainframeScreenService {
           { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
           { key: 3, label: '3-END', action: 'END', enabled: true },
           { key: 9, label: '9-DEL', action: 'DELETE', enabled: true },
+          { key: 11, label: '11-NXT', action: 'NEXT', enabled: true }
+        ]
+      }
+    };
+  }
+
+  /**
+   * Get SOP File Maintenance Screen definition (Option 4 - Screen 2)
+   */
+  private getSopFileMaintenanceScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'SOP_FILE_MAINTENANCE',
+      title: 'SERVICE OF PROCESS - FILE MAINTENANCE',
+      docType: '',
+      header: {
+        systemId: 'SS9H-7',
+        menuItems: [],
+        date: now.toISOString().split('T')[0],
+        time: now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 0,
+        totalPages: 0,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
+          { key: 2, label: '2-COMMENTS', action: 'COMMENTS', enabled: true },
+          { key: 3, label: '3-END', action: 'END', enabled: true },
+          { key: 8, label: '8-FWD', action: 'FORWARD', enabled: true },
+          { key: 9, label: '9-DEL', action: 'DELETE', enabled: true },
+          { key: 10, label: '10-PRV', action: 'PREVIOUS', enabled: true },
           { key: 11, label: '11-NXT', action: 'NEXT', enabled: true }
         ]
       }
