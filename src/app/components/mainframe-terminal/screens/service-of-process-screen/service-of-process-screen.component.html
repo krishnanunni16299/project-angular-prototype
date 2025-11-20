@@ -1,0 +1,323 @@
+<!-- SERVICE OF PROCESS - ACKNOWLEDGEMENT Screen -->
+<!-- Header -->
+<div class="flex justify-between mb-2 [text-shadow:0_0_2px_#50D8D5]">
+  <!-- Left: Screen ID -->
+  <div class="flex flex-col">
+    <span class="text-white">SS9H-1</span>
+    <span class="text-white">T21</span>
+  </div>
+
+  <!-- Center: Title -->
+  <div
+    class="flex flex-col items-center flex-grow text-white [text-shadow:0_0_2px_#FFFFFF]"
+  >
+    <span class="tracking-[0.5em]">M B E S</span>
+    <span class="tracking-normal">SERVICE OF PROCESS - ACKNOWLEDGEMENT</span>
+  </div>
+
+  <!-- Right: Date and Time -->
+  <div class="flex flex-col items-end">
+    <span class="text-white">{{ getCurrentDate() }}</span>
+    <span class="text-crt-cyan">{{ getCurrentTime() }}</span>
+  </div>
+</div>
+
+<!-- SOP Number and Dates -->
+<div class="flex justify-between mb-1">
+  <div class="flex items-baseline">
+    <span class="text-white min-w-[140px] text-right">SOP Number:</span>
+    <input
+      type="text"
+      [(ngModel)]="sopNumber"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 15ch"
+      autofocus
+    />
+  </div>
+  <div class="flex items-baseline">
+    <span class="text-white">Received Date:</span>
+    <span class="ml-2">
+      <ng-container *ngFor="let part of receivedDateParts">
+        <span
+          [ngClass]="{
+            'text-crt-green': part.color === 'green',
+            'text-crt-cyan': part.color === 'cyan',
+            'text-white': part.color === 'white'
+          }"
+          >{{ part.text }}</span
+        >
+      </ng-container>
+    </span>
+  </div>
+</div>
+
+<!-- Forwarded Date and Case Number -->
+<div class="flex justify-between mb-1">
+  <div class="flex items-baseline">
+    <span class="text-white min-w-[140px] text-right">Forwarded Date:</span>
+    <span class="ml-2">
+      <ng-container *ngFor="let part of forwardedDateParts">
+        <span
+          [ngClass]="{
+            'text-crt-green': part.color === 'green',
+            'text-crt-cyan': part.color === 'cyan',
+            'text-white': part.color === 'white'
+          }"
+          >{{ part.text }}</span
+        >
+      </ng-container>
+    </span>
+  </div>
+  <div class="flex items-baseline">
+    <span class="text-white">Case Number:</span>
+    <input
+      type="text"
+      [(ngModel)]="caseNumber"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 30ch"
+    />
+  </div>
+</div>
+
+<!-- PLAINTIFF NAME -->
+<div class="flex justify-between items-baseline mb-1">
+  <div class="flex items-baseline flex-1 ">
+    <span class="text-white min-w-[140px] text-right">PLAINTIFF NAME:</span>
+    <input
+      type="text"
+      [(ngModel)]="plaintiffName"
+      class="ml-2 flex-1 bg-transparent text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 10ch"
+    />
+  </div>
+  <div class="flex items-baseline mr-40">
+    <span class="text-white min-w-[140px] text-right">Plaintiff Id:</span>
+    <input
+      type="text"
+      [(ngModel)]="plaintiffId"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 12ch"
+    />
+  </div>
+</div>
+
+<!-- Business -->
+<div class="flex items-baseline">
+  <span class="text-white min-w-[140px] text-right">Business:</span>
+  <input
+    type="text"
+    [(ngModel)]="business"
+    class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+  />
+</div>
+<div class="flex items-baseline mb-1">
+    <input
+      type="text"
+      [(ngModel)]="business"
+      class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 50ch"
+    />
+  </div>
+<!-- Name Fields: Last, First, Middle -->
+<div class="flex items-baseline  mb-1">
+  <div class="flex items-baseline flex-1">
+    <span class="text-white min-w-[140px] text-right">Last:</span>
+    <input
+      type="text"
+      [(ngModel)]="lastName"
+      class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      
+    />
+  </div>
+</div>
+
+<div class="flex items-baseline gap-4 mb-1">
+  <div class="flex items-baseline">
+    <span class="text-white min-w-[140px] text-right">First:</span>
+    <input
+      type="text"
+      [(ngModel)]="firstName"
+      class=" bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 20ch"
+    />
+  </div>
+  <div class="flex items-baseline ml-8">
+    <span class="text-white">Middle:</span>
+    <input
+      type="text"
+      [(ngModel)]="middleName"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 40ch"
+    />
+  </div>
+</div>
+
+<!-- Mailing Name -->
+<div class="flex items-baseline mb-1">
+  <span class="text-white min-w-[140px] text-right">Mailing Name:</span>
+  <span class="text-crt-green">
+    TEST_FULL_NAME_ADI</span>
+  <input
+    type="text"
+    [(ngModel)]="mailingName"
+    class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+    style="width: 30ch"
+  />
+</div>
+
+<!-- C/O -->
+<div class="flex items-baseline mb-1">
+  <span class="text-white min-w-[140px] text-right">C/O :</span>
+  <input
+    type="text"
+    [(ngModel)]="cO"
+    class=" bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+    style="width: 32ch"
+  />
+</div>
+
+<!-- Address 2 -->
+<div class="flex items-baseline mb-1">
+  <span class="text-white min-w-[140px] text-right">Address 2:</span>
+  <span class="text-crt-green">TEST_STREET_ADI</span>
+  <input
+    type="text"
+    [(ngModel)]="address2"
+    class=" bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+    style="width: 16.5ch"
+    />
+</div>
+
+<!-- Address 3 -->
+<div class="flex items-baseline mb-1">
+  <span class="text-white min-w-[140px] text-right">Address 3:</span>
+  <input
+    type="text"
+    [(ngModel)]="address3"
+    class=" bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+    style="width: 32ch"
+  />
+</div>
+
+<!-- City, State, Zip -->
+<div class="flex items-baseline mb-1">
+  <span class="text-white min-w-[140px] text-right">City:</span>
+  <span class="text-crt-green ">TEST_CITY_ADI</span>
+  <input
+    type="text"
+    [(ngModel)]="city"
+    class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+    style="width: 8ch"
+  />
+  <span class="text-white ml-8">State:</span>
+  <span class="text-crt-green ml-2 mr-8">{{ state }}</span>
+  <span class="text-white ml-8">Zip:</span>
+  <input
+    type="text"
+    [(ngModel)]="zip"
+    class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+    style="width: 10ch"
+  />
+</div>
+
+<!-- Country -->
+<div class="flex items-baseline mb-2">
+  <span class="text-white min-w-[140px] text-right">Country:</span>
+  <input
+    type="text"
+    [(ngModel)]="country"
+    class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+    style="width: 20ch"
+  />
+</div>
+
+<!-- Defendant Name -->
+<div class="flex items-baseline mb-1">
+  <span class="text-white min-w-[140px] text-right">Defendant Name:</span>
+  <input
+    type="text"
+    [(ngModel)]="defendantName"
+    class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+  />
+</div>
+
+<!-- Defendant Address 1 -->
+<div class="flex justify-between items-baseline mb-1">
+  <div class="flex items-baseline flex-1">
+    <span class="text-white min-w-[140px] text-right">Address 1:</span>
+    <input
+      type="text"
+      [(ngModel)]="defendantAddress1"
+      class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 32ch"
+    />
+  </div>
+  <span class="text-white ml-4">DEFENDANT 01 of 01</span>
+</div>
+
+<!-- Defendant Address 2 -->
+<div class="flex items-baseline mb-1">
+  <span class="text-white min-w-[140px] text-right">Address 2:</span>
+  <input
+    type="text"
+    [(ngModel)]="defendantAddress2"
+    class=" bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+    style="width: 32ch"
+    />
+</div>
+
+<!-- Defendant Address 3 -->
+<div class="flex items-baseline mb-1">
+  <span class="text-white min-w-[140px] text-right">Address 3:</span>
+  <input
+    type="text"
+    [(ngModel)]="defendantAddress3"
+    class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+  />
+</div>
+
+<!-- Defendant City, State, Zip -->
+<div class="flex items-baseline mb-1">
+    <span class="text-white min-w-[140px] text-right">City:</span>
+    <span class="text-crt-green "></span>
+    <input
+      type="text"
+      [(ngModel)]="defendantCity"
+      class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 22ch"
+    />
+    <span class="text-white ml-8">State:</span>
+    <input
+      type="text"
+      [(ngModel)]="defendantState"
+      class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 4ch"
+    />
+    <span class="text-white ml-12">Zip:</span>
+    <input
+      type="text"
+      [(ngModel)]="defendantZip"
+      class="ml-2 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      style="width: 10ch"
+    />
+  </div>
+
+<!-- Foreign Country -->
+<div class="flex items-baseline mb-1">
+  <span class="text-white min-w-[140px] text-right">Forgn.Country:</span>
+  <input
+    type="text"
+    [(ngModel)]="forgnCountry"
+    class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+    style="width: 20ch"
+  />
+</div>
+
+<!-- Footer -->
+<div
+  class="absolute bottom-0 left-5 right-5 flex pt-2.5 pb-2.5 text-sm bg-black/95 z-[15]"
+>
+  <span class="text-white [text-shadow:0_0_2px_#FFFFFF]"
+    >PF: 1-HELP 3-END 8-FWD 11-NXT</span
+  >
+</div>

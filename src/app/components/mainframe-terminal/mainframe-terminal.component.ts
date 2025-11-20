@@ -14,11 +14,14 @@ import { WorkOrderBalanceScreenComponent } from './screens/work-order-balance-sc
 import { WorkOrderReceiptsScreenComponent } from './screens/work-order-receipts-screen/work-order-receipts-screen.component';
 import { ConfirmWorkOrderScreenComponent } from './screens/confirm-work-order-screen/confirm-work-order-screen.component';
 import { WorkOrderSlipPrintingScreenComponent } from './screens/work-order-slip-printing-screen/work-order-slip-printing-screen.component';
+import { ProcessWorkOrderScreenComponent } from './screens/process-work-order-screen/process-work-order-screen.component';
+import { WorkOrderTransactionAltScreenComponent } from './screens/work-order-transaction-alt-screen/work-order-transaction-alt-screen.component';
+import { ServiceOfProcessScreenComponent } from './screens/service-of-process-screen/service-of-process-screen.component';
 
 @Component({
   selector: 'app-mainframe-terminal',
   standalone: true,
-  imports: [CommonModule, FormsModule, WelcomeScreenComponent, CustomerInfoScreenComponent, LoginScreenComponent, SignonConfirmationScreenComponent, MenuScreenComponent, WorkOrderTransactionScreenComponent, WorkOrderBalanceScreenComponent, WorkOrderReceiptsScreenComponent, ConfirmWorkOrderScreenComponent, WorkOrderSlipPrintingScreenComponent],
+  imports: [CommonModule, FormsModule, WelcomeScreenComponent, CustomerInfoScreenComponent, LoginScreenComponent, SignonConfirmationScreenComponent, MenuScreenComponent, WorkOrderTransactionScreenComponent, WorkOrderBalanceScreenComponent, WorkOrderReceiptsScreenComponent, ConfirmWorkOrderScreenComponent, WorkOrderSlipPrintingScreenComponent, ProcessWorkOrderScreenComponent, WorkOrderTransactionAltScreenComponent, ServiceOfProcessScreenComponent],
   templateUrl: './mainframe-terminal.component.html',
   styleUrls: ['./mainframe-terminal.component.css']
 })
@@ -231,10 +234,13 @@ export class MainframeTerminalComponent implements OnInit, OnDestroy {
    * - 'SIGNON_CONFIRMATION' - Signon confirmation screen
    * - 'MENU' - MBES Management Menu
    * - 'WORK_ORDER_TRANSACTION' - Create Work Order Transaction
+   * - 'WORK_ORDER_TRANSACTION_ALT' - Create Work Order Transaction (No Postage Fee)
    * - 'WORK_ORDER_BALANCE' - Work Order Balance/Payment Tracking
    * - 'WORK_ORDER_RECEIPTS' - Work Order Receipts
    * - 'CONFIRM_WORK_ORDER' - Confirm Work Order Acceptance
    * - 'WORK_ORDER_SLIP_PRINTING' - Work Order Slip Printing
+   * - 'PROCESS_WORK_ORDER' - Process Work Order Transactions
+   * - 'SERVICE_OF_PROCESS' - Service of Process - Acknowledgement
    * - 'SS6T-6' - Customer Information screen
    */
   navigateTo(screenId: string): void {

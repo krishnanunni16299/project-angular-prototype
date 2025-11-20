@@ -34,6 +34,12 @@
       Work Order
     </button>
     <button
+      (click)="navigateTo('WORK_ORDER_TRANSACTION_ALT')"
+      class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
+    >
+      WO (No Postage)
+    </button>
+    <button
       (click)="navigateTo('WORK_ORDER_BALANCE')"
       class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
     >
@@ -56,6 +62,18 @@
       class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
     >
       WO Print
+    </button>
+    <button
+      (click)="navigateTo('PROCESS_WORK_ORDER')"
+      class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
+    >
+      Process WO
+    </button>
+    <button
+      (click)="navigateTo('SERVICE_OF_PROCESS')"
+      class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded font-semibold"
+    >
+      Service Process
     </button>
     <button
       (click)="navigateTo('SS6T-6')"
@@ -83,7 +101,7 @@
       width: calc(80ch + 2rem);
       height: calc(24 * 1.2em + 2rem);
       font-size: 16px;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.02em;
     "
   >
     <!-- Scan Lines Overlay -->
@@ -94,7 +112,7 @@
     <!-- Screen Content: 80x24 Grid -->
     <div
       class="mainframe-screen relative px-4 py-2 text-crt-green z-[5] font-mono [text-shadow:0_0_2px_#41C347]"
-      style="font-size: 14px; line-height: 1.2; letter-spacing: 0.03em"
+      style="font-size: 14px; line-height: 1.2"
     >
       <!-- Screen Router -->
       <div class="flex-1 flex flex-col w-full h-full">
@@ -123,6 +141,12 @@
             [screen]="currentScreen"
           ></app-work-order-transaction-screen>
 
+          <!-- Work Order Transaction Alt Screen Component (No Postage Fee) -->
+          <app-work-order-transaction-alt-screen
+            *ngSwitchCase="'WORK_ORDER_TRANSACTION_ALT'"
+            [screen]="currentScreen"
+          ></app-work-order-transaction-alt-screen>
+
           <!-- Work Order Balance Screen Component -->
           <app-work-order-balance-screen
             *ngSwitchCase="'WORK_ORDER_BALANCE'"
@@ -146,6 +170,18 @@
             *ngSwitchCase="'WORK_ORDER_SLIP_PRINTING'"
             [screen]="currentScreen"
           ></app-work-order-slip-printing-screen>
+
+          <!-- Process Work Order Screen Component -->
+          <app-process-work-order-screen
+            *ngSwitchCase="'PROCESS_WORK_ORDER'"
+            [screen]="currentScreen"
+          ></app-process-work-order-screen>
+
+          <!-- Service of Process Screen Component -->
+          <app-service-of-process-screen
+            *ngSwitchCase="'SERVICE_OF_PROCESS'"
+            [screen]="currentScreen"
+          ></app-service-of-process-screen>
 
           <!-- Welcome Screen Component -->
           <app-welcome-screen

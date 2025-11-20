@@ -1,0 +1,10 @@
+:host {
+  display: contents;
+}
+
+input::placeholder {
+  color: rgba(80, 216, 213, 0.4);
+  opacity: 1;
+  text-shadow: 0 0 1px rgba(80, 216, 213, 0.3);
+}
+
