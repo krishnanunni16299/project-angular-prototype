@@ -1,0 +1,131 @@
+<div class="mainframe-screen h-full flex flex-col font-mono text-[14px] leading-[1.2]">
+  <!-- Line 1: System ID and Date/Time -->
+  <div class="flex justify-between mb-0">
+    <span class="text-crt-green">SS9H-3</span>
+    <span class="text-crt-green">2025-10-16</span>
+  </div>
+
+  <!-- Line 2: Transaction ID, Title, Time -->
+  <div class="flex justify-between mb-0">
+    <span class="text-crt-green">T21</span>
+    <span class="text-center flex-1 text-white">M B E S</span>
+    <span class="text-crt-green">10:45:30</span>
+  </div>
+
+  <!-- Line 3: Screen Title -->
+  <div class="text-center text-white mb-0">
+    SERVICE OF PROCESS - INQUIRY
+  </div>
+
+  <!-- SOP Header Info -->
+  <div class="flex justify-between mb-0">
+    <div>
+      <span class="text-crt-green">SOP Number: </span>
+      <span class="text-crt-cyan">U0053575</span>
+    </div>
+    <div>
+      <span class="text-crt-green">Received Date: </span>
+      <span class="text-crt-cyan">10 - 16 - 2025 at 10 : 42 A.M.</span>
+    </div>
+  </div>
+
+  <!-- Case Number and Plaintiff ID -->
+  <div class="mb-0">
+    <span class="text-crt-green">Case Number: </span>
+    <span class="text-crt-cyan">1-RD1-2</span>
+  </div>
+
+  <!-- PLAINTIFF NAME Section -->
+  <div class="mb-0">
+    <span class="text-crt-green">PLAINTIFF NAME::</span>
+    <span class="text-crt-green ml-auto">Plaintiff Id: </span>
+    <span class="text-crt-cyan">00051585</span>
+  </div>
+  <div class="flex mb-0">
+    <span class="text-crt-green mr-2" style="width: 15ch">Name:</span>
+    <span class="text-crt-cyan flex-1">TEST_BUSINESS_ADI_UPDATE</span>
+    <span class="text-crt-green mr-2">Filing Type: </span>
+    <span class="text-crt-cyan">S01</span>
+  </div>
+  <div class="flex mb-0">
+    <span class="text-crt-green mr-2" style="width: 15ch">c/o:</span>
+    <span class="text-crt-cyan flex-1"></span>
+    <span class="text-crt-cyan">NOTICE OF TRIAL DATE CHANGE</span>
+  </div>
+  <div class="mb-0">
+    <span class="text-crt-green mr-2" style="display: inline-block; width: 15ch">Mailing Name:</span>
+    <span class="text-crt-cyan">TEST_FULL_NAME_ADI</span>
+  </div>
+  <div class="mb-0">
+    <span class="text-crt-green mr-2" style="display: inline-block; width: 15ch">Address 2:</span>
+    <span class="text-crt-cyan">TEST_STREET_ADI</span>
+  </div>
+  <div class="mb-0">
+    <span class="text-crt-green mr-2" style="display: inline-block; width: 15ch">Address 3:</span>
+    <span class="text-crt-cyan"></span>
+  </div>
+  <div class="flex mb-0">
+    <span class="text-crt-green mr-2" style="width: 15ch">City:</span>
+    <span class="text-crt-cyan mr-8">TEST_CITY_ADI</span>
+    <span class="text-crt-green mr-2">State: </span>
+    <span class="text-crt-cyan mr-8">MD</span>
+    <span class="text-crt-green mr-2">Zip:</span>
+    <span class="text-crt-cyan"></span>
+  </div>
+  <div class="mb-0">
+    <span class="text-crt-green mr-2" style="display: inline-block; width: 15ch">Country:</span>
+    <span class="text-crt-cyan"></span>
+  </div>
+
+  <!-- Defendant Name Section -->
+  <div class="mb-0">
+    <span class="text-crt-green">Defendant Name: </span>
+    <span class="text-crt-cyan">TEST_DEFENDANT_ADI</span>
+  </div>
+  <div class="flex justify-between mb-0">
+    <div>
+      <span class="text-crt-green mr-2" style="display: inline-block; width: 15ch">Address 1:</span>
+      <span class="text-crt-cyan">TEST_DEF_ADD_LINE1</span>
+    </div>
+    <span class="text-crt-cyan">DEFENDANT 01 of 01</span>
+  </div>
+  <div class="mb-0">
+    <span class="text-crt-green mr-2" style="display: inline-block; width: 15ch">Address 2:</span>
+    <span class="text-crt-cyan"></span>
+  </div>
+  <div class="mb-0">
+    <span class="text-crt-green mr-2" style="display: inline-block; width: 15ch">Address 3:</span>
+    <span class="text-crt-cyan"></span>
+  </div>
+  <div class="flex mb-0">
+    <span class="text-crt-green mr-2" style="width: 15ch">City:</span>
+    <span class="text-crt-cyan mr-8">TEST_CITY_DEFEN_ADI</span>
+    <span class="text-crt-green mr-2">State: </span>
+    <span class="text-crt-cyan mr-8">MD</span>
+    <span class="text-crt-green mr-2">Zip:</span>
+    <span class="text-crt-cyan"></span>
+  </div>
+  <div class="mb-0">
+    <span class="text-crt-green mr-2" style="display: inline-block; width: 15ch">Forgn.Country:</span>
+    <span class="text-crt-cyan"></span>
+  </div>
+
+  <!-- Spacer to push footer to bottom -->
+  <div class="flex-grow"></div>
+
+  <!-- Warning Message (shown when exiting with uncommitted changes) -->
+  <div class="mb-1 text-red-500 [text-shadow:0_0_3px_#FF0000]">
+    ENTER PF3 TO CONFIRM EXIT (UNCOMMITTED CHANGES, IF ANY, WILL BE LOST)
+  </div>
+
+  <!-- Footer with PF Keys -->
+  <div class="border-t border-crt-green pt-2 pb-2">
+    <span class="text-white">PF: </span>
+    <span
+      *ngFor="let pfKey of screen?.footer?.pfKeys; let last = last"
+      class="text-white cursor-pointer hover:[text-shadow:0_0_4px_#FFFFFF]"
+    >
+      {{ pfKey.label }}<span *ngIf="!last">&nbsp;&nbsp;</span>
+    </span>
+  </div>
+</div>

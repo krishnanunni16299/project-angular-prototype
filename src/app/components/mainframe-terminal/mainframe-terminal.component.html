@@ -94,12 +94,6 @@
       Opt4-1. SOP Maint
     </button>
     <button
-      (click)="navigateTo('SOP_FILE_MAINTENANCE')"
-      class="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-xs rounded font-semibold"
-    >
-      Opt4-2. SOP File
-    </button>
-    <button
       (click)="navigateTo('SOP_AMENDMENT_ENTRY')"
       class="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-xs rounded font-semibold"
     >
@@ -110,6 +104,42 @@
       class="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-xs rounded font-semibold"
     >
       Opt5-2. SOP Confirm
+    </button>
+    <button
+      (click)="navigateTo('SOP_INPUT_INQUIRY')"
+      class="px-3 py-1.5 bg-orange-600 hover:bg-orange-700 text-white text-xs rounded font-semibold"
+    >
+      Opt6-1. SOP Input Inquiry
+    </button>
+    <button
+      (click)="navigateTo('SOP_INQUIRY_SEARCH')"
+      class="px-3 py-1.5 bg-orange-600 hover:bg-orange-700 text-white text-xs rounded font-semibold"
+    >
+      Opt6-2. SOP Inquiry Search
+    </button>
+    <button
+      (click)="navigateTo('SOP_INQUIRY_SELECTION')"
+      class="px-3 py-1.5 bg-orange-600 hover:bg-orange-700 text-white text-xs rounded font-semibold"
+    >
+      Opt6-3. SOP Inquiry Selection
+    </button>
+    <button
+      (click)="navigateTo('SOP_INQUIRY_DETAIL')"
+      class="px-3 py-1.5 bg-orange-600 hover:bg-orange-700 text-white text-xs rounded font-semibold"
+    >
+      Opt6-4. SOP Inquiry Detail
+    </button>
+    <button
+      (click)="navigateTo('SOP_INQUIRY_SELECTION')"
+      class="px-3 py-1.5 bg-orange-600 hover:bg-orange-700 text-white text-xs rounded font-semibold"
+    >
+      Opt6-5. → SOP Inquiry Selection
+    </button>
+    <button
+      (click)="navigateTo('SOP_INQUIRY_DETAIL')"
+      class="px-3 py-1.5 bg-orange-600 hover:bg-orange-700 text-white text-xs rounded font-semibold"
+    >
+      Opt6-6. → SOP Inquiry Detail
     </button>
     <button
       (click)="navigateTo('SOP_AFFIDAVIT_PRINTING')"
@@ -231,17 +261,11 @@
             [screen]="currentScreen"
           ></app-service-process-confirmation-screen>
 
-          <!-- SOP Maintenance Selection Screen Component (Option 4 - Screen 1) -->
+          <!-- SOP Maintenance Selection Screen Component -->
           <app-sop-maintenance-selection-screen
             *ngSwitchCase="'SOP_MAINTENANCE_SELECTION'"
             [screen]="currentScreen"
           ></app-sop-maintenance-selection-screen>
-
-          <!-- SOP File Maintenance Screen Component (Option 4 - Screen 2) -->
-          <app-sop-file-maintenance-screen
-            *ngSwitchCase="'SOP_FILE_MAINTENANCE'"
-            [screen]="currentScreen"
-          ></app-sop-file-maintenance-screen>
 
           <!-- SOP Amendment Entry Screen Component (Option 5 - Screen 1) -->
           <app-sop-amendment-entry-screen
@@ -254,6 +278,30 @@
             *ngSwitchCase="'SOP_CONFIRMATION'"
             [screen]="currentScreen"
           ></app-sop-confirmation-screen>
+
+          <!-- SOP Input Inquiry Screen Component (Option 6 - Screen 1) -->
+          <app-sop-input-inquiry-screen
+            *ngSwitchCase="'SOP_INPUT_INQUIRY'"
+            [screen]="currentScreen"
+          ></app-sop-input-inquiry-screen>
+
+          <!-- SOP Inquiry Search Screen Component (Option 6 - Screen 2) -->
+          <app-sop-inquiry-search-screen
+            *ngSwitchCase="'SOP_INQUIRY_SEARCH'"
+            [screen]="currentScreen"
+          ></app-sop-inquiry-search-screen>
+
+          <!-- SOP Inquiry Selection Screen Component (Option 6 - Screen 3) -->
+          <app-sop-inquiry-selection-screen
+            *ngSwitchCase="'SOP_INQUIRY_SELECTION'"
+            [screen]="currentScreen"
+          ></app-sop-inquiry-selection-screen>
+
+          <!-- SOP Inquiry Detail Screen Component (Option 6 - Screen 4) -->
+          <app-sop-inquiry-detail-screen
+            *ngSwitchCase="'SOP_INQUIRY_DETAIL'"
+            [screen]="currentScreen"
+          ></app-sop-inquiry-detail-screen>
 
           <!-- SOP Affidavit Printing Screen Component (Option 7 - Screen 1) -->
           <app-sop-affidavit-printing-screen

@@ -1,0 +1,129 @@
+<div class="mainframe-screen h-full flex flex-col font-mono text-[14px] leading-[1.2]">
+  <!-- Line 1: System ID and Date -->
+  <div class="flex justify-between mb-0">
+    <span class="text-crt-green">{{ screen?.header?.systemId }}</span>
+    <span class="text-crt-green">{{ screen?.header?.date }}</span>
+  </div>
+
+  <!-- Line 2: Transaction ID, Title, Time -->
+  <div class="flex justify-between mb-0">
+    <span class="text-crt-green">{{ screen?.header?.transactionId }}</span>
+    <span class="text-center flex-1 text-white">M B E S</span>
+    <span class="text-crt-green">{{ screen?.header?.time }}</span>
+  </div>
+
+  <!-- Line 3: Screen Title -->
+  <div class="text-center text-white mb-4">
+    SERVICE OF PROCESS - INPUT FOR INQUIRY
+  </div>
+
+  <!-- Search instruction text -->
+  <div class="mb-2 text-crt-green">
+    Search can be conducted by using one of the following methods:
+  </div>
+
+  <!-- Empty line -->
+  <div class="mb-1">&nbsp;</div>
+
+  <!-- SOP Number field -->
+  <div class="flex items-baseline mb-1">
+    <span class="text-crt-green mr-2">SOP Number:</span>
+    <input
+      type="text"
+      class="bg-transparent border-b border-crt-green text-crt-green font-mono text-[14px] leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] uppercase focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+      maxlength="8"
+      style="width: 8ch"
+      placeholder="U0053575"
+    />
+  </div>
+
+  <!-- Empty line -->
+  <div class="mb-1">&nbsp;</div>
+
+  <!-- Case Number field -->
+  <div class="flex items-baseline mb-1">
+    <span class="text-crt-green mr-2">Case Number:</span>
+    <input
+      type="text"
+      class="bg-transparent border-b border-crt-green text-crt-green font-mono text-[14px] leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] uppercase focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+      maxlength="20"
+      style="width: 20ch"
+    />
+  </div>
+
+  <!-- Empty line -->
+  <div class="mb-1">&nbsp;</div>
+
+  <!-- PLAINTIFF NAME section -->
+  <div class="mb-1">
+    <span class="text-crt-green">PLAINTIFF NAME::</span>
+  </div>
+
+  <!-- Last Name field -->
+  <div class="flex items-baseline mb-0 ml-8">
+    <span class="text-crt-green mr-2">Last:</span>
+    <input
+      type="text"
+      class="bg-transparent border-b border-crt-green text-crt-green font-mono text-[14px] leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] uppercase focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+      maxlength="30"
+      style="width: 30ch"
+    />
+  </div>
+
+  <!-- First and Middle Name fields -->
+  <div class="flex items-baseline mb-0 ml-8">
+    <span class="text-crt-green mr-2">First:</span>
+    <input
+      type="text"
+      class="bg-transparent border-b border-crt-green text-crt-green font-mono text-[14px] leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] uppercase focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+      maxlength="25"
+      style="width: 25ch"
+    />
+    <span class="text-crt-green ml-4 mr-2">Mid:</span>
+    <input
+      type="text"
+      class="bg-transparent border-b border-crt-green text-crt-green font-mono text-[14px] leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] uppercase focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+      maxlength="25"
+      style="width: 25ch"
+    />
+  </div>
+
+  <!-- Business field -->
+  <div class="flex items-baseline mb-1 ml-8">
+    <span class="text-crt-green mr-2">Business:</span>
+    <input
+      type="text"
+      class="bg-transparent border-b border-crt-green text-crt-green font-mono text-[14px] leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] uppercase focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+      maxlength="50"
+      style="width: 50ch"
+    />
+  </div>
+
+  <!-- Empty line -->
+  <div class="mb-1">&nbsp;</div>
+
+  <!-- Defendant Name field -->
+  <div class="flex items-baseline mb-1">
+    <span class="text-crt-green mr-2">Defendant Name:</span>
+    <input
+      type="text"
+      class="bg-transparent border-b border-crt-green text-crt-green font-mono text-[14px] leading-none tracking-normal outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] uppercase focus:bg-[rgba(65,195,71,0.03)] focus:[text-shadow:0_0_3px_#41C347,0_0_6px_#41C347]"
+      maxlength="50"
+      style="width: 50ch"
+    />
+  </div>
+
+  <!-- Spacer to push footer to bottom -->
+  <div class="flex-grow"></div>
+
+  <!-- Footer with PF Keys -->
+  <div class="border-t border-crt-green pt-2 pb-2 mt-4">
+    <span class="text-white">PF: </span>
+    <span
+      *ngFor="let pfKey of screen?.footer?.pfKeys; let last = last"
+      class="text-white cursor-pointer hover:[text-shadow:0_0_4px_#FFFFFF]"
+    >
+      {{ pfKey.label }}<span *ngIf="!last">&nbsp;&nbsp;</span>
+    </span>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="mainframe-screen h-full flex flex-col font-mono text-[14px] leading-[1.2]">
+  <!-- Line 1: System ID and Date/Time -->
+  <div class="flex justify-between mb-0">
+    <span class="text-crt-green">{{ screen?.header?.systemId }}</span>
+    <span class="text-crt-green">{{ screen?.header?.date }}</span>
+  </div>
+
+  <!-- Line 2: Transaction ID, Title, Time -->
+  <div class="flex justify-between mb-0">
+    <span class="text-crt-green">{{ screen?.header?.transactionId }}</span>
+    <span class="text-center flex-1 text-white">M B E S</span>
+    <span class="text-crt-green">{{ screen?.header?.time }}</span>
+  </div>
+
+  <!-- Line 3: Screen Title and Page Info -->
+  <div class="flex justify-between mb-4">
+    <span class="text-center flex-1 text-white">SERVICE OF PROCESS - INQUIRY SEARCH</span>
+    <span class="text-crt-green ml-auto">Page: {{ screen?.header?.pageNumber || 1 }} of {{ screen?.header?.totalPages || 1 }}</span>
+  </div>
+
+  <!-- Search Results Header Row -->
+  <div class="flex mb-1">
+    <span class="text-crt-green mr-8">Filing Number</span>
+    <span class="text-crt-green mr-8">Case Number</span>
+    <span class="text-crt-green ml-auto">Initial Received Date</span>
+  </div>
+
+  <!-- Search Results Data Row -->
+  <div class="flex mb-1">
+    <span class="text-crt-cyan mr-8" style="width: 15ch">U0053575</span>
+    <span class="text-crt-cyan mr-8" style="width: 15ch">1-RD1-2</span>
+    <span class="text-crt-cyan ml-auto">10-16-2025</span>
+  </div>
+
+  <!-- Defendant Name -->
+  <div class="mb-1">
+    <span class="text-crt-green">TEST DEFENDANT ADI</span>
+  </div>
+
+  <!-- Spacer to push footer to bottom -->
+  <div class="flex-grow"></div>
+
+  <!-- Footer with PF Keys -->
+  <div class="border-t border-crt-green pt-2 pb-2 mt-4">
+    <span class="text-white">PF: </span>
+    <span
+      *ngFor="let pfKey of screen?.footer?.pfKeys; let last = last"
+      class="text-white cursor-pointer hover:[text-shadow:0_0_4px_#FFFFFF]"
+    >
+      {{ pfKey.label }}<span *ngIf="!last">&nbsp;&nbsp;</span>
+    </span>
+  </div>
+</div>

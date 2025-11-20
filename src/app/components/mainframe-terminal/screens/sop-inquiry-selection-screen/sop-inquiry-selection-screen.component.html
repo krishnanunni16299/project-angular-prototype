@@ -1,0 +1,120 @@
+<div class="mainframe-screen h-full flex flex-col font-mono text-[14px] leading-[1.2]">
+  <!-- Line 1: System ID and Date/Time -->
+  <div class="flex justify-between mb-0">
+    <span class="text-crt-green">{{ screen?.header?.systemId }}</span>
+    <span class="text-crt-green">{{ screen?.header?.date }}</span>
+  </div>
+
+  <!-- Line 2: Transaction ID, Title, Time -->
+  <div class="flex justify-between mb-0">
+    <span class="text-crt-green">{{ screen?.header?.transactionId }}</span>
+    <span class="text-center flex-1 text-white">M B E S</span>
+    <span class="text-crt-green">{{ screen?.header?.time }}</span>
+  </div>
+
+  <!-- Line 3: Screen Title -->
+  <div class="text-center text-white mb-2">
+    SERVICE OF PROCESS - INQUIRY SELECTION
+  </div>
+
+  <!-- Header Information Section -->
+  <div class="mb-3">
+    <!-- SOP Number and Received Date row -->
+    <div class="flex justify-between mb-0">
+      <div>
+        <span class="text-crt-green">SOP Number: </span>
+        <span class="text-crt-cyan">U0053575</span>
+      </div>
+      <div>
+        <span class="text-crt-green">Received Date: </span>
+        <span class="text-crt-cyan">10-15-2025_AT_10:25_A.M.</span>
+      </div>
+    </div>
+
+    <!-- Forwarded Date and Case Number row -->
+    <div class="flex justify-between mb-0">
+      <div>
+        <span class="text-crt-green">Forwarded Date: </span>
+        <span class="text-crt-cyan">10-20-2025</span>
+      </div>
+      <div>
+        <span class="text-crt-green">Case Number: </span>
+        <span class="text-crt-cyan">1-RD1-</span>
+      </div>
+    </div>
+
+    <!-- Plaintiff row -->
+    <div class="mb-0">
+      <span class="text-crt-green">Plaintiff: </span>
+      <span class="text-crt-cyan">TEST_BUSINESS_ADI_UPDATE</span>
+    </div>
+
+    <!-- Mailing Name row -->
+    <div class="mb-0">
+      <span class="text-crt-green">Mailing Name: </span>
+      <span class="text-crt-cyan">TEST_FULL_NAME_ADI</span>
+    </div>
+  </div>
+
+  <!-- Empty line -->
+  <div class="mb-1">&nbsp;</div>
+
+  <!-- Selection instruction -->
+  <div class="mb-2 text-crt-green">
+    (S)elect the amendment for inquiry:
+  </div>
+
+  <!-- Empty line -->
+  <div class="mb-1">&nbsp;</div>
+
+  <!-- Amendment List Header -->
+  <div class="flex mb-0">
+    <span class="text-crt-green mr-4" style="width: 30ch">Received Date and time</span>
+    <span class="text-crt-green flex-1">Amendment details</span>
+    <span class="text-crt-green ml-auto">#Def</span>
+  </div>
+
+  <!-- Amendment List Items -->
+  <div class="mb-0">
+    <!-- Row 1 -->
+    <div class="flex mb-0">
+      <input
+        type="text"
+        class="bg-transparent text-crt-green font-mono text-[14px] leading-none outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] uppercase focus:bg-[rgba(65,195,71,0.03)] w-[2ch] mr-2"
+        maxlength="1"
+        placeholder="-"
+      />
+      <span class="text-crt-cyan mr-4" style="width: 28ch">10-16-2025 AT 10:42 A.M.</span>
+      <span class="text-crt-cyan flex-1">NOTICE OF TRIAL DATE CHANGE</span>
+      <span class="text-crt-cyan ml-auto">01</span>
+    </div>
+
+    <!-- Row 2 (Selected) -->
+    <div class="flex mb-0">
+      <input
+        type="text"
+        class="bg-transparent text-crt-green font-mono text-[14px] leading-none outline-none [text-shadow:0_0_2px_#41C347] [caret-color:#41C347] uppercase focus:bg-[rgba(65,195,71,0.03)] w-[2ch] mr-2"
+        maxlength="1"
+        value="S"
+        placeholder="-"
+      />
+      <span class="text-crt-cyan mr-4" style="width: 28ch">10-16-2025 AT 10:25 A.M.</span>
+      <span class="text-crt-cyan flex-1">INITIAL FILING - SERVICE OF PROCESS</span>
+      <span class="text-crt-cyan ml-auto">01</span>
+    </div>
+  </div>
+
+  <!-- Spacer to push footer to bottom -->
+  <div class="flex-grow"></div>
+
+  <!-- Footer with PF Keys -->
+  <div class="border-t border-crt-green pt-2 pb-2 mt-4">
+    <span class="text-white">PF: </span>
+    <span
+      *ngFor="let pfKey of screen?.footer?.pfKeys; let last = last"
+      class="text-white cursor-pointer hover:[text-shadow:0_0_4px_#FFFFFF]"
+    >
+      {{ pfKey.label }}<span *ngIf="!last">&nbsp;&nbsp;</span>
+    </span>
+  </div>
+</div>
