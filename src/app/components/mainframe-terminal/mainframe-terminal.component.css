@@ -2,17 +2,17 @@
 /* Standard mainframe terminal: 80 columns x 24 rows */
 
 .mainframe-screen {
-  width: 80ch;
-  max-width: 80ch;
-  min-height: calc(24 * 1.2em);
-  max-height: calc(24 * 1.2em);
+  width: 100%;
+  height: 100%;
   font-family: "IBM Plex Mono", monospace;
   font-size: 14px;
   line-height: 1.2;
   overflow: hidden;
-  box-sizing: content-box;
+  box-sizing: border-box;
   letter-spacing: 0;
   font-weight: 400;
+  display: flex;
+  flex-direction: column;
 }
 
 .mainframe-line {

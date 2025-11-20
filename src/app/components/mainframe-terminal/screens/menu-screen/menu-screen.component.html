@@ -1,0 +1,64 @@
+<!-- MBES Management Menu Screen -->
+<!-- Header -->
+<div
+  class="flex justify-between mb-4 text-crt-cyan [text-shadow:0_0_2px_#50D8D5]"
+>
+  <!-- Left: Screen ID -->
+  <div class="flex flex-col">
+    <span>SS00-1</span>
+    <span>T21</span>
+  </div>
+
+  <!-- Center: Title -->
+  <div
+    class="flex flex-col items-center flex-grow text-white [text-shadow:0_0_2px_#FFFFFF]"
+  >
+    <span class="tracking-[0.2em]">M B E S</span>
+    <span class="tracking-normal">MBES MANAGEMENT MENU</span>
+  </div>
+
+  <!-- Right: Date and Time -->
+  <div
+    class="flex flex-col items-end text-crt-cyan [text-shadow:0_0_2px_#50D8D5]"
+  >
+    <span>{{ getCurrentDate() }}</span>
+    <span>{{ getCurrentTime() }}</span>
+  </div>
+</div>
+
+<!-- Menu Options -->
+<div class="mt-8 text-crt-cyan [text-shadow:0_0_2px_#50D8D5]">
+  <!-- Option Prompt -->
+  <div class="mb-4 flex items-baseline gap-2">
+    <span>Enter option:</span>
+    <input
+      type="text"
+      [(ngModel)]="selectedOption"
+      class="bg-transparent border-b border-crt-cyan text-crt-cyan font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      maxlength="2"
+      style="width: 3ch"
+      autofocus
+    />
+  </div>
+
+  <!-- Menu Items -->
+  <div class="space-y-0 leading-relaxed">
+    <div class="ml-40">1. CREATE AND PROCESS WORK ORDER</div>
+    <div class="ml-40">2. PROCESS WORK ORDER</div>
+    <div class="ml-40">3. ADD / MODIFY WORK ORDER TRANSACTION</div>
+    <div class="ml-40">4. SERVICE OF PROCESS - FILE MAINTENANCE</div>
+    <div class="ml-40">5. SERVICE OF PROCESS - AMENDMENT</div>
+    <div class="ml-40">6. SERVICE OF PROCESS - INQUIRY</div>
+    <div class="ml-40">7. SERVICE OF PROCESS - AFFIDAVIT PRINTING</div>
+    <div class="ml-40">8. SERVICE OF PROCESS - STAND ALONE LETTER</div>
+    <div class="ml-40">9. ENTITY NAME SEARCH / INQUIRY</div>
+    <div class="ml-40">10. DOCUMENT SEARCH AND REPRINT (CURRENT)</div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div
+  class="absolute bottom-0 left-5 right-5 flex pt-2.5 pb-2.5 text-sm bg-black/95 z-[15]"
+>
+  <span class="text-white [text-shadow:0_0_2px_#FFFFFF]">PF: 1-HELP 3-END</span>
+</div>

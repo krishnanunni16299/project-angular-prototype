@@ -1,0 +1,21 @@
+/* Confirm Work Order Screen Styles */
+
+/* Ensure full screen coverage within 80x24 grid */
+:host {
+  display: contents;
+}
+
+/* Ensure inputs stay within character grid */
+input {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+/* Placeholder styling for fields */
+input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+}
+

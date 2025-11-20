@@ -15,7 +15,18 @@ export class MainframeScreenService {
 
   constructor() {
     // Initialize with default screens
+    this.registerScreen(this.getLoginScreen());
+    this.registerScreen(this.getSignonConfirmationScreen());
+    this.registerScreen(this.getMenuScreen());
+    this.registerScreen(this.getWorkOrderTransactionScreen());
+    this.registerScreen(this.getWorkOrderBalanceScreen());
+    this.registerScreen(this.getWorkOrderReceiptsScreen());
+    this.registerScreen(this.getConfirmWorkOrderScreen());
+    this.registerScreen(this.getWorkOrderSlipPrintingScreen());
+    this.registerScreen(this.getWelcomeScreen());
     this.registerScreen(this.getCustomerInformationScreen());
+    // Set initial screen - change this to test different screens
+    this.navigateToScreen('WORK_ORDER_SLIP_PRINTING'); // Change to: LOGIN, SIGNON_CONFIRMATION, MENU, WORK_ORDER_TRANSACTION, WORK_ORDER_BALANCE, WORK_ORDER_RECEIPTS, CONFIRM_WORK_ORDER, WORK_ORDER_SLIP_PRINTING, or SS6T-6
   }
 
   /**
@@ -115,7 +126,7 @@ export class MainframeScreenService {
     const pfKey = currentScreen.footer.pfKeys.find(key => key.key === keyNumber);
     if (pfKey && pfKey.enabled) {
       console.log(`PF${keyNumber} pressed: ${pfKey.action}`);
-      
+
       // Handle common actions
       switch (pfKey.action) {
         case 'HELP':
@@ -156,11 +167,158 @@ export class MainframeScreenService {
   }
 
   /**
+   * Login/Signon Screen
+   */
+  private getLoginScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'LOGIN',
+      title: 'System Signon',
+      docType: '',
+      header: {
+        systemId: 'C1CST21',
+        menuItems: [],
+        date: now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).toUpperCase(),
+        time: now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }),
+        transactionId: 'NFBF',
+        receivedType: 'ADTNFBF',
+        pageNumber: 0,
+        totalPages: 0,
+        balance: 'THURSDAY'
+      },
+      fields: [],
+      footer: {
+        pfKeys: []
+      }
+    };
+  }
+
+  /**
+   * Signon Confirmation Screen (Post-Login)
+   */
+  private getSignonConfirmationScreen(): MainframeScreen {
+    return {
+      screenId: 'SIGNON_CONFIRMATION',
+      title: 'Signon Confirmation',
+      docType: '',
+      header: {
+        systemId: '',
+        menuItems: [],
+        date: '',
+        time: '',
+        transactionId: '',
+        receivedType: '',
+        pageNumber: 0,
+        totalPages: 0,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: []
+      }
+    };
+  }
+
+  /**
+   * MBES Management Menu Screen
+   */
+  private getMenuScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'MENU',
+      title: 'MBES Management Menu',
+      docType: '',
+      header: {
+        systemId: 'SS00-1',
+        menuItems: [],
+        date: now.toISOString().split('T')[0],
+        time: now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 0,
+        totalPages: 0,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: '', enabled: true },
+          { key: 3, label: '3-END', action: '', enabled: true }
+        ]
+      }
+    };
+  }
+
+  /**
+   * CREATE WORK ORDER TRANSACTION Screen
+   */
+  private getWorkOrderTransactionScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'WORK_ORDER_TRANSACTION',
+      title: 'Create Work Order Transaction',
+      docType: '',
+      header: {
+        systemId: 'SS21-C',
+        menuItems: [],
+        date: now.toISOString().split('T')[0],
+        time: now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 1,
+        totalPages: 1,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: '', enabled: true },
+          { key: 2, label: '2-COMMENTS', action: '', enabled: true },
+          { key: 3, label: '3-END', action: '', enabled: true },
+          { key: 4, label: '4-COUNTY TAX', action: '', enabled: true },
+          { key: 8, label: '8-FWD', action: '', enabled: true },
+          { key: 9, label: '9-DEL', action: '', enabled: true },
+          { key: 10, label: '10-PRV', action: '', enabled: true },
+          { key: 11, label: '11-NXT', action: '', enabled: true }
+        ]
+      }
+    };
+  }
+
+  /**
+   * Welcome/Warning Screen
+   */
+  private getWelcomeScreen(): MainframeScreen {
+    return {
+      screenId: 'WELCOME',
+      title: 'System Access Warning',
+      docType: '',
+      header: {
+        systemId: 'COMMAND UNRECOGNIZED',
+        menuItems: [],
+        date: '',
+        time: '',
+        transactionId: '',
+        receivedType: 'ANNAPOLIS DATA CENTER',
+        pageNumber: 0,
+        totalPages: 0,
+        balance: 'USSTAB: USSTALL'
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-CONTINUE', action: 'navigate:SS6T-6', enabled: true }
+        ]
+      }
+    };
+  }
+
+  /**
    * Example screen: Customer Information (SS6T-6)
    */
   private getCustomerInformationScreen(): MainframeScreen {
     const now = new Date();
-    
+
     return {
       screenId: 'SS6T-6',
       title: 'Customer Information',
@@ -348,6 +506,136 @@ export class MainframeScreenService {
           { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
           { key: 3, label: '3-END', action: 'END', enabled: true },
           { key: 11, label: '11-NXT', action: 'NEXT', enabled: true }
+        ]
+      }
+    };
+  }
+
+  /**
+   * Get Work Order Balance Screen definition
+   */
+  private getWorkOrderBalanceScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'WORK_ORDER_BALANCE',
+      title: 'Create Work Order Transaction - Balance',
+      docType: '',
+      header: {
+        systemId: 'SS7P-1',
+        menuItems: [],
+        date: now.toISOString().split('T')[0],
+        time: now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 1,
+        totalPages: 1,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
+          { key: 3, label: '3-END', action: 'END', enabled: true },
+          { key: 8, label: '8-FWD', action: 'FORWARD', enabled: true },
+          { key: 10, label: '10-PRV', action: 'PREVIOUS', enabled: true },
+          { key: 11, label: '11-NXT', action: 'NEXT', enabled: true }
+        ]
+      }
+    };
+  }
+
+  /**
+   * Get Work Order Receipts Screen definition
+   */
+  private getWorkOrderReceiptsScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'WORK_ORDER_RECEIPTS',
+      title: 'Work Order Receipts',
+      docType: '',
+      header: {
+        systemId: 'SS7P-1',
+        menuItems: [],
+        date: now.toISOString().split('T')[0],
+        time: now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 1,
+        totalPages: 1,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
+          { key: 3, label: '3-END', action: 'END', enabled: true },
+          { key: 8, label: '8-FWD', action: 'FORWARD', enabled: true },
+          { key: 10, label: '10-PRV', action: 'PREVIOUS', enabled: true },
+          { key: 11, label: '11-NXT', action: 'NEXT', enabled: true }
+        ]
+      }
+    };
+  }
+
+  /**
+   * Get Confirm Work Order Screen definition
+   */
+  private getConfirmWorkOrderScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'CONFIRM_WORK_ORDER',
+      title: 'Confirm Work Order Acceptance',
+      docType: '',
+      header: {
+        systemId: 'SS3A-1',
+        menuItems: [],
+        date: now.toISOString().split('T')[0],
+        time: now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 0,
+        totalPages: 0,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
+          { key: 3, label: '3-END', action: 'END', enabled: true },
+          { key: 6, label: '6-CONFIRM', action: 'CONFIRM', enabled: true },
+          { key: 10, label: '10-PRV', action: 'PREVIOUS', enabled: true }
+        ]
+      }
+    };
+  }
+
+  /**
+   * Get Work Order Slip Printing Screen definition
+   */
+  private getWorkOrderSlipPrintingScreen(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'WORK_ORDER_SLIP_PRINTING',
+      title: 'Work Order Slip Printing',
+      docType: '',
+      header: {
+        systemId: 'SS7D',
+        menuItems: [],
+        date: now.toISOString().split('T')[0],
+        time: now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 0,
+        totalPages: 0,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
+          { key: 3, label: '3-END', action: 'END', enabled: true },
+          { key: 4, label: '4-NEW WORK ORDER', action: 'NEW', enabled: true },
+          { key: 10, label: '10-PRV', action: 'PREVIOUS', enabled: true }
         ]
       }
     };

@@ -1,0 +1,6 @@
+/* Customer Info Screen Styles */
+
+/* Ensure full screen coverage within 80x24 grid */
+:host {
+  display: contents;
+}
