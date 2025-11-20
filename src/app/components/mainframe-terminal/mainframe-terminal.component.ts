@@ -19,6 +19,7 @@ import { WorkOrderTransactionAltScreenComponent } from './screens/work-order-tra
 import { ServiceOfProcessScreenComponent } from './screens/service-of-process-screen/service-of-process-screen.component';
 import { ServiceProcessConfirmationScreenComponent } from './screens/service-process-confirmation-screen/service-process-confirmation-screen.component';
 import { SopMaintenanceSelectionScreenComponent } from './screens/sop-maintenance-selection-screen/sop-maintenance-selection-screen.component';
+import { SopFileMaintenanceScreenComponent } from './screens/sop-file-maintenance-screen/sop-file-maintenance-screen.component';
 import { SopAmendmentEntryScreenComponent } from './screens/sop-amendment-entry-screen/sop-amendment-entry-screen.component';
 import { SopConfirmationScreenComponent } from './screens/sop-confirmation-screen/sop-confirmation-screen.component';
 import { SopAffidavitPrintingScreenComponent } from './screens/sop-affidavit-printing-screen/sop-affidavit-printing-screen.component';
@@ -27,7 +28,7 @@ import { SopStandaloneLetterScreenComponent } from './screens/sop-standalone-let
 @Component({
   selector: 'app-mainframe-terminal',
   standalone: true,
-  imports: [CommonModule, FormsModule, WelcomeScreenComponent, CustomerInfoScreenComponent, LoginScreenComponent, SignonConfirmationScreenComponent, MenuScreenComponent, WorkOrderTransactionScreenComponent, WorkOrderBalanceScreenComponent, WorkOrderReceiptsScreenComponent, ConfirmWorkOrderScreenComponent, WorkOrderSlipPrintingScreenComponent, ProcessWorkOrderScreenComponent, WorkOrderTransactionAltScreenComponent, ServiceOfProcessScreenComponent, ServiceProcessConfirmationScreenComponent, SopMaintenanceSelectionScreenComponent, SopAmendmentEntryScreenComponent, SopConfirmationScreenComponent, SopAffidavitPrintingScreenComponent, SopStandaloneLetterScreenComponent],
+  imports: [CommonModule, FormsModule, WelcomeScreenComponent, CustomerInfoScreenComponent, LoginScreenComponent, SignonConfirmationScreenComponent, MenuScreenComponent, WorkOrderTransactionScreenComponent, WorkOrderBalanceScreenComponent, WorkOrderReceiptsScreenComponent, ConfirmWorkOrderScreenComponent, WorkOrderSlipPrintingScreenComponent, ProcessWorkOrderScreenComponent, WorkOrderTransactionAltScreenComponent, ServiceOfProcessScreenComponent, ServiceProcessConfirmationScreenComponent, SopMaintenanceSelectionScreenComponent, SopFileMaintenanceScreenComponent, SopAmendmentEntryScreenComponent, SopConfirmationScreenComponent, SopAffidavitPrintingScreenComponent, SopStandaloneLetterScreenComponent],
   templateUrl: './mainframe-terminal.component.html',
   styleUrls: ['./mainframe-terminal.component.css']
 })
@@ -248,7 +249,8 @@ export class MainframeTerminalComponent implements OnInit, OnDestroy {
    * - 'PROCESS_WORK_ORDER' - Process Work Order Transactions (Option 1)
    * - 'SERVICE_OF_PROCESS' - Service of Process - Acknowledgement (Option 1)
    * - 'SERVICE_PROCESS_CONFIRMATION' - Service of Process - Confirmation (Option 1)
-   * - 'SOP_MAINTENANCE_SELECTION' - SOP Maintenance Selection (Option 4)
+   * - 'SOP_MAINTENANCE_SELECTION' - SOP Maintenance Selection (Option 4 - Screen 1)
+   * - 'SOP_FILE_MAINTENANCE' - SOP File Maintenance (Option 4 - Screen 2)
    * - 'SOP_AMENDMENT_ENTRY' - SOP Amendment Entry (Option 5 - Screen 1)
    * - 'SOP_CONFIRMATION' - SOP Confirmation (Option 5 - Screen 2)
    * - 'SOP_AFFIDAVIT_PRINTING' - SOP Affidavit Printing (Option 7 - Screen 1)

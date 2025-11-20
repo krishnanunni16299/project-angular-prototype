@@ -94,6 +94,12 @@
       Opt4-1. SOP Maint
     </button>
     <button
+      (click)="navigateTo('SOP_FILE_MAINTENANCE')"
+      class="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-xs rounded font-semibold"
+    >
+      Opt4-2. SOP File
+    </button>
+    <button
       (click)="navigateTo('SOP_AMENDMENT_ENTRY')"
       class="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-xs rounded font-semibold"
     >
@@ -225,11 +231,17 @@
             [screen]="currentScreen"
           ></app-service-process-confirmation-screen>
 
-          <!-- SOP Maintenance Selection Screen Component -->
+          <!-- SOP Maintenance Selection Screen Component (Option 4 - Screen 1) -->
           <app-sop-maintenance-selection-screen
             *ngSwitchCase="'SOP_MAINTENANCE_SELECTION'"
             [screen]="currentScreen"
           ></app-sop-maintenance-selection-screen>
+
+          <!-- SOP File Maintenance Screen Component (Option 4 - Screen 2) -->
+          <app-sop-file-maintenance-screen
+            *ngSwitchCase="'SOP_FILE_MAINTENANCE'"
+            [screen]="currentScreen"
+          ></app-sop-file-maintenance-screen>
 
           <!-- SOP Amendment Entry Screen Component (Option 5 - Screen 1) -->
           <app-sop-amendment-entry-screen
