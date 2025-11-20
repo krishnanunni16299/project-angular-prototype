@@ -4,11 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 import { MainframeScreenService } from '../../services/mainframe-screen.service';
 import { MainframeScreen, FieldDefinition, FieldType } from '../../models/mainframe-screen.model';
+import { WelcomeScreenComponent } from './screens/welcome-screen/welcome-screen.component';
+import { CustomerInfoScreenComponent } from './screens/customer-info-screen/customer-info-screen.component';
+import { LoginScreenComponent } from './screens/login-screen/login-screen.component';
+import { SignonConfirmationScreenComponent } from './screens/signon-confirmation-screen/signon-confirmation-screen.component';
+import { MenuScreenComponent } from './screens/menu-screen/menu-screen.component';
+import { WorkOrderTransactionScreenComponent } from './screens/work-order-transaction-screen/work-order-transaction-screen.component';
 
 @Component({
   selector: 'app-mainframe-terminal',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, WelcomeScreenComponent, CustomerInfoScreenComponent, LoginScreenComponent, SignonConfirmationScreenComponent, MenuScreenComponent, WorkOrderTransactionScreenComponent],
   templateUrl: './mainframe-terminal.component.html',
   styleUrls: ['./mainframe-terminal.component.css']
 })
@@ -31,8 +37,8 @@ export class MainframeTerminalComponent implements OnInit, OnDestroy {
         this.currentScreen = screen;
       });
 
-    // Load initial screen
-    this.screenService.navigateToScreen('SS6T-6');
+    // Load initial screen (will be set to WELCOME in constructor)
+    // this.screenService.navigateToScreen('SS6T-6');
 
     // Update time every second
     this.timeInterval = setInterval(() => {
@@ -61,7 +67,13 @@ export class MainframeTerminalComponent implements OnInit, OnDestroy {
       const keyNumber = parseInt(event.key.substring(1), 10);
       if (keyNumber >= 1 && keyNumber <= 12) {
         event.preventDefault();
-        this.screenService.handlePFKey(keyNumber);
+
+        // Navigate from welcome screen to customer info
+        if (keyNumber === 1 && this.currentScreen?.screenId === 'WELCOME') {
+          this.screenService.navigateToScreen('SS6T-6');
+        } else {
+          this.screenService.handlePFKey(keyNumber);
+        }
       }
     }
 
@@ -69,6 +81,12 @@ export class MainframeTerminalComponent implements OnInit, OnDestroy {
     if (event.key === 'Escape') {
       event.preventDefault();
       this.screenService.handlePFKey(3); // F3 = END
+    }
+
+    // Handle Enter key on welcome screen
+    if (event.key === 'Enter' && this.currentScreen?.screenId === 'WELCOME') {
+      event.preventDefault();
+      this.screenService.navigateToScreen('SS6T-6');
     }
   }
 
@@ -199,6 +217,27 @@ export class MainframeTerminalComponent implements OnInit, OnDestroy {
    */
   get gridColumns(): string {
     return 'repeat(80, 1ch)';
+  }
+
+  /**
+   * Navigate to a specific screen (for development/testing)
+   * Available screens:
+   * - 'WELCOME' - Welcome screen with ASCII art
+   * - 'LOGIN' - Login screen
+   * - 'SIGNON_CONFIRMATION' - Signon confirmation screen
+   * - 'MENU' - MBES Management Menu
+   * - 'WORK_ORDER_TRANSACTION' - Create Work Order Transaction
+   * - 'SS6T-6' - Customer Information screen
+   */
+  navigateTo(screenId: string): void {
+    this.screenService.navigateToScreen(screenId);
+  }
+
+  /**
+   * Go back to the previous screen
+   */
+  goBack(): void {
+    this.screenService.goBack();
   }
 }
 
