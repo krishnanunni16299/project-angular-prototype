@@ -28,7 +28,7 @@ export class SopStandaloneLetterScreenComponent {
   reason5: boolean = false; // Other (Please Specify)
   otherReason1: string = '';
   otherReason2: string = '';
-  
+  otherReason3: string = '';
   printer: string = 'T891';
 
   getCurrentDate(): string {
