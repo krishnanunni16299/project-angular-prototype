@@ -27,11 +27,13 @@ import { SopInquirySelectionScreenComponent } from './screens/sop-inquiry-select
 import { SopInquiryDetailScreenComponent } from './screens/sop-inquiry-detail-screen/sop-inquiry-detail-screen.component';
 import { SopAffidavitPrintingScreenComponent } from './screens/sop-affidavit-printing-screen/sop-affidavit-printing-screen.component';
 import { SopStandaloneLetterScreenComponent } from './screens/sop-standalone-letter-screen/sop-standalone-letter-screen.component';
+import { SopFileMaintenanceScreenComponent } from './screens/sop-file-maintenance-screen/sop-file-maintenance-screen.component';
+import { SopConfirmationScreenComponentOption4 } from './screens/sop-confirmation-screen option4/sop-confirmation-screen.component..option4';
 
 @Component({
   selector: 'app-mainframe-terminal',
   standalone: true,
-  imports: [CommonModule, FormsModule, WelcomeScreenComponent, CustomerInfoScreenComponent, LoginScreenComponent, SignonConfirmationScreenComponent, MenuScreenComponent, WorkOrderTransactionScreenComponent, WorkOrderBalanceScreenComponent, WorkOrderReceiptsScreenComponent, ConfirmWorkOrderScreenComponent, WorkOrderSlipPrintingScreenComponent, ProcessWorkOrderScreenComponent, WorkOrderTransactionAltScreenComponent, ServiceOfProcessScreenComponent, ServiceProcessConfirmationScreenComponent, SopMaintenanceSelectionScreenComponent, SopAmendmentEntryScreenComponent, SopConfirmationScreenComponent, SopInputInquiryScreenComponent, SopInquirySearchScreenComponent, SopInquirySelectionScreenComponent,SopAffidavitPrintingScreenComponent, SopInquiryDetailScreenComponent,SopStandaloneLetterScreenComponent],
+  imports: [CommonModule, FormsModule, WelcomeScreenComponent, CustomerInfoScreenComponent, LoginScreenComponent, SignonConfirmationScreenComponent, MenuScreenComponent, WorkOrderTransactionScreenComponent, WorkOrderBalanceScreenComponent, WorkOrderReceiptsScreenComponent, ConfirmWorkOrderScreenComponent, WorkOrderSlipPrintingScreenComponent, ProcessWorkOrderScreenComponent, WorkOrderTransactionAltScreenComponent, ServiceOfProcessScreenComponent, ServiceProcessConfirmationScreenComponent, SopMaintenanceSelectionScreenComponent, SopAmendmentEntryScreenComponent, SopConfirmationScreenComponent, SopInputInquiryScreenComponent, SopInquirySearchScreenComponent, SopInquirySelectionScreenComponent, SopAffidavitPrintingScreenComponent, SopInquiryDetailScreenComponent, SopStandaloneLetterScreenComponent, SopFileMaintenanceScreenComponent, SopConfirmationScreenComponentOption4],
   templateUrl: './mainframe-terminal.component.html',
   styleUrls: ['./mainframe-terminal.component.css']
 })

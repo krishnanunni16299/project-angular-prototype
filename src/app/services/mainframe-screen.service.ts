@@ -29,6 +29,7 @@ export class MainframeScreenService {
     this.registerScreen(this.getServiceProcessConfirmationScreen());
     this.registerScreen(this.getSopMaintenanceSelectionScreen());
     this.registerScreen(this.getSopFileMaintenanceScreen());
+    this.registerScreen(this.getSopConfirmationScreenOption4());
     this.registerScreen(this.getSopAmendmentEntryScreen());
     this.registerScreen(this.getSopConfirmationScreen());
     this.registerScreen(this.getSopInputInquiryScreen());
@@ -42,7 +43,7 @@ export class MainframeScreenService {
     this.registerScreen(this.getWelcomeScreen());
     this.registerScreen(this.getCustomerInformationScreen());
     // Set initial screen - change this to test different screens
-    this.navigateToScreen('MENU'); // Change to: LOGIN, SIGNON_CONFIRMATION, MENU, WORK_ORDER_TRANSACTION, WORK_ORDER_TRANSACTION_ALT, WORK_ORDER_BALANCE, WORK_ORDER_RECEIPTS, CONFIRM_WORK_ORDER, WORK_ORDER_SLIP_PRINTING, PROCESS_WORK_ORDER, SERVICE_OF_PROCESS, SERVICE_PROCESS_CONFIRMATION, SOP_MAINTENANCE_SELECTION, SOP_FILE_MAINTENANCE, SOP_AMENDMENT_ENTRY, SOP_CONFIRMATION, SOP_INPUT_INQUIRY, SOP_INQUIRY_SEARCH, SOP_INQUIRY_SELECTION, SOP_INQUIRY_DETAIL, SOP_AFFIDAVIT_PRINTING, SOP_AFFIDAVIT_PRINTING_CONFIRMATION, SOP_STANDALONE_LETTER, SOP_STANDALONE_LETTER_CONFIRMATION, or SS6T-6
+    this.navigateToScreen('MENU'); // Change to: LOGIN, SIGNON_CONFIRMATION, MENU, WORK_ORDER_TRANSACTION, WORK_ORDER_TRANSACTION_ALT, WORK_ORDER_BALANCE, WORK_ORDER_RECEIPTS, CONFIRM_WORK_ORDER, WORK_ORDER_SLIP_PRINTING, PROCESS_WORK_ORDER, SERVICE_OF_PROCESS, SERVICE_PROCESS_CONFIRMATION, SOP_MAINTENANCE_SELECTION, SOP_FILE_MAINTENANCE, SOP_CONFIRMATION_OPTION4, SOP_AMENDMENT_ENTRY, SOP_CONFIRMATION, SOP_INPUT_INQUIRY, SOP_INQUIRY_SEARCH, SOP_INQUIRY_SELECTION, SOP_INQUIRY_DETAIL, SOP_AFFIDAVIT_PRINTING, SOP_AFFIDAVIT_PRINTING_CONFIRMATION, SOP_STANDALONE_LETTER, SOP_STANDALONE_LETTER_CONFIRMATION, or SS6T-6
   }
 
   /**
@@ -835,6 +836,38 @@ export class MainframeScreenService {
           { key: 9, label: '9-DEL', action: 'DELETE', enabled: true },
           { key: 10, label: '10-PRV', action: 'PREVIOUS', enabled: true },
           { key: 11, label: '11-NXT', action: 'NEXT', enabled: true }
+        ]
+      }
+    };
+  }
+
+  /**
+   * Get SOP Confirmation Screen Option 4 definition (Option 4 - Screen 3)
+   */
+  private getSopConfirmationScreenOption4(): MainframeScreen {
+    const now = new Date();
+    return {
+      screenId: 'SOP_CONFIRMATION_OPTION4',
+      title: 'SERVICE OF PROCESS - CONFIRMATION',
+      docType: '',
+      header: {
+        systemId: 'SS3A-9',
+        menuItems: [],
+        date: this.formatDate(now),
+        time: this.formatTime(now),
+        transactionId: 'T21',
+        receivedType: '',
+        pageNumber: 0,
+        totalPages: 0,
+        balance: ''
+      },
+      fields: [],
+      footer: {
+        pfKeys: [
+          { key: 1, label: '1-HELP', action: 'HELP', enabled: true },
+          { key: 3, label: '3-END', action: 'END', enabled: true },
+          { key: 6, label: '6-CONFIRM', action: 'CONFIRM', enabled: true },
+          { key: 10, label: '10-PRV', action: 'PREVIOUS', enabled: true }
         ]
       }
     };

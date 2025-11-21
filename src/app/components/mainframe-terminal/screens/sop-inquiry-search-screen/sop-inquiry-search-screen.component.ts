@@ -12,4 +12,6 @@ import { MainframeScreen } from '../../../../models/mainframe-screen.model';
 })
 export class SopInquirySearchScreenComponent {
   @Input() screen: MainframeScreen | null = null;
+  pageNumber: number = 1;
+  totalPages: number = 1;
 }
