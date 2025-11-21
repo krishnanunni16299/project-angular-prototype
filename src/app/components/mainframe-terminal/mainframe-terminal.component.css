@@ -5,8 +5,8 @@
   width: 100%;
   height: 100%;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 14px;
-  line-height: 1.2;
+  font-size: 15px;
+  line-height: 1.05;
   overflow: hidden;
   box-sizing: border-box;
   letter-spacing: inherit;
@@ -23,9 +23,9 @@
   text-overflow: clip;
   white-space: nowrap;
   box-sizing: border-box;
-  line-height: 1.2;
+  line-height: 1.25;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 14px;
+  font-size: 15px;
   letter-spacing: inherit;
   font-weight: 400;
 }
@@ -46,8 +46,8 @@ input[placeholder="___-___-_______"]::placeholder {
 /* Ensure inputs don't exceed character boundaries */
 .field-input {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 14px;
-  line-height: 1.2;
+  font-size: 15px;
+  line-height: 1.25;
   letter-spacing: inherit;
   box-sizing: border-box;
   font-weight: 400;

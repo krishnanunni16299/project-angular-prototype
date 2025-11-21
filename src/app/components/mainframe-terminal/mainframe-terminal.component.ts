@@ -4,31 +4,44 @@ import { FormsModule } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 import { MainframeScreenService } from '../../services/mainframe-screen.service';
 import { MainframeScreen, FieldDefinition, FieldType } from '../../models/mainframe-screen.model';
-import { WelcomeScreenComponent } from './screens/welcome-screen/welcome-screen.component';
-import { CustomerInfoScreenComponent } from './screens/customer-info-screen/customer-info-screen.component';
-import { LoginScreenComponent } from './screens/login-screen/login-screen.component';
-import { SignonConfirmationScreenComponent } from './screens/signon-confirmation-screen/signon-confirmation-screen.component';
-import { MenuScreenComponent } from './screens/menu-screen/menu-screen.component';
-import { WorkOrderTransactionScreenComponent } from './screens/work-order-transaction-screen/work-order-transaction-screen.component';
-import { WorkOrderBalanceScreenComponent } from './screens/work-order-balance-screen/work-order-balance-screen.component';
-import { WorkOrderReceiptsScreenComponent } from './screens/work-order-receipts-screen/work-order-receipts-screen.component';
-import { ConfirmWorkOrderScreenComponent } from './screens/confirm-work-order-screen/confirm-work-order-screen.component';
-import { WorkOrderSlipPrintingScreenComponent } from './screens/work-order-slip-printing-screen/work-order-slip-printing-screen.component';
-import { ProcessWorkOrderScreenComponent } from './screens/process-work-order-screen/process-work-order-screen.component';
-import { WorkOrderTransactionAltScreenComponent } from './screens/work-order-transaction-alt-screen/work-order-transaction-alt-screen.component';
-import { ServiceOfProcessScreenComponent } from './screens/service-of-process-screen/service-of-process-screen.component';
-import { ServiceProcessConfirmationScreenComponent } from './screens/service-process-confirmation-screen/service-process-confirmation-screen.component';
-import { SopMaintenanceSelectionScreenComponent } from './screens/sop-maintenance-selection-screen/sop-maintenance-selection-screen.component';
-import { SopAmendmentEntryScreenComponent } from './screens/sop-amendment-entry-screen/sop-amendment-entry-screen.component';
-import { SopConfirmationScreenComponent } from './screens/sop-confirmation-screen/sop-confirmation-screen.component';
-import { SopInputInquiryScreenComponent } from './screens/sop-input-inquiry-screen/sop-input-inquiry-screen.component';
-import { SopInquirySearchScreenComponent } from './screens/sop-inquiry-search-screen/sop-inquiry-search-screen.component';
-import { SopInquirySelectionScreenComponent } from './screens/sop-inquiry-selection-screen/sop-inquiry-selection-screen.component';
-import { SopInquiryDetailScreenComponent } from './screens/sop-inquiry-detail-screen/sop-inquiry-detail-screen.component';
-import { SopAffidavitPrintingScreenComponent } from './screens/sop-affidavit-printing-screen/sop-affidavit-printing-screen.component';
-import { SopStandaloneLetterScreenComponent } from './screens/sop-standalone-letter-screen/sop-standalone-letter-screen.component';
-import { SopFileMaintenanceScreenComponent } from './screens/sop-file-maintenance-screen/sop-file-maintenance-screen.component';
-import { SopConfirmationScreenComponentOption4 } from './screens/sop-confirmation-screen option4/sop-confirmation-screen.component..option4';
+// Shared screens
+import { WelcomeScreenComponent } from './screens/shared/welcome-screen/welcome-screen.component';
+import { LoginScreenComponent } from './screens/shared/login-screen/login-screen.component';
+import { SignonConfirmationScreenComponent } from './screens/shared/signon-confirmation-screen/signon-confirmation-screen.component';
+import { MenuScreenComponent } from './screens/shared/menu-screen/menu-screen.component';
+
+// Option 1 - Work Order Processing
+import { CustomerInfoScreenComponent } from './screens/option-1/customer-info-screen/customer-info-screen.component';
+import { WorkOrderTransactionScreenComponent } from './screens/option-1/work-order-transaction-screen/work-order-transaction-screen.component';
+import { WorkOrderTransactionAltScreenComponent } from './screens/option-1/work-order-transaction-alt-screen/work-order-transaction-alt-screen.component';
+import { WorkOrderBalanceScreenComponent } from './screens/option-1/work-order-balance-screen/work-order-balance-screen.component';
+import { WorkOrderReceiptsScreenComponent } from './screens/option-1/work-order-receipts-screen/work-order-receipts-screen.component';
+import { ConfirmWorkOrderScreenComponent } from './screens/option-1/confirm-work-order-screen/confirm-work-order-screen.component';
+import { WorkOrderSlipPrintingScreenComponent } from './screens/option-1/work-order-slip-printing-screen/work-order-slip-printing-screen.component';
+import { ProcessWorkOrderScreenComponent } from './screens/option-1/process-work-order-screen/process-work-order-screen.component';
+import { ServiceOfProcessScreenComponent } from './screens/option-1/service-of-process-screen/service-of-process-screen.component';
+import { ServiceProcessConfirmationScreenComponent } from './screens/option-1/service-process-confirmation-screen/service-process-confirmation-screen.component';
+
+// Option 4 - SOP Maintenance
+import { SopMaintenanceSelectionScreenComponent } from './screens/option-4/sop-maintenance-selection-screen/sop-maintenance-selection-screen.component';
+import { SopFileMaintenanceScreenComponent } from './screens/option-4/sop-file-maintenance-screen/sop-file-maintenance-screen.component';
+import { SopConfirmationScreenComponentOption4 } from './screens/option-4/sop-confirmation-screen option4/sop-confirmation-screen.component..option4';
+
+// Option 5 - SOP Amendment
+import { SopAmendmentEntryScreenComponent } from './screens/option-5/sop-amendment-entry-screen/sop-amendment-entry-screen.component';
+import { SopConfirmationScreenComponent } from './screens/option-5/sop-confirmation-screen/sop-confirmation-screen.component';
+
+// Option 6 - SOP Inquiry
+import { SopInputInquiryScreenComponent } from './screens/option-6/sop-input-inquiry-screen/sop-input-inquiry-screen.component';
+import { SopInquirySearchScreenComponent } from './screens/option-6/sop-inquiry-search-screen/sop-inquiry-search-screen.component';
+import { SopInquirySelectionScreenComponent } from './screens/option-6/sop-inquiry-selection-screen/sop-inquiry-selection-screen.component';
+import { SopInquiryDetailScreenComponent } from './screens/option-6/sop-inquiry-detail-screen/sop-inquiry-detail-screen.component';
+
+// Option 7 - SOP Affidavit
+import { SopAffidavitPrintingScreenComponent } from './screens/option-7/sop-affidavit-printing-screen/sop-affidavit-printing-screen.component';
+
+// Option 8 - SOP Standalone
+import { SopStandaloneLetterScreenComponent } from './screens/option-8/sop-standalone-letter-screen/sop-standalone-letter-screen.component';
 
 @Component({
   selector: 'app-mainframe-terminal',

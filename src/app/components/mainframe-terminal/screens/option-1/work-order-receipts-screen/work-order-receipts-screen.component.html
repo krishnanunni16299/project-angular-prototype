@@ -1,0 +1,176 @@
+<!-- WORK ORDER RECEIPTS Screen -->
+<!-- Header -->
+<div class="flex justify-between mb-2 [text-shadow:0_0_2px_#50D8D5]">
+  <!-- Left: Screen ID -->
+  <div class="flex flex-col">
+    <span class="text-white">SS7P-1</span>
+    <span class="text-white">T21</span>
+  </div>
+
+  <!-- Center: Title -->
+  <div
+    class="flex flex-col items-center flex-grow text-white [text-shadow:0_0_2px_#FFFFFF]"
+  >
+    <span class="tracking-[0.2em]">M B E S</span>
+    <span class="tracking-normal">WORK ORDER RECEIPTS</span>
+  </div>
+
+  <!-- Right: Date, Time, and Page -->
+  <div class="flex flex-col items-end">
+    <span class="text-white">{{ getCurrentDate() }}</span>
+    <span class="text-crt-cyan">{{ getCurrentTime() }}</span>
+    <span class="text-crt-cyan mt-4">Page &nbsp; 1 &nbsp; of &nbsp; 1</span>
+  </div>
+</div>
+
+<!-- Customer Information and Balance Section -->
+<div class="flex justify-between mb-1">
+  <!-- Left Column: Customer Info -->
+  <div class="flex flex-col">
+    <!-- Customer ID -->
+    <div class="flex items-baseline mb-0.5">
+      <span class="text-crt-cyan text-right" style="width: 18ch">Customer ID:</span>
+      <input
+        type="text"
+        [(ngModel)]="customerId"
+        class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+        style="width: 20ch"
+      />
+    </div>
+
+    <!-- Customer Name -->
+    <div class="flex items-baseline mb-0.5">
+      <span class="text-crt-cyan text-right" style="width: 18ch">Customer name:</span>
+    </div>
+
+    <!-- Cust ID Balance -->
+    <div class="flex items-baseline mb-0.5">
+      <span class="text-crt-cyan text-right" style="width: 18ch">Cust ID balance:</span>
+      <span class="text-crt-green text-right" style="width: 20ch">{{
+        custIdBalance
+      }}</span>
+    </div>
+
+    <!-- W.O. Charges -->
+    <div class="flex items-baseline mb-0.5">
+      <span class="text-crt-cyan text-right" style="width: 18ch">W.O. Charges:</span>
+      <span class="text-crt-green text-right" style="width: 20ch">{{
+        woCharges
+      }}</span>
+    </div>
+
+    <!-- W.O. Payments -->
+    <div class="flex items-baseline mb-0.5">
+      <span class="text-crt-cyan text-right" style="width: 18ch">W.O. Payments:</span>
+      <span class="text-crt-green text-right" style="width: 20ch">{{
+        woPayments
+      }}</span>
+    </div>
+
+    <!-- W.O. Modification -->
+    <div class="flex items-baseline mb-0.5">
+      <span class="text-crt-cyan text-right" style="width: 18ch">W.O. Modification:</span>
+      <span class="text-crt-green text-right" style="width: 20ch">{{
+        woModification
+      }}</span>
+    </div>
+  </div>
+
+  <!-- Right Column: Control Info -->
+  <div class="flex flex-col">
+    <!-- Control Number -->
+    <div class="flex items-baseline mb-0.5">
+      <span class="text-crt-cyan" style="width: 17ch">Control Number:</span>
+      <input
+        type="text"
+        [(ngModel)]="controlNumber"
+        class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+        style="width: 20ch"
+      />
+    </div>
+
+    <!-- Empty line for spacing -->
+    <div class="mb-0.5" style="height: 17px"></div>
+
+    <!-- Deposit ID -->
+    <div class="flex items-baseline mb-0.5">
+      <span class="text-crt-cyan">Deposit ID : {{ depositId }}</span>
+    </div>
+
+    <!-- Receipt Date -->
+    <div class="flex items-baseline mb-0.5">
+      <span class="text-crt-cyan">Receipt Date : {{ receiptDate }}</span>
+    </div>
+  </div>
+</div>
+
+<!-- Payment/Charge Entry Tables -->
+<div class="flex gap-4">
+  <!-- Left Table -->
+  <div class="flex-1">
+    <!-- Table Header -->
+    <div class="flex gap-2 mb-0.5 text-crt-cyan">
+      <span class="w-[5ch]">Type</span>
+      <span class="w-[12ch] ml-7">Amount</span>
+      <span class="flex-1">Tracking #</span>
+    </div>
+
+    <!-- Table Rows -->
+    <div *ngFor="let entry of leftEntries" class="flex gap-2 mb-0.5">
+      <input
+        type="text"
+        [(ngModel)]="entry.type"
+        class="w-[2ch] bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      />
+      <input
+        type="text"
+        [(ngModel)]="entry.amount"
+        class="w-[12ch] bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      />
+      <input
+        type="text"
+        [(ngModel)]="entry.tracking"
+        class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      />
+    </div>
+  </div>
+
+  <!-- Right Table -->
+  <div class="flex-1">
+    <!-- Table Header -->
+    <div class="flex gap-2 mb-0.5 text-crt-cyan">
+      <span class="w-[5ch]">Type</span>
+      <span class="w-[12ch] ml-7">Amount</span>
+      <span class="flex-1">Tracking #</span>
+    </div>
+
+    <!-- Table Rows -->
+    <div *ngFor="let entry of rightEntries" class="flex gap-2 mb-0.5">
+      <input
+        type="text"
+        [(ngModel)]="entry.type"
+        class="w-[2ch] bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      />
+      <input
+        type="text"
+        [(ngModel)]="entry.amount"
+        class="w-[12ch] bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      />
+      <input
+        type="text"
+        [(ngModel)]="entry.tracking"
+        class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+      />
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div
+  class="absolute bottom-0 left-5 right-5 flex pt-2.5 pb-2.5 text-sm bg-black/95 z-[15]"
+>
+  <span class="text-white [text-shadow:0_0_2px_#FFFFFF]"
+    >PF: 1-HELP 3-END 8-FWD 10-PRV 11-NXT</span
+  >
+</div>
+
