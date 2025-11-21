@@ -52,25 +52,25 @@
 </div>
 
 <!-- Horizontal Line -->
-<div class="border-t border-crt-green mb-1"></div>
+<div class="border-t border-crt-green mb-1 mt-2"></div>
 
 <!-- Base fee -->
 <div class="flex justify-between mb-1">
   <div class="flex items-baseline">
-    <span class="min-w-[200px] text-right text-crt-cyan">Base fee:</span>
+    <span class="min-w-[220px] text-right text-crt-cyan">Base fee:</span>
     <input
       type="text"
       [(ngModel)]="baseFee"
       placeholder="0.00"
       class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5] text-right"
-      style="width: 30ch"
+      style="width: 26ch"
     />
   </div>
 </div>
 
 <!-- Number of pages filed -->
 <div class="flex items-baseline mb-1">
-  <span class="min-w-[200px] text-right text-crt-cyan"
+  <span class="min-w-[220px] text-right text-crt-cyan"
     >Number of pages filed:</span
   >
   <input
@@ -84,13 +84,13 @@
 <!-- Excess fee and Amount paid -->
 <div class="flex justify-between mb-1">
   <div class="flex items-baseline">
-    <span class="min-w-[200px] text-right text-crt-cyan">Excess fee:</span>
+    <span class="min-w-[220px] text-right text-crt-cyan">Excess fee:</span>
     <input
       type="text"
       [(ngModel)]="excessFee"
       placeholder="0.00"
       class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5] text-right"
-      style="width: 30ch"
+      style="width: 26ch"
     />
   </div>
   <div class="flex items-baseline">
@@ -107,7 +107,7 @@
 
 <!-- Org. and Cap. fee -->
 <div class="flex items-baseline mb-1">
-  <span class="min-w-[200px] text-right text-crt-cyan"
+  <span class="min-w-[220px] text-right text-crt-cyan"
     >Org. and Cap. fee:</span
   >
   <input
@@ -115,14 +115,14 @@
     [(ngModel)]="orgAndCapFee"
     placeholder="0.00"
     class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5] text-right"
-    style="width: 30ch"
+    style="width: 26ch"
   />
 </div>
 
 <!-- Expedite fee and Postage fee -->
 <div class="flex justify-between mb-1">
   <div class="flex items-baseline">
-    <span class="min-w-[200px] text-right text-crt-cyan"
+    <span class="min-w-[220px] text-right text-crt-cyan"
       >Expedite fee:</span
     >
     <input
@@ -130,7 +130,7 @@
       [(ngModel)]="expediteFee"
       placeholder="0.00"
       class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5] text-right"
-      style="width: 30ch"
+      style="width: 26ch"
     />
   </div>
   <div class="flex items-baseline">
@@ -147,20 +147,20 @@
 
 <!-- Penalty -->
 <div class="flex items-baseline mb-1">
-  <span class="min-w-[200px] text-right text-crt-cyan">Penalty:</span>
+  <span class="min-w-[220px] text-right text-crt-cyan">Penalty:</span>
   <input
     type="text"
     [(ngModel)]="penalty"
     placeholder="0.00"
     class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5] text-right"
-    style="width: 30ch"
+    style="width: 26ch"
   />
 </div>
 
 <!-- State recordation tax and Service fee -->
 <div class="flex justify-between mb-1">
   <div class="flex items-baseline">
-    <span class="min-w-[200px] text-right text-crt-cyan"
+    <span class="min-w-[220px] text-right text-crt-cyan"
       >State recordation tax:</span
     >
     <input
@@ -168,7 +168,7 @@
       [(ngModel)]="stateRecordationTax"
       placeholder="0.00"
       class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5] text-right"
-      style="width: 30ch"
+      style="width: 26ch"
     />
   </div>
   <div class="flex items-baseline">
@@ -185,7 +185,7 @@
 
 <!-- State transfer tax -->
 <div class="flex items-baseline mb-1">
-  <span class="min-w-[200px] text-right text-crt-cyan"
+  <span class="min-w-[220px] text-right text-crt-cyan"
     >State transfer tax:</span
   >
   <input
@@ -193,7 +193,7 @@
     [(ngModel)]="stateTransferTax"
     placeholder="0.00"
     class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5] text-right"
-    style="width: 30ch"
+    style="width: 26ch"
   />
 </div>
 
@@ -223,19 +223,19 @@
 
 <!-- Copy fee -->
 <div class="flex items-baseline mb-1">
-  <span class="min-w-[200px] text-right text-crt-cyan">Copy fee:</span>
+  <span class="min-w-[220px] text-right text-crt-cyan">Copy fee:</span>
   <input
     type="text"
     [(ngModel)]="copyFee"
     placeholder="0.00"
     class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5] text-right"
-    style="width: 30ch"
+    style="width: 26ch"
   />
 </div>
 
 <!-- Expedited? (Y/N) -->
 <div class="flex items-baseline mb-1 mt-2">
-  <span class="min-w-[180px] text-right text-crt-cyan"
+  <span class="min-w-[250px] text-right text-crt-cyan"
     >Expedited? (Y/N):</span
   >
   <input
@@ -243,13 +243,13 @@
     [(ngModel)]="expedited"
     class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
     maxlength="1"
-    style="width: 30ch"
+    style="width: 2ch"
   />
 </div>
 
 <!-- No fee transaction? (Y/N) -->
 <div class="flex items-baseline mb-1">
-  <span class="min-w-[180px] text-right text-crt-cyan"
+  <span class="min-w-[240px] text-right text-crt-cyan"
     >No fee transaction? (Y/N):</span
   >
   <input
@@ -257,7 +257,7 @@
     [(ngModel)]="noFeeTransaction"
     class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
     maxlength="1"
-    style="width: 30ch"
+    style="width: 2ch"
   />
 </div>
 

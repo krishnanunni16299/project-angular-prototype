@@ -14,7 +14,7 @@ export class WorkOrderTransactionScreenComponent {
   @Input() screen: MainframeScreen | null = null;
 
   transactionType: string = '';
-  description: string = 'TEST_DESC_ADI';
+  description: string = '';
   baseFee: string = '0.00';
   numberOfPagesFiled: string = '';
   excessFee: string = '0.00';

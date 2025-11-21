@@ -35,8 +35,8 @@
       <input
         type="text"
         [(ngModel)]="customerId"
-        class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
-        style="width: 20ch"
+        class="bg-transparent border-b border-crt-cyan text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+        style="width: 15ch"
       />
     </div>
 
@@ -52,7 +52,7 @@
       <span class="text-crt-cyan text-right" style="width: 18ch"
         >Cust ID balance:</span
       >
-      <span class="text-crt-green text-right" style="width: 20ch">{{
+      <span class="text-crt-cyan text-right" style="width: 20ch">{{
         custIdBalance
       }}</span>
     </div>
@@ -62,7 +62,7 @@
       <span class="text-crt-cyan text-right" style="width: 18ch"
         >W.O. Charges:</span
       >
-      <span class="text-crt-green text-right" style="width: 20ch">{{
+      <span class="text-crt-cyan text-right" style="width: 20ch">{{
         woCharges
       }}</span>
     </div>
@@ -72,7 +72,7 @@
       <span class="text-crt-cyan text-right" style="width: 18ch"
         >W.O. Payments:</span
       >
-      <span class="text-crt-green text-right" style="width: 20ch">{{
+      <span class="text-crt-cyan text-right" style="width: 20ch">{{
         woPayments
       }}</span>
     </div>
@@ -82,7 +82,7 @@
       <span class="text-crt-cyan text-right" style="width: 18ch"
         >W.O. Modification:</span
       >
-      <span class="text-crt-green text-right" style="width: 20ch">{{
+      <span class="text-crt-cyan text-right" style="width: 20ch">{{
         woModification
       }}</span>
     </div>
@@ -91,13 +91,13 @@
   <!-- Right Column: Control Info -->
   <div class="flex flex-col">
     <!-- Control Number -->
-    <div class="flex items-baseline mb-0.5">
+    <div class="flex items-baseline mb-0.5 mr-12">
       <span class="text-crt-cyan" style="width: 17ch">Control Number:</span>
       <input
         type="text"
         [(ngModel)]="controlNumber"
-        class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
-        style="width: 20ch"
+        class="bg-transparent border-b border-crt-cyan text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+        style="width: 15ch"
       />
     </div>
 
@@ -106,7 +106,7 @@
 
     <!-- Deposit ID -->
     <div class="flex items-baseline mb-0.5">
-      <span class="text-crt-cyan">Deposit ID : {{ depositId }}</span>
+      <span class="text-crt-cyan" style="width: 17ch">Deposit ID : {{ depositId }}</span>
     </div>
 
     <!-- Receipt Date -->
@@ -122,9 +122,9 @@
   <div class="flex-1">
     <!-- Table Header -->
     <div class="flex gap-2 mb-0.5 text-crt-cyan">
-      <span class="w-[5ch]">Type</span>
-      <span class="w-[12ch]">Amount</span>
-      <span class="flex-1">Tracking #</span>
+      <span class="w-[5ch] ml-3">Type</span>
+      <span class=" ml-16">Amount</span>
+      <span class="ml-10">Tracking #</span>
     </div>
 
     <!-- Table Rows -->
@@ -132,18 +132,19 @@
       <input
         type="text"
         [(ngModel)]="entry.type"
-        class="w-[5ch] bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+        class="w-[2ch] ml-7 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
       />
       <input
         type="text"
         [(ngModel)]="entry.amount"
-        class="w-[12ch] bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+        class="w-[19ch] bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
       />
       <input
         type="text"
         [(ngModel)]="entry.tracking"
-        class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
-      />
+        class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+        style="width: 14ch"
+        />
     </div>
   </div>
 
@@ -151,28 +152,29 @@
   <div class="flex-1">
     <!-- Table Header -->
     <div class="flex gap-2 mb-0.5 text-crt-cyan">
-      <span class="w-[5ch]">Type</span>
-      <span class="w-[12ch]">Amount</span>
-      <span class="flex-1">Tracking #</span>
+      <span class="w-[5ch] ml-3">Type</span>
+      <span class=" ml-16">Amount</span>
+      <span class="ml-10">Tracking #</span>
     </div>
 
     <!-- Table Rows -->
-    <div *ngFor="let entry of rightEntries" class="flex gap-2 mb-0.5">
+    <div *ngFor="let entry of leftEntries" class="flex gap-2 mb-0.5">
       <input
         type="text"
         [(ngModel)]="entry.type"
-        class="w-[5ch] bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+        class="w-[2ch] ml-7 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
       />
       <input
         type="text"
         [(ngModel)]="entry.amount"
-        class="w-[12ch] bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+        class="w-[19ch] bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
       />
       <input
         type="text"
         [(ngModel)]="entry.tracking"
-        class="flex-1 bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
-      />
+        class="bg-transparent border-b border-crt-green text-crt-green font-mono text-sm leading-none tracking-normal outline-none [text-shadow:0_0_2px_#50D8D5] [caret-color:#50D8D5] p-0 m-0 [font-variant-ligatures:none] [vertical-align:baseline] h-[14px] inline-block relative focus:bg-[rgba(80,216,213,0.03)] focus:[text-shadow:0_0_3px_#50D8D5,0_0_6px_#50D8D5]"
+        style="width: 14ch"
+        />
     </div>
   </div>
 </div>
